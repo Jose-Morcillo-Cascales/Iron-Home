@@ -1,25 +1,13 @@
 const { Schema, model } = require("mongoose");
 
 
-const laundryRoomSchema = new Schema({
-  food: [{
+const laundryServiceSchema = new Schema({
+  user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Food'
-  }],
-  voucher: {
-    price: {
-      type: Number,
-      required: true,
-
-    },
-    frecuency: {
-      type: Number,
-      enum: [1, 2, 4],
-      default: 1
-    },
+    ref: 'User'
   },
-  date: {
-    Type: Date,
+  bookingDate: {
+    type: Date,
     required: true,
     default: Date.now()
   },
@@ -34,12 +22,15 @@ const laundryRoomSchema = new Schema({
       required: true,
       default: false
     }
+  },
+  quantity: {
+    type: Number
   }
 },
   { timestamps: true }
 )
 
 
-const Laundry = model('Laundry', laundryRoomSchema);
+const LaundryService = model('LaundryService', laundryServiceSchema);
 
-module.exports = Laundry;
+module.exports = LaundryService;

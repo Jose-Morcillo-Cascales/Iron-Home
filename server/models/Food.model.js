@@ -28,13 +28,13 @@ const foodSchema = new Schema({
   image: {
     type: [String],
     required: true,
-    default: 'https://image.flaticon.com/icons/png/512/1200/1200919.png'
+    default: ['https://image.flaticon.com/icons/png/512/1200/1200919.png']
   },
-  Type: {
+  type: {
     type: String,
     enum: ['first', 'second', 'dessert'],
     default: 'first'
-  },
+  }
 },
   { timestamps: true }
 )

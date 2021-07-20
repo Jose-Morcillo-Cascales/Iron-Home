@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const userSchema = new Schema({
@@ -27,16 +28,15 @@ const userSchema = new Schema({
     type: String,
     minLegth: 1,
     maxLength: 50,
-    required: true,
     set: value => value.charAt(0).toUpperCase() + value.substring(1)
   },
   DNI: {
     type: String,
-    required: true
+    required: true,
+    default: '2345689403',
   },
   phone: {
     type: String,
-    required: true
   },
   image: {
     type: String,
@@ -48,11 +48,15 @@ const userSchema = new Schema({
     enum: ['student', 'admin'],
     default: 'student'
   },
+  room: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Room'
+  }
 },
   { timestamps: true }
 )
 
 
-const User = model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

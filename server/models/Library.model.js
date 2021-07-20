@@ -23,6 +23,11 @@ const librarySchema = new Schema({
       default: false
     }
   },
+  avaiable: {
+    type: Boolean,
+    required: true,
+    default: false
+  }
 },
   { timestamps: true }
 )

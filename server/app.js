@@ -11,7 +11,8 @@ const app = express()
 
 
 require("./config")(app)
-
+require("./config/cors.config")(app)
+require("./config/session.config")(app)
 
 require("./routes")(app)
 

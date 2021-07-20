@@ -1,23 +1,22 @@
 const { Schema, model } = require("mongoose");
 
 
-const bookingRoomSchema = new Schema({
+const libraryServiceSchema = new Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   library: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Library'
   },
   date: {
-    Type: Date,
-    required: true,
-    default: Date.now()
-  },
-  time: {
-    Type: Date,
+    type: Date,
     required: true,
     default: Date.now()
   },
   term: {
-    Type: Number,
+    type: Number,
     enum: [30, 60, 90, 120],
     default: 30,
   }
@@ -26,6 +25,6 @@ const bookingRoomSchema = new Schema({
 )
 
 
-const BookingRoom = model('BookingRoom', bookingRoomSchema);
+const LibraryService = model('LibraryService', libraryServiceSchema);
 
-module.exports = BookingRoom;
+module.exports = LibraryService;
