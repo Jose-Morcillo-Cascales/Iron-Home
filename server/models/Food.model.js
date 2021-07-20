@@ -16,8 +16,8 @@ const foodSchema = new Schema({
     required: true,
     set: value => value.charAt(0).toUpperCase() + value.substring(1)
   },
-  allergens: {
-    type: [String],
+  ingredients: {
+    type: String,
     required: true,
   },
   vegetarian: {

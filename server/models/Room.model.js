@@ -35,19 +35,28 @@ const roomSchema = new Schema({
   period: {
     first: {
       type: Boolean,
-      required: true
+      required: true,
+      default: true
     },
     second: {
       type: Boolean,
-      required: true
+      required: true,
+      default: true
     },
     third: {
       type: Boolean,
-      required: true
+      required: true,
+      default: true
     },
     fourth: {
       type: Boolean,
-      required: true
+      required: true,
+      default: true
+    },
+    fifth: {
+      type: Boolean,
+      required: true,
+      default: true
     }
   }
 },
