@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const walletSchema = new Schema({
@@ -19,10 +20,6 @@ const walletSchema = new Schema({
     laundryService: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'LaundryService'
-    },
-    roomService: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'RoomService'
     }
   }
 },
@@ -30,6 +27,6 @@ const walletSchema = new Schema({
 )
 
 
-const Wallet = model('Wallet', walletSchema);
+const Wallet = mongoose.model('Wallet', walletSchema);
 
 module.exports = Wallet;

@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-
+//
 const librarySchema = new Schema({
   number: {
     type: String,
@@ -22,11 +22,6 @@ const librarySchema = new Schema({
       required: true,
       default: false
     }
-  },
-  available: {
-    type: Boolean,
-    required: true,
-    default: false
   }
 },
   { timestamps: true }
