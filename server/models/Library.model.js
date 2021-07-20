@@ -23,7 +23,7 @@ const librarySchema = new Schema({
       default: false
     }
   },
-  avaiable: {
+  available: {
     type: Boolean,
     required: true,
     default: true
