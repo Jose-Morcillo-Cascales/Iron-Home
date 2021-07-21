@@ -12,7 +12,6 @@ const foodSchema = new Schema({
   description: {
     type: String,
     minLegth: 1,
-    maxLength: 250,
     required: true,
     set: value => value.charAt(0).toUpperCase() + value.substring(1)
   },
