@@ -2,19 +2,28 @@ const router = require("express").Router();
 const Library = require('./../models/Library.model')
 const LibraryBooking = require('./../models/LibraryService.model')
 
-//CHANGE DATE
+//CHOOSE DATE
 router.get('/:date_requested', (req, res) => {
 
   const { date_requested } = req.params
+  let nextDay = new Date(date_requested)
+  nextDay.setDate(nextDay.getDate() + 1)
+  console.log(date_requested)
+  console.log(nextDay)
 
   Library
     .find()
     .then(response => {
-      const bookigsPerLibrary = response.map(elm => LibraryBooking.find({ library: elm._id, initDate: date_requested }))
+      const bookigsPerLibrary = response.map(elm => LibraryBooking.find({
+        library: elm._id, initDate: {
+          "$gte": new Date(date_requested),
+          "$lt": nextDay
+        }
+      }))
       return Promise.all(bookigsPerLibrary)
     })
     .then(bookings => res.json(bookings))
-    .catch(err => res.status(500).json({ code: 500, message: 'Error fetching library', err }))
+    .catch(err => console.log(err))
 })
 
 router.get('/checkAvaialbilityByDate/:date_requested', (req, res) => {

@@ -47,10 +47,6 @@ const userSchema = new Schema({
     type: String,
     enum: ['student', 'admin'],
     default: 'student'
-  },
-  room: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Room'
   }
 },
   { timestamps: true }
