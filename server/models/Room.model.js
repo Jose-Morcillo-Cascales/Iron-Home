@@ -20,16 +20,22 @@ const roomSchema = new Schema({
   },
   price: {
     type: Number,
-    required: true
+    required: true,
+    default: 0
   },
   image: {
     type: [String],
     required: true,
     default: ['https://image.flaticon.com/icons/png/512/1200/1200919.png']
   },
+  capacity: {
+    type: Number,
+    required: true,
+    default: 0
+  },
   type: {
     type: String,
-    enum: ['single', 'share'],
+    enum: ['single', 'double'],
     default: 'single'
   },
   period: {
