@@ -33,40 +33,6 @@ router.get('/checkAvaialbilityByDate/:date_requested', (req, res) => {
 
 
 
-/* ServiceLibrary
-  .find({ date })
-  .populate('Library')
-  .then(Library => {
-
-    if (Library.available === true) {
-      Library
-        .find({ available: true })
-        .then(response => setTimeout(() => res.json(response), 200))
-        .catch(err => res.status(500).json({ code: 500, message: 'Error fetching library', err }))
-    })
-      
-    }
-      else{
-
-      }
-    const salt = bcrypt.genSaltSync(bcryptSalt)
-    const hashPass = bcrypt.hashSync(pwd, salt)
-
-    User
-      .create({ mail, password: hashPass, name })
-      .then(() => res.json({ code: 200, message: 'User created' }))
-      .catch(err => res.status(500).json({ code: 500, message: 'DB error while creating user', err }))
-  })
-  .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))
-})
- */
-
-
-
-
-
-
-
 
 
 
