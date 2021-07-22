@@ -10,13 +10,20 @@ const User = require('./../models/User.model')
 router.get('/:date_requested', (req, res) => {
 
   const { date_requested } = req.params
+  let nextDay = new Date(date_requested)
+  nextDay.setDate(nextDay.getDate() + 1)
+  console.log(date_requested)
+  console.log(nextDay)
 
   Library
     .find()
     .then(response => {
       const bookigsPerLibrary = response.map(elm => LibraryBooking.find({
-        library: elm._id, $expr: {
-          $eq: [{ $year: "$initDate" }, 2021]
+        // library: elm._id, $expr: {
+        //   $eq: [{ $year: "$initDate" }, 2021]
+        library: elm._id, initDate: {
+          "$gte": new Date(date_requested),
+          "$lt": nextDay
         }
       }))
       return Promise.all(bookigsPerLibrary)
