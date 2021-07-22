@@ -18,7 +18,7 @@ router.post('/signup', (req, res) => {
     .then(user => {
 
       if (user) {
-        res.status(400).json({ code: 400, message: 'Username already exixts' })
+        res.status(400).json({ code: 400, message: 'Username already exists' })
         return
       }
 

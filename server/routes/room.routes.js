@@ -19,12 +19,12 @@ router.get('/:period_request', (req, res) => {
 
 //Create booking
 router.post('/bookingRoom', (req, res) => {
+
   const user = req.session.currentUser._id
   const { id_room, period_request, capacity_room } = req.query
   console.log(req.query)
-
-  //comprobar si hacemos el booking
   let roomLeft = true
+
   BookingRoom
     .find({ room: id_room })
     .then(response => {
