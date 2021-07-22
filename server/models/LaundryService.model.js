@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const laundryServiceSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User'
   },
   bookingDate: {
