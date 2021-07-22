@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const menuPurchaseSchema = new Schema({
@@ -6,18 +7,10 @@ const menuPurchaseSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  firstDish: {
+  dish: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Food'
-  },
-  secondDish: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Food'
-  },
-  dessert: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Food'
-  },
+  }],
   date: {
     type: Date,
     required: true,
@@ -31,6 +24,6 @@ const menuPurchaseSchema = new Schema({
 )
 
 
-const MenuPurchase = model('MenuPurchase', menuPurchaseSchema);
+const MenuPurchase = mongoose.model('MenuPurchase', menuPurchaseSchema);
 
 module.exports = MenuPurchase;

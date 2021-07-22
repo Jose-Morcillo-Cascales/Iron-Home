@@ -1,6 +1,7 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-//
+
 const librarySchema = new Schema({
   number: {
     type: String,
@@ -28,6 +29,6 @@ const librarySchema = new Schema({
 )
 
 
-const Library = model('Library', librarySchema);
+const Library = mongoose.model('Library', librarySchema);
 
 module.exports = Library;

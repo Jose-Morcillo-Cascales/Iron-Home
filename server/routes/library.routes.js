@@ -1,8 +1,12 @@
 const router = require("express").Router();
 const Library = require('./../models/Library.model')
 const LibraryBooking = require('./../models/LibraryService.model')
+const User = require('./../models/User.model')
 
-//CHANGE DATE
+
+
+
+//List libraryBooking
 router.get('/:date_requested', (req, res) => {
 
   const { date_requested } = req.params
@@ -10,26 +14,34 @@ router.get('/:date_requested', (req, res) => {
   Library
     .find()
     .then(response => {
-      const bookigsPerLibrary = response.map(elm => LibraryBooking.find({ library: elm._id, initDate: date_requested }))
+      const bookigsPerLibrary = response.map(elm => LibraryBooking.find({
+        library: elm._id, $expr: {
+          $eq: [{ $year: "$initDate" }, 2021]
+        }
+      }))
       return Promise.all(bookigsPerLibrary)
     })
     .then(bookings => res.json(bookings))
-    .catch(err => res.status(500).json({ code: 500, message: 'Error fetching library', err }))
+    .catch(err => console.log(err))
 })
 
-router.get('/checkAvaialbilityByDate/:date_requested', (req, res) => {
+router.post('/create', (req, res) => {
 
+  const user_id = req.session.currentUser._id
+  const { init_date, library_id } = req.body
 
 
   LibraryBooking
-    .find({ date_requested })
-    .populate('library')
-    .then(response => {
-
-      res.json(response)
-    })
-    .catch(err => res.status(500).json({ code: 500, message: 'Error fetching library', err }))
+    .create(user_id, { init_date, library_id })
+    .then(newLibraryBooking => res.json(newLibraryBooking))
+    .catch(err => res.status(500).json({ code: 500, message: 'Error saving LibraryBooking', err }))
 })
+
+
+
+
+
+
 
 
 
