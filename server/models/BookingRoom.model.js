@@ -1,13 +1,14 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const BookingRoomSchema = new Schema({
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
     room: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Room'
     },
     period: {
@@ -18,7 +19,7 @@ const BookingRoomSchema = new Schema({
 )
 
 
-const BookingRoom = model('BookingRoom', BookingRoomSchema);
+const BookingRoom = mongoose.model('BookingRoom', BookingRoomSchema);
 
 
 module.exports = BookingRoom;

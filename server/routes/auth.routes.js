@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 
 const User = require('./../models/User.model')
-
+const Wallet = require('./../models/Wallet.model')
 
 
 // Signup (post)
@@ -27,7 +27,10 @@ router.post('/signup', (req, res) => {
 
       User
         .create({ mail, password: hashPass, name })
-        .then(() => res.json({ code: 200, message: 'User created' }))
+        .then(response => {
+          return Wallet.create({ user: response.id })
+        })
+        .then(() => res.json({ code: 200, message: 'user created' }))
         .catch(err => res.status(500).json({ code: 500, message: 'DB error while creating user', err }))
     })
     .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))

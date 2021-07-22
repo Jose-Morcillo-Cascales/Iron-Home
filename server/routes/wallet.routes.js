@@ -1,8 +1,33 @@
 const router = require("express").Router();
+const Wallet = require('./../models/Wallet.model')
 
+router.get('/', (req, res) => {
 
-router.get("/", (req, res, next) => {
-  res.json({ message: 'holi' })
+  const user_id = req.session.currentUser._id
+
+  Wallet
+    .findOne({ user: user_id })
+    .populate('menuPurchase laundryService')
+    .then(response => res.json(response))
+    .catch(err => console.log(err))
 })
+router.put('/topUp', (req, res) => {
 
-module.exports = router;
+  const user_id = req.session.currentUser._id
+  const { balance } = req.body
+  let addTokens = 0
+  Wallet
+    .findOne({ user: user_id })
+    .select('balance')
+    .then(response => {
+
+      addTokens = Number(balance) + response.balance
+      console.log(response)
+      console.log(balance)
+      console.log(response.balance)
+      return Wallet.findOneAndUpdate({ user: user_id }, { balance: addTokens }, { new: true })
+    })
+    .then(response => res.json(response))
+    .catch(err => console.log(err))
+})
+module.exports = router
