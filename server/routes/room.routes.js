@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const { response } = require("express");
-const { find } = require("./../models/BookingRoom.model");
 const BookingRoom = require('./../models/BookingRoom.model')
 const Room = require('./../models/Room.model')
 
@@ -20,50 +18,42 @@ router.get('/:period_request', (req, res) => {
 })
 
 //Create booking
-router.post('/bookingRoom/:id_room/:period_request/:capacity_room', (req, res) => {
-
+router.post('/bookingRoom', (req, res) => {
   const user = req.session.currentUser._id
-
-  const { id_room, period_request, capacity_room } = req.params
-
-  // const period = {}
-  // switch(period_request) {
-  //   case "period.first":
-  //     period.first = false
-  //     break;
-  //   case "period.second":
-  //     period.second = false
-  // }
+  const { id_room, period_request, capacity_room } = req.query
+  console.log(req.query)
 
   //comprobar si hacemos el booking
-
+  let roomLeft = true
   BookingRoom
     .find({ room: id_room })
-    .then(response => response.lenght === 2)
-
-  //creas variable de si aun esta roomLeft
-  ///////correcto, creamos el booking
-  BookingRoom
-    .create({ room: id_room, user })
     .then(response => {
-      //response.room === capacity_room
-      const period = {}
-      //if(!roomLeft)
-      period[period_request] = false
-      /*else {
-        period[period_request] = true
-      }
-      */
-      Room
-        .findByIdAndUpdate(response.room, { period })
-        .then(elm => {
-          res.json({ code: 200, message: 'Room booked' })
-        })
+      response.lenght === capacity_room ? roomLeft = false : roomLeft
+      return BookingRoom.create({ room: id_room, user, period: period_request })
     })
+    //promise chaining
+    //creas variable de si aun esta roomLeft
+    ///////correcto, creamos el booking
+    .then(response => {
+      const period = {}
+      !roomLeft ? period[period_request] = false :
+        period[period_request] = true
+      return Room.findByIdAndUpdate(response.room, { period })
+    })
+    .then(() => res.json({ code: 200, message: 'Room booked' }))
     .catch(err => console.log(err))
 })
 
+//Datails room
+router.get('/:id_room', (req, res) => {
 
+  const { id_room } = req.params
+
+  Room
+    .findById(id_room)
+    .then(response => res.json(response))
+    .catch(err => console.log(err))
+})
 
 router.post('/create', (req, res) => {
 

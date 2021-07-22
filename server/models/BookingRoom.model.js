@@ -9,6 +9,9 @@ const BookingRoomSchema = new Schema({
     room: {
         type: Schema.Types.ObjectId,
         ref: 'Room'
+    },
+    period: {
+        type: String
     }
 },
     { timestamps: true }
