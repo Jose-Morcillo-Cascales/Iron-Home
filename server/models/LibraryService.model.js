@@ -1,13 +1,14 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const libraryServiceSchema = new Schema({
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   library: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Library'
   },
   initDate: {
@@ -20,7 +21,7 @@ const libraryServiceSchema = new Schema({
 )
 
 
-const LibraryService = model('LibraryService', libraryServiceSchema);
+const LibraryService = mongoose.model('LibraryService', libraryServiceSchema);
 
 
 module.exports = LibraryService;

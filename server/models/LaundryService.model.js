@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 
 const laundryServiceSchema = new Schema({
@@ -31,6 +32,6 @@ const laundryServiceSchema = new Schema({
 )
 
 
-const LaundryService = model('LaundryService', laundryServiceSchema);
+const LaundryService = mongoose.model('LaundryService', laundryServiceSchema);
 
 module.exports = LaundryService;
