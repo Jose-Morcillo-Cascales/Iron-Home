@@ -28,9 +28,7 @@ router.get('/wallet', (req, res) => {
 })
 
 
-
-
-
+//EDIT PROFILE
 router.put('/edit', (req, res) => {
 
   const { mail, name, lastName, DNI, phone, image } = req.body
@@ -42,6 +40,7 @@ router.put('/edit', (req, res) => {
     .catch(err => res.status(500).json({ code: 500, message: 'Error editing user', err }))
 
 })
+
 
 
 module.exports = router

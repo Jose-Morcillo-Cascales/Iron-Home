@@ -21,14 +21,14 @@ router.get('/:period_request', (req, res) => {
 router.post('/bookingRoom', (req, res) => {
 
   const user = req.session.currentUser._id
-  const { id_room, period_request, capacity_room } = req.query
+  const { room_id, period_request, capacity_room } = req.query
   let roomLeft = true
 
   BookingRoom
-    .find({ room: id_room })
+    .find({ room: room_id })
     .then(response => {
       response.lenght === capacity_room ? roomLeft = false : roomLeft
-      return BookingRoom.create({ room: id_room, user, period: period_request })
+      return BookingRoom.create({ room: room_id, user, period: period_request })
     })
     .then(response => {
       const period = {}
@@ -41,12 +41,12 @@ router.post('/bookingRoom', (req, res) => {
 })
 
 //Datails room
-router.get('/:id_room', (req, res) => {
+router.get('/:room_id', (req, res) => {
 
-  const { id_room } = req.params
+  const { room_id } = req.params
 
   Room
-    .findById(id_room)
+    .findById(room_id)
     .then(response => res.json(response))
     .catch(err => console.log(err))
 })
