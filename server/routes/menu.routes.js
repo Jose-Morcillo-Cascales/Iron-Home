@@ -12,7 +12,6 @@ router.get('/foodList', (req, res) => {
     .catch(err => console.log(err))
 })
 
-
 //Food-details
 router.get('/foodDetails/:food_id', (req, res) => {
 
@@ -23,7 +22,6 @@ router.get('/foodDetails/:food_id', (req, res) => {
     .then(response => res.json(response))
     .catch(err => console.log(err))
 })
-
 
 //Create-menu
 router.post('/newMenu/:date', (req, res) => {
@@ -38,7 +36,6 @@ router.post('/newMenu/:date', (req, res) => {
     .catch(err => console.log(err))
 })
 
-
 //Delete menu
 router.get('/delete', (req, res) => {
 
@@ -50,7 +47,6 @@ router.get('/delete', (req, res) => {
     .catch(err => console.log(err))
 
 })
-
 
 //Details-menu
 router.get("/details/:menu_id", (req, res) => {

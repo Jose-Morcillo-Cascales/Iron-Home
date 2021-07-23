@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Wallet = require('./../models/Wallet.model')
 
+
+//wallet details
 router.get('/', (req, res) => {
 
   const user_id = req.session.currentUser._id
@@ -11,6 +13,8 @@ router.get('/', (req, res) => {
     .then(response => res.json(response))
     .catch(err => console.log(err))
 })
+
+//wallet edit
 router.put('/topUp', (req, res) => {
 
   const user_id = req.session.currentUser._id

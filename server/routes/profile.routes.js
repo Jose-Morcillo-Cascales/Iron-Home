@@ -14,7 +14,6 @@ router.get('/', checkLoggedUser, (req, res) => {
     .catch(err => res.status(500).json({ code: 500, message: 'Error fetching user', err }))
 })
 
-
 //Find wallet
 router.get('/wallet', checkLoggedUser, (req, res) => {
 
@@ -26,7 +25,6 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
     .then(response => res.json(response))
     .catch(err => res.status(500).json({ code: 500, message: 'Error fetching wallet', err }))
 })
-
 
 //Edit profile
 router.put('/edit', (req, res) => {
