@@ -4,7 +4,7 @@ const Wallet = require('./../models/Wallet.model')
 
 
 
-router.post('/bookService', (req, res) => {
+router.post('/bookService', checkLoggedUser, (req, res) => {
   const user = req.session.currentUser._id
   const type = {
     dark: req.body.dark ? true : false,
@@ -12,16 +12,12 @@ router.post('/bookService', (req, res) => {
   }
   const { bookingDate, quantity } = req.body
   let total = quantity * 8
-  console.log('soy el total', total)
   let accountBalance = 0
 
   Wallet
     .findOne({ user })
     .then(response => {
-      console.log('soy el res', response)
       accountBalance = response.balance - total
-      console.log('res bal', response.balance)
-      console.log(accountBalance)
       if (accountBalance >= 0) {
         const laundryPromise = LaundryService.create({ bookingDate, user, type, quantity })
         const walletPromise = Wallet.findOneAndUpdate({ user }, { balance: accountBalance }, { new: true })
@@ -34,13 +30,14 @@ router.post('/bookService', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/delete', (req, res) => {
+router.get('/deleteBooking', checkLoggedUser, (req, res) => {
   const { service_id } = req.query
   const user = req.session.currentUser._id
   let refund = 0
   let balance = 0
   const laundryPromise = LaundryService.findById(service_id)
   const walletPromise = Wallet.findOne({ user })
+
   Promise.all([laundryPromise, walletPromise])
     .then(response => {
       refund = response[0].quantity * 8
@@ -50,8 +47,6 @@ router.get('/delete', (req, res) => {
       return Promise.all([laundryDeletePromise, walletUpdatePromise])
     })
     .then(() => res.json({ message: 'Laundry booking sucefully deleted' }))
-
-
     .catch(err => console.log(err))
 })
 

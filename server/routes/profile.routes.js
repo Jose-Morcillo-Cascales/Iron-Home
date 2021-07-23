@@ -3,8 +3,8 @@ const User = require('./../models/User.model')
 const Wallet = require('./../models/Wallet.model')
 
 
-//FIND USER
-router.get('/', (req, res) => {
+//User profile
+router.get('/', checkLoggedUser, (req, res) => {
 
   const user_id = req.session.currentUser._id
 
@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
 })
 
 
-//FIND WALLET
-router.get('/wallet', (req, res) => {
+//Find wallet
+router.get('/wallet', checkLoggedUser, (req, res) => {
 
   const user_id = req.session.currentUser._id
 
@@ -28,9 +28,7 @@ router.get('/wallet', (req, res) => {
 })
 
 
-
-
-
+//Edit profile
 router.put('/edit', (req, res) => {
 
   const { mail, name, lastName, DNI, phone, image } = req.body

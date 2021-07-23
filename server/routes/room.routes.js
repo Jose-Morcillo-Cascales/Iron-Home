@@ -4,7 +4,7 @@ const Room = require('./../models/Room.model')
 
 
 //List available rooms
-router.get('/:period_request', (req, res) => {
+router.get('/:period_request', checkLoggedUser, (req, res) => {
 
   const { period_request } = req.params
 
@@ -18,7 +18,7 @@ router.get('/:period_request', (req, res) => {
 })
 
 //Create booking
-router.post('/bookingRoom', (req, res) => {
+router.post('/bookingRoom', checkLoggedUser, (req, res) => {
 
   const user = req.session.currentUser._id
   const { id_room, period_request, capacity_room } = req.query
@@ -41,7 +41,7 @@ router.post('/bookingRoom', (req, res) => {
 })
 
 //Datails room
-router.get('/:id_room', (req, res) => {
+router.get('/:id_room', checkLoggedUser, (req, res) => {
 
   const { id_room } = req.params
 
@@ -52,7 +52,7 @@ router.get('/:id_room', (req, res) => {
 })
 
 //Create Rooms
-router.post('/create', (req, res) => {
+router.post('/createRoom', (req, res) => {
 
   const { number, description, bath, price, capacity, type, image } = req.body
 

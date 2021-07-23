@@ -4,7 +4,7 @@ const MenuPurchase = require('./../models/MenuPurchase.model')
 
 
 //Food-list
-router.get('/foodlist', (req, res) => {
+router.get('/foodList', (req, res) => {
 
   Food
     .find()
@@ -14,7 +14,7 @@ router.get('/foodlist', (req, res) => {
 
 
 //Food-details
-router.get('/food-details/:food_id', (req, res) => {
+router.get('/foodDetails/:food_id', (req, res) => {
 
   const { food_id } = req.params
 
@@ -26,7 +26,7 @@ router.get('/food-details/:food_id', (req, res) => {
 
 
 //Create-menu
-router.post('/new/:date', (req, res) => {
+router.post('/newMenu/:date', (req, res) => {
 
   const user = req.session.currentUser._id
   const { date } = req.params

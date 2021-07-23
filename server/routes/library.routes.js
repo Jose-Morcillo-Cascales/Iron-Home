@@ -4,8 +4,6 @@ const LibraryBooking = require('./../models/LibraryService.model')
 const User = require('./../models/User.model')
 
 
-
-
 //List libraryBookings
 router.get('/:date_requested', (req, res) => {
 
@@ -29,7 +27,7 @@ router.get('/:date_requested', (req, res) => {
 })
 
 //Create library bookingss
-router.post('/create', (req, res) => {
+router.post('/bookingLibrary', (req, res) => {
 
   const user_id = req.session.currentUser._id
   const { init_date, library_id } = req.body
