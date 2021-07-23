@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const BookingRoom = require('./../models/BookingRoom.model')
 const Room = require('./../models/Room.model')
+const { checkLoggedUser } = require('./../middleware')
 
 
 //List available rooms

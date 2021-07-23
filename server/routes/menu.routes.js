@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const Food = require('./../models/Food.model')
 const MenuPurchase = require('./../models/MenuPurchase.model')
+const { checkLoggedUser } = require('./../middleware')
 
 
 //Food-list
-router.get('/foodList', (req, res) => {
+router.get('/foodList', checkLoggedUser, (req, res) => {
 
   Food
     .find()
@@ -13,7 +14,7 @@ router.get('/foodList', (req, res) => {
 })
 
 //Food-details
-router.get('/foodDetails/:food_id', (req, res) => {
+router.get('/foodDetails/:food_id', checkLoggedUser, (req, res) => {
 
   const { food_id } = req.params
 
@@ -24,7 +25,7 @@ router.get('/foodDetails/:food_id', (req, res) => {
 })
 
 //Create-menu
-router.post('/newMenu/:date', (req, res) => {
+router.post('/newMenu/:date', checkLoggedUser, (req, res) => {
 
   const user = req.session.currentUser._id
   const { date } = req.params
@@ -37,7 +38,7 @@ router.post('/newMenu/:date', (req, res) => {
 })
 
 //Delete menu
-router.get('/delete', (req, res) => {
+router.get('/delete', checkLoggedUser, (req, res) => {
 
   const { menu_id } = req.query
 

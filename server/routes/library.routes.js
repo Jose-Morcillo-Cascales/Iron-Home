@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Library = require('./../models/Library.model')
 const LibraryBooking = require('./../models/LibraryService.model')
+const { checkLoggedUser } = require('./../middleware')
+
 const User = require('./../models/User.model')
 
 
 //List libraryBookings
-router.get('/:date_requested', (req, res) => {
+router.get('/:date_requested', checkLoggedUser, (req, res) => {
 
   const { date_requested } = req.params
   let nextDay = new Date(date_requested)
@@ -27,7 +29,7 @@ router.get('/:date_requested', (req, res) => {
 })
 
 //Create library bookingss
-router.post('/bookingLibrary', (req, res) => {
+router.post('/bookingLibrary', checkLoggedUser, (req, res) => {
 
   const user_id = req.session.currentUser._id
   const { init_date, library_id } = req.body

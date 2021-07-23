@@ -1,6 +1,8 @@
 const router = require("express").Router()
 const User = require('./../models/User.model')
 const Wallet = require('./../models/Wallet.model')
+const { checkLoggedUser } = require('./../middleware')
+
 
 
 //User profile
@@ -27,7 +29,7 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
 })
 
 //Edit profile
-router.put('/edit', (req, res) => {
+router.put('/edit', checkLoggedUser, (req, res) => {
 
   const { mail, name, lastName, DNI, phone, image } = req.body
   const { user_id } = req.query

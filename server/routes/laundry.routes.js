@@ -1,14 +1,15 @@
 const router = require("express").Router()
 const LaundryService = require('./../models/LaundryService.model')
 const Wallet = require('./../models/Wallet.model')
-
+const { checkLoggedUser } = require('./../middleware')
 
 
 router.post('/bookService', checkLoggedUser, (req, res) => {
+
   const user = req.session.currentUser._id
   const type = {
-    dark: req.body.dark ? true : false,
-    delicate: req.body.delicate ? true : false
+    dark: req.body.dark,
+    delicate: req.body.delicate
   }
   const { bookingDate, quantity } = req.body
   let total = quantity * 8
