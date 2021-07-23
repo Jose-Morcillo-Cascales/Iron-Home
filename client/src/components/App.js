@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react'
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Routes from './routes'
+// import Navigation from './layout/Navigation/Navigation'
+// import Footer from './layout/Footer/Footer'
+import AuthService from '../services/auth.service'
+
+
+
+
+
+class App extends Component {
+
+  constructor() {
+    super()
+    this.state = { loggedUser: undefined }
+    this.authService = new AuthService()
+  }
+
+  storeUser = loggedUser => this.setState({ loggedUser })
+
+  fetchUser = () => {
+    this.authService
+      .isLoggedIn()
+      .then(theLoggedUser => this.storeUser(theLoggedUser.data))
+      .catch(() => this.storeUser(undefined))
+  }
+
+  componentDidMount = () => this.fetchUser()
+
+  render() {
+
+    return (
+      <>
+        {/* <Navigation storeUser={this.storeUser} loggedUser={this.state.loggedUser} /> */}
+
+        <Routes storeUser={this.storeUser} loggedUser={this.state.loggedUser} />
+
+        {/* <Footer /> */}
+      </>
+    )
+  }
 }
 
 export default App;
