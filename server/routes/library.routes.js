@@ -6,21 +6,17 @@ const User = require('./../models/User.model')
 
 
 
-//List libraryBooking
+//List libraryBookings
 router.get('/:date_requested', (req, res) => {
 
   const { date_requested } = req.params
   let nextDay = new Date(date_requested)
   nextDay.setDate(nextDay.getDate() + 1)
-  console.log(date_requested)
-  console.log(nextDay)
 
   Library
     .find()
     .then(response => {
       const bookigsPerLibrary = response.map(elm => LibraryBooking.find({
-        // library: elm._id, $expr: {
-        //   $eq: [{ $year: "$initDate" }, 2021]
         library: elm._id, initDate: {
           "$gte": new Date(date_requested),
           "$lt": nextDay
@@ -32,16 +28,16 @@ router.get('/:date_requested', (req, res) => {
     .catch(err => console.log(err))
 })
 
+//Create library bookingss
 router.post('/create', (req, res) => {
 
   const user_id = req.session.currentUser._id
   const { init_date, library_id } = req.body
 
-
   LibraryBooking
-    .create(user_id, { init_date, library_id })
+    .create(user_id, { initDate: init_date, library: library_id, user: user_id })
     .then(newLibraryBooking => res.json(newLibraryBooking))
-    .catch(err => res.status(500).json({ code: 500, message: 'Error saving LibraryBooking', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Error saving Booking', err }))
 })
 
 

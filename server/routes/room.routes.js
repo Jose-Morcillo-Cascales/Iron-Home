@@ -22,7 +22,6 @@ router.post('/bookingRoom', (req, res) => {
 
   const user = req.session.currentUser._id
   const { id_room, period_request, capacity_room } = req.query
-  console.log(req.query)
   let roomLeft = true
 
   BookingRoom
@@ -31,9 +30,6 @@ router.post('/bookingRoom', (req, res) => {
       response.lenght === capacity_room ? roomLeft = false : roomLeft
       return BookingRoom.create({ room: id_room, user, period: period_request })
     })
-    //promise chaining
-    //creas variable de si aun esta roomLeft
-    ///////correcto, creamos el booking
     .then(response => {
       const period = {}
       !roomLeft ? period[period_request] = false :
@@ -55,6 +51,7 @@ router.get('/:id_room', (req, res) => {
     .catch(err => console.log(err))
 })
 
+//Create Rooms
 router.post('/create', (req, res) => {
 
   const { number, description, bath, price, capacity, type, image } = req.body
