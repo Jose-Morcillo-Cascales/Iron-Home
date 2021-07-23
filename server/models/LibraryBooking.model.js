@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 
-const libraryServiceSchema = new Schema({
+const libraryBookingSchema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -21,7 +21,7 @@ const libraryServiceSchema = new Schema({
 )
 
 
-const LibraryService = mongoose.model('LibraryService', libraryServiceSchema);
+const LibraryBooking = mongoose.model('LibraryBooking', libraryBookingSchema);
 
 
-module.exports = LibraryService;
+module.exports = LibraryBooking;

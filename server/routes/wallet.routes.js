@@ -22,9 +22,6 @@ router.put('/topUp', (req, res) => {
     .then(response => {
 
       addTokens = Number(balance) + response.balance
-      console.log(response)
-      console.log(balance)
-      console.log(response.balance)
       return Wallet.findOneAndUpdate({ user: user_id }, { balance: addTokens }, { new: true })
     })
     .then(response => res.json(response))
