@@ -36,9 +36,22 @@ router.post('/bookService', (req, res) => {
 
 router.get('/delete', (req, res) => {
   const { service_id } = req.query
-  LaundryService
-    .findById(service_id)
-    .then(response => res.json(response))
+  const user = req.session.currentUser._id
+  let refund = 0
+  let balance = 0
+  const laundryPromise = LaundryService.findById(service_id)
+  const walletPromise = Wallet.findOne({ user })
+  Promise.all([laundryPromise, walletPromise])
+    .then(response => {
+      refund = response[0].quantity * 8
+      balance = response[1].balance + refund
+      const laundryDeletePromise = LaundryService.findByIdAndRemove(service_id)
+      const walletUpdatePromise = Wallet.findOneAndUpdate({ user }, { balance }, { new: true })
+      return Promise.all([laundryDeletePromise, walletUpdatePromise])
+    })
+    .then(() => res.json({ message: 'Laundry booking sucefully deleted' }))
+
+
     .catch(err => console.log(err))
 })
 
