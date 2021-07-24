@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Library = require('./../models/Library.model')
-const LibraryBooking = require('./../models/LibraryService.model')
+const LibraryBooking = require('./../models/LibraryBooking.model')
 const { checkLoggedUser } = require('./../middleware')
 
 const User = require('./../models/User.model')
