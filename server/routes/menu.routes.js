@@ -25,11 +25,7 @@ router.get('/foodDetails/:food_id', checkLoggedUser, (req, res) => {
 })
 
 //Create-menu
-<<<<<<< HEAD
-router.post('/newMenu/:date', checkLoggedUser, (req, res) => {
-=======
 router.post('/newMenu/', (req, res) => {
->>>>>>> e3481b92b472eb1c7057cbd7a51e64c9803d50b9
 
   const user = req.session.currentUser._id
   const { dish, quantity, date } = req.body               //dish will be a checkbox
