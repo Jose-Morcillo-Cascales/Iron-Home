@@ -5,13 +5,13 @@ const IndexPage = () => {
 
     return (
         <Container>
-            <h1>Bievenid@ a Coasters App!</h1>
-            <p>Una MERN Stack sobre montañas rusas</p>
+            <h1>Iron Home</h1>
+            <p>Un lugar para Soñar</p>
 
             <hr></hr>
 
             <Link to="/montañas-rusas">
-                <Button variant="dark" size="lg">Ver montañas rusas</Button>
+                <Button variant="dark" size="lg">Algo pasará aquí</Button>
             </Link>
         </Container>
     )

@@ -3,7 +3,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Routes from './routes'
-// import Navigation from './layout/Navigation/Navigation'
+import Navigation from './layout/Navigation/Navigation'
 // import Footer from './layout/Footer/Footer'
 import AuthService from '../services/auth.service'
 
@@ -34,7 +34,7 @@ class App extends Component {
 
     return (
       <>
-        {/* <Navigation storeUser={this.storeUser} loggedUser={this.state.loggedUser} /> */}
+        <Navigation storeUser={this.storeUser} loggedUser={this.state.loggedUser} />
 
         <Routes storeUser={this.storeUser} loggedUser={this.state.loggedUser} />
 
