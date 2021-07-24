@@ -65,7 +65,7 @@ router.get('/logout', (req, res) => {
   req.session.destroy((err) => res.json({ mssage: 'Logout successful' }));
 })
 
-router.post('/isloggedin', (req, res) => {
+router.post('/isloggedIn', (req, res) => {
   req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
 })
 
