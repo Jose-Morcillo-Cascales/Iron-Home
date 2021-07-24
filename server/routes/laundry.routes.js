@@ -2,7 +2,7 @@ const router = require("express").Router()
 const LaundryService = require('./../models/LaundryService.model')
 const Wallet = require('./../models/Wallet.model')
 const { checkLoggedUser } = require('./../middleware')
-
+const { removeBalance } = require('./../utils')
 
 router.post('/bookService', checkLoggedUser, (req, res) => {
 
@@ -12,13 +12,13 @@ router.post('/bookService', checkLoggedUser, (req, res) => {
     delicate: req.body.delicate
   }
   const { bookingDate, quantity } = req.body
-  let total = quantity * 8
-  let accountBalance = 0
+  // let total = quantity * 8
+  // let accountBalance = 0
 
   Wallet
     .findOne({ user })
     .then(response => {
-      accountBalance = response.balance - total
+      let accountBalance = removeBalance(response.balance, quantity, 8)
       if (accountBalance >= 0) {
         const laundryPromise = LaundryService.create({ bookingDate, user, type, quantity })
         const walletPromise = Wallet.findOneAndUpdate({ user }, { balance: accountBalance }, { new: true })
