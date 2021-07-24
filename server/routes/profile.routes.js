@@ -4,7 +4,6 @@ const Wallet = require('./../models/Wallet.model')
 const { checkLoggedUser } = require('./../middleware')
 
 
-
 //User profile
 router.get('/', checkLoggedUser, (req, res) => {
 
@@ -15,6 +14,7 @@ router.get('/', checkLoggedUser, (req, res) => {
     .then(response => res.json(response))
     .catch(err => res.status(500).json({ code: 500, message: 'Error fetching user', err }))
 })
+
 
 //Find wallet
 router.get('/wallet', checkLoggedUser, (req, res) => {
@@ -28,6 +28,7 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
     .catch(err => res.status(500).json({ code: 500, message: 'Error fetching wallet', err }))
 })
 
+
 //Edit profile
 router.put('/edit', checkLoggedUser, (req, res) => {
 
@@ -40,7 +41,6 @@ router.put('/edit', checkLoggedUser, (req, res) => {
     .catch(err => res.status(500).json({ code: 500, message: 'Error editing user', err }))
 
 })
-
 
 
 module.exports = router

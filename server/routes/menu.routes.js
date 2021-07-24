@@ -3,7 +3,8 @@ const Food = require('./../models/Food.model')
 const MenuPurchase = require('./../models/MenuPurchase.model')
 const Wallet = require('./../models/Wallet.model')
 const { checkLoggedUser } = require('./../middleware')
-const { removeBalance } = require('./../utils')
+const { removeBalance, repay } = require('./../utils')
+
 
 //Food-list
 router.get('/foodList', checkLoggedUser, (req, res) => {
@@ -13,6 +14,7 @@ router.get('/foodList', checkLoggedUser, (req, res) => {
     .then(response => res.json(response))
     .catch(err => console.log(err))
 })
+
 
 //Food-details
 router.get('/foodDetails/:food_id', checkLoggedUser, (req, res) => {
@@ -25,30 +27,34 @@ router.get('/foodDetails/:food_id', checkLoggedUser, (req, res) => {
     .catch(err => console.log(err))
 })
 
+
 //Create-menu
 router.post('/newMenu', (req, res) => {
 
   const user = req.session.currentUser._id
   const { dish, date } = req.body
   //dish will be a checkbox
-  /* let total = dish.length * 6
-  let accountBalance = 0 */
+
   Wallet
     .findOne({ user })
     .then(response => {
-      let accountBalance = removeBalance(response.balance, dish.length, 6)
-      if (accountBalance >= 0) {
+      let balance = removeBalance(response.balance, dish.length, 6)
+
+      if (balance >= 0) {
+
         const menuPromise = MenuPurchase.create({ user, date, dish })
-        const walletPromise = Wallet.findOneAndUpdate({ user }, { balance: accountBalance }, { new: true })
+        const walletPromise = Wallet.findOneAndUpdate({ user }, { balance }, { new: true })
         return Promise.all([menuPromise, walletPromise])
+
       } else {
+
         res.json({ message: 'No enough tokens in your menu' })
       }
     })
     .then(() => res.json({ message: 'Menu purchased sucefully' }))
     .catch(err => console.log(err))
-
 })
+
 
 //Delete menu
 router.delete('/delete', checkLoggedUser, (req, res) => {
@@ -61,17 +67,18 @@ router.delete('/delete', checkLoggedUser, (req, res) => {
 
   Promise.all([menuPromise, walletPromise])
     .then(response => {
-      let refund = response[0].dish.length * 6
-      let balance = response[1].balance + refund
+
+      let balance = repay(response[0].dish.length, response[1].balance, 6)
+
       const menuDeletePromise = MenuPurchase.findByIdAndRemove(menu_id)
       const walletUpdatePromise = Wallet.findOneAndUpdate({ user }, { balance }, { new: true })
+
       return Promise.all([menuDeletePromise, walletUpdatePromise])
     })
     .then(() => res.json({ message: 'Menu sucefully deleted' }))
     .catch(err => console.log(err))
-
-
 })
+
 
 //Details-menu
 router.get("/details/:menu_id", checkLoggedUser, (req, res) => {
@@ -85,7 +92,6 @@ router.get("/details/:menu_id", checkLoggedUser, (req, res) => {
     .then(response => res.json(response))
     .catch(err => console.log(err))
 })
-
 
 
 module.exports = router;
