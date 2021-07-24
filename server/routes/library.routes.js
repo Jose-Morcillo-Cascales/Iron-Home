@@ -2,7 +2,6 @@ const router = require("express").Router();
 const Library = require('./../models/Library.model')
 const LibraryBooking = require('./../models/LibraryBooking.model')
 const { checkLoggedUser } = require('./../middleware')
-
 const User = require('./../models/User.model')
 
 
@@ -17,16 +16,19 @@ router.get('/:date_requested', checkLoggedUser, (req, res) => {
     .find()
     .then(response => {
       const bookigsPerLibrary = response.map(elm => LibraryBooking.find({
+
         library: elm._id, initDate: {
           "$gte": new Date(date_requested),
           "$lt": nextDay
         }
       }))
+
       return Promise.all(bookigsPerLibrary)
     })
     .then(bookings => res.json(bookings))
     .catch(err => console.log(err))
 })
+
 
 //Create library bookingss
 router.post('/bookingLibrary', checkLoggedUser, (req, res) => {
@@ -39,42 +41,6 @@ router.post('/bookingLibrary', checkLoggedUser, (req, res) => {
     .then(newLibraryBooking => res.json(newLibraryBooking))
     .catch(err => res.status(500).json({ code: 500, message: 'Error saving Booking', err }))
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* router.post('/booking', (req, res) => {

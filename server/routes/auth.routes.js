@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
-
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
-
 const User = require('./../models/User.model')
 const Wallet = require('./../models/Wallet.model')
 
@@ -70,7 +68,6 @@ router.get('/logout', (req, res) => {
 router.post('/isloggedin', (req, res) => {
   req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
 })
-
 
 
 module.exports = router
