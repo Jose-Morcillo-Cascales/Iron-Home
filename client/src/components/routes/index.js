@@ -10,15 +10,20 @@ import Signup from '../pages/Auth/Signup/Signup'
 
 import FoodDetails from '../pages/Menu/MenuPage/FoodDetails'
 import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
+import LaundryLanding from '../pages/Laundry/LaundryLanding'
 
 const Routes = ({ storeUser, loggedUser }) => {
 
     return (
         <Switch>
             <Route path="/" exact render={() => <HomePage />} />
+
             <Route path="/habitaciones" exact render={() => <RoomOption />} />
             <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
-            <Route path="/habitaciones/disponibles" render={() => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+
+            <Route path="/lavanderia" render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+
 
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} />} />
             <Route path="/registro" render={props => <Signup {...props} />} />
