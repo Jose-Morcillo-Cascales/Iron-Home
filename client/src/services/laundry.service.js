@@ -10,7 +10,7 @@ class LaundryService {
     }
 
     bookingLaundry = (bookingDate, user, type, quantity) => this.app.post('/bookingService', { bookingDate, user, type, quantity })
-    deleteBooking = service_id => this.app.get(`/deleteBooking?service_id=${service_id}`)
+    deleteBooking = service_id => this.app.delete(`/deleteBooking?service_id=${service_id}`)
 }
 
 export default LaundryService

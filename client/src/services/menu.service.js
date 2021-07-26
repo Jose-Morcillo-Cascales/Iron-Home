@@ -10,10 +10,10 @@ class MenuPurchase {
     }
 
     foodList = () => this.app.get('/foodList')
-    foodDetails = (food_id) => this.app.get(`foodDetails/${food_id}`)
-    // newMenu = (date,dish,quantity) => this.app.post(`/newMenu/${date}`,{dish,quantity})
-    menuDetails = (menu_id) => this.app.get(`details/${menu_id}`)
-    // delete
+    foodDetails = (food_id) => this.app.get(`/foodDetails/${food_id}`)
+    newMenu = (date, dish) => this.app.post('/newMenu', { dish, date })
+    menuDetails = (menu_id) => this.app.get(`/details/${menu_id}`)
+    deleteMenu = (menu_id) => this.app.delete(`/delete?menu_id=${menu_id}`)
 }
 
 export default MenuPurchase

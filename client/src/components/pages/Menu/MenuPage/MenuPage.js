@@ -1,17 +1,15 @@
 // import './CoastersPage.css'
-
-
-
 import Container from 'react-bootstrap/esm/Container'
-import FoodList from './FoodList'
+import MenuForm from './MenuForm'
 
 const MenuPage = ({ loggedUser }) => {
 
     return (
         <Container>
 
-            <h1>Comidas caseras</h1>
-            <FoodList loggedUser={loggedUser} />
+
+            <MenuForm loggedUser={loggedUser} />
+
 
         </Container>
     )
