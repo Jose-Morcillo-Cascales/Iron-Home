@@ -26,23 +26,28 @@ class ProfileService extends Component {
 
     handleInputChange = e => {
         const { name, value } = e.target
-        this.setState({ menu: { ...this.state.menu, [name]: value } })
+        this.setState({ profile: { ...this.state.profile, [name]: value } })
     }
 
 
     handleFormSubmit = e => {
         e.preventDefault()
 
-        this.MenuPurchase
-            .newMenu(this.state.menu)
+        this.profileservice
+            .newMenu(this.state.profile)
             .then(() => {
-                this.setState({ menu: { date: undefined, dish: [] } })
+                this.setState({
+                    menu: {
+                        name: '',
+                        lastName: '',
+                        DNI: '',
+                        phone: '',
+                        image: '',
+                    }
+                })
             })
             .catch(err => console.log(err))
     }
-
-
-
 
 
     render() {
@@ -51,13 +56,28 @@ class ProfileService extends Component {
 
                 <Form onSubmit={this.handleFormSubmit}>
 
-                    <Form.Group controlId="date">
-                        <Form.Label>¿Que dia quiere?</Form.Label>
-                        <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
+                    <Form.Group controlId="name">
+                        <Form.Label>Nombre:</Form.Label>
+                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="name" />
+                    </Form.Group>
+                    <Form.Group controlId="lasName">
+                        <Form.Label>Apellido:</Form.Label>
+                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="lasName" />
                     </Form.Group>
 
+                    <Form.Group controlId="DNI">
+                        <Form.Label>DNI:</Form.Label>
+                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="DNI" />
+                    </Form.Group>
+
+                    <Form.Group controlId="phone">
+                        <Form.Label>Telefono:</Form.Label>
+                        <Form.Control type="text" value={this.state.menu.phone} onChange={this.handleInputChange} name="phone" />
+                    </Form.Group>
+
+
                     <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
-                        {this.state.loading ? 'Tomando nota' : 'Comprar menu'}
+                        {this.state.loading ? 'Editando' : 'Editar'}
                     </Button>
 
                 </Form>

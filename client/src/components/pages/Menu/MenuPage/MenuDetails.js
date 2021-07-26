@@ -13,6 +13,7 @@ class MenuDetails extends Component {
     }
 
     loadMenuDetails() {
+
         const { menu_id } = this.props.match.params
 
         this.menuService

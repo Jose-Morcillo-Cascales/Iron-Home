@@ -12,7 +12,7 @@ class MenuForm extends Component {
         super()
         this.state = {
             menu: {
-                date: undefined,
+                date: '',
                 dish: [],
             },
             modal: false,
@@ -24,18 +24,28 @@ class MenuForm extends Component {
 
 
     handleInputChange = e => {
+        console.log(e.target.name)
         const { name, value } = e.target
         this.setState({ menu: { ...this.state.menu, [name]: value } })
+        console.log(this.state.menu, 'este es el menu')
     }
+    handleCheckbox = newFood => {
+        const menuCopy = { ...this.state.menu }
+        console.log(menuCopy)
+        menuCopy.dish.push(newFood)
+        this.setState({ menu: menuCopy })
+        console.log(this.state.menu.dish, 'este es el array de platos')
+    }
+
 
 
     handleFormSubmit = e => {
         e.preventDefault()
 
         this.MenuPurchase
-            .newMenu(this.state.menu)
+            .newMenu(this.state.menu.date, this.state.menu.dish)
             .then(() => {
-                this.setState({ menu: { date: undefined, dish: [] } })
+                this.setState({ menu: { date: '', dish: [] } })
             })
             .catch(err => console.log(err))
     }
@@ -54,11 +64,12 @@ class MenuForm extends Component {
                         <Form.Label>¿Que dia quiere?</Form.Label>
                         <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
                     </Form.Group>
-                    <FoodList />
-                    {/* <Form.Group controlId="dish">
-                        <Form.Label>Platos de comida</Form.Label>
-                        <Form.Control type="text" value={this.state.menu.dish} onChange={this.handleInputChange} name="dish" />
-                    </Form.Group> */}
+
+
+                    <Form.Label>Platos del dia</Form.Label>
+
+                    <FoodList handleCheckbox={this.handleCheckbox} />
+
 
                     <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
                         {this.state.loading ? 'Tomando nota' : 'Comprar menu'}
@@ -71,7 +82,7 @@ class MenuForm extends Component {
                             <Modal.Title>Recibo Menu</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            {/* <MenuDetails key={menu_id} closeModal={() => this.setState({ modal: false })} /> */}
+                            <MenuDetails menu_id={this.state.menu.id} key={this.state.menu.id} closeModal={() => this.setState({ modal: false })} />
                         </Modal.Body>
                     </Modal>
 

@@ -10,6 +10,8 @@ import Signup from '../pages/Auth/Signup/Signup'
 
 import FoodDetails from '../pages/Menu/MenuPage/FoodDetails'
 import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
+import MenuForm from '../pages/Menu/MenuPage/MenuForm'
+import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 
 const Routes = ({ storeUser, loggedUser }) => {
 
@@ -23,8 +25,11 @@ const Routes = ({ storeUser, loggedUser }) => {
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} />} />
             <Route path="/registro" render={props => <Signup {...props} />} />
 
-            <Route path="/menu" render={() => <MenuPage loggedUser={loggedUser} />} />
-            <Route path="/menu/detalles-comida/:food_id" render={() => <FoodDetails loggedUser={loggedUser} />} />
+            <Route path="/menu" exact render={() => <MenuPage loggedUser={loggedUser} />} />
+            <Route path="/menu/detalles-comida/:food_id" render={props => <FoodDetails loggedUser={loggedUser} {...props} />} />
+            <Route path="/menu/crear" render={() => <MenuForm loggedUser={loggedUser} />} />
+            <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
+
             <Route path="/perfil" render={() => <ProfileDetails loggedUser={loggedUser} />} />
         </Switch>
     )

@@ -11,20 +11,38 @@ class FoodDetails extends Component {
             food: undefined
         }
         this.foodService = new MenuPurchase()
+        this.vegetableboolean = elm => !elm ? 'Este plato contiene productos carnicos' : 'Plato vegetariano'
+        this.translation = type => {
+
+            switch (type) {
+                case 'first':
+                    return 'Primero'
+                case 'second':
+                    return 'Segundo'
+                case 'dessert':
+                    return 'Postre'
+
+
+            }
+
+        }
     }
 
     loadFoodDetails() {
+
         const { food_id } = this.props.match.params
 
         this.foodService
             .foodDetails(food_id)
             .then(response => this.setState({ food: response.data }))
             .catch(err => console.log(err))
-
     }
     componentDidMount() {
         this.loadFoodDetails()
     }
+
+
+
 
 
     render() {
@@ -45,8 +63,8 @@ class FoodDetails extends Component {
 
                             <hr></hr>
 
-                            <p>Vegetarian: {this.state.food.vegetarian}</p>
-                            <p>Plato: {this.state.food.type}</p>
+                            <p>{this.vegetableboolean(this.state.food.vegetarian)}</p>
+                            <p>{this.translation(this.state.food.type)}</p>
 
                             <hr></hr>
 
