@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import './RoomOption.css'
+import '../../shared/UserNavigation/UserNavigation.css'
+
 import Spinner from "../../shared/Spinner/Spinner"
 
 

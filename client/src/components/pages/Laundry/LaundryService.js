@@ -1,13 +1,12 @@
 import { Row, Container, DropdownButton, Dropdown } from "react-bootstrap"
 import { Component } from 'react'
-import RoomService from './../../../services/room.services'
+import LaundryService from './../../../services/laundry.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
-import AvalaibleRoomCard from "./AvailableRoomCard"
 
 
-class AvalaibleRoom extends Component {
+class LaundryServ extends Component {
 
     constructor() {
         super()
@@ -99,5 +98,5 @@ class AvalaibleRoom extends Component {
     }
 }
 
-export default AvalaibleRoom
+export default LaundryServ
 

@@ -40,11 +40,11 @@ const Navigation = ({ storeUser, loggedUser }) => {
                             </>
                             :
                             <>
-                                <Link className="nav-link" to="/mi-perfil">Menús</Link>
-                                <Link className="nav-link" to="/mi-perfil">Lavanderia</Link>
+                                <Link className="nav-link" to="/menu">Menús</Link>
+                                <Link className="nav-link" to="/lavanderia">Lavanderia</Link>
                                 <Link className="nav-link" to="/mi-perfil">Biblioteca</Link>
                                 <NavDropdown title="Perfil" id="navbarScrollingDropdown">
-                                    <NavDropdown.Item><Link className="nav-link" to="/mi-perfil">Perfil</Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link className="nav-link" to="/perfil">Perfil</Link></NavDropdown.Item>
                                     <NavDropdown.Item><Link className="nav-link" to="/mi-perfil">Mi Wallet</Link></NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item><span className="nav-link" onClick={logout}>Cerrar sesión</span></NavDropdown.Item>

@@ -3,6 +3,10 @@ import RoomService from './../../../services/room.services'
 import { Container, Row, Col, Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import '../../shared/UserNavigation/UserNavigation.css'
+
 class RoomDetails extends Component {
 
     constructor() {
@@ -35,40 +39,46 @@ class RoomDetails extends Component {
                     ?
                     <h3>Cargando</h3>
                     :
-                    <Row className="justify-content-around">
-                        <Col md={6}>
-                            <Carousel>
-                                {this.state.rooms.image.map(elm =>
-                                    <Carousel.Item key={elm._id}>
-                                        <img
-                                            className="d-block w-100"
-                                            src={elm.image}
-                                            alt={elm._id}
-                                            style={{ width: '100%' }}
-                                        />
-                                    </Carousel.Item>
-                                )}
-                            </Carousel>
-                            <hr></hr>
+                    <>
+                        <Container>
+                            <Row>
+                                <div className='user-navegation'>
+                                    <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
+                                </div>
+                            </Row>
+                        </Container>
+                        <Row className="justify-content-around">
+                            <Col md={6}>
+                                <Carousel>
+                                    {this.state.rooms.image.map(elm =>
+                                        <Carousel.Item key={elm}>
+                                            <img
+                                                className="d-block w-100"
+                                                src={elm}
+                                                alt={elm}
+                                                style={{ width: '100%' }}
+                                            />
+                                        </Carousel.Item>
+                                    )}
+                                </Carousel>
+                            </Col>
 
-                            <Link to="/habitaciones" className="btn btn-primary">Volver</Link>
+                            <Col md={4}>
+                                <h1>{this.state.rooms.name}</h1>
+                                <p>{this.state.rooms.description}</p>
 
-                        </Col>
+                                <hr></hr>
 
-                        <Col md={4}>
-                            <h1>{this.state.rooms.name}</h1>
-                            <p>{this.state.rooms.description}</p>
-
-                            <hr></hr>
-
-                            <p>Tipo: {this.state.rooms.type}</p>
-                            <p>Capacidad: {this.state.rooms.capacity}</p>
-                            <p>Precio: {this.state.rooms.price} €</p>
-                        </Col>
-                    </Row>
+                                <p>Tipo: {this.state.rooms.type}</p>
+                                <p>Capacidad: {this.state.rooms.capacity}</p>
+                                <p>Precio: {this.state.rooms.price} €</p>
+                            </Col>
+                        </Row>
+                    </>
                 }
 
             </Container>
+
         )
     }
 }

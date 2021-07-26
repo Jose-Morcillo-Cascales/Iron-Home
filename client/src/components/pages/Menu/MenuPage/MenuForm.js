@@ -37,8 +37,6 @@ class MenuForm extends Component {
         console.log(this.state.menu.dish, 'este es el array de platos')
     }
 
-
-
     handleFormSubmit = e => {
         e.preventDefault()
 

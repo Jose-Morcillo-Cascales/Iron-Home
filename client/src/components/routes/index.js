@@ -6,21 +6,27 @@ import RoomOption from '../pages/Room/RoomOption'
 import RoomDetails from '../pages/Room/RoomDatails'
 import AvalaibleRoomList from '../pages/Room/AvailableRoomList'
 import Signup from '../pages/Auth/Signup/Signup'
-
+import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 
 import FoodDetails from '../pages/Menu/MenuPage/FoodDetails'
-import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
+
 import MenuForm from '../pages/Menu/MenuPage/MenuForm'
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
+
+import LaundryLanding from '../pages/Laundry/LaundryLanding'
 
 const Routes = ({ storeUser, loggedUser }) => {
 
     return (
         <Switch>
             <Route path="/" exact render={() => <HomePage />} />
+
             <Route path="/habitaciones" exact render={() => <RoomOption />} />
             <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
-            <Route path="/habitaciones/disponibles" render={() => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+
+            <Route path="/lavanderia" render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+
 
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} />} />
             <Route path="/registro" render={props => <Signup {...props} />} />
