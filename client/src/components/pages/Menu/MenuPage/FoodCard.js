@@ -30,7 +30,8 @@ const FoodCard = ({ name, vegetarian, type, image, _id, handleCheckbox }) => {
                     <Link to={`/menu/detalles-comida/${_id}`}>
                         <Button variant="dark" block >Ver detalles</Button>
                     </Link>
-                    <FormCheck value={_id} name='dish' onChange={() => handleCheckbox(_id)}></FormCheck>
+                    <FormCheck type='checkbox' value={_id} name='dish'
+                        onChange={() => handleCheckbox(_id)}></FormCheck>
                 </Card.Body>
             </Card>
         </Form.Group>

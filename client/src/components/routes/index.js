@@ -6,14 +6,17 @@ import RoomOption from '../pages/Room/RoomOption'
 import RoomDetails from '../pages/Room/RoomDatails'
 import AvalaibleRoomList from '../pages/Room/AvailableRoomList'
 import Signup from '../pages/Auth/Signup/Signup'
-import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 
+import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
+import ProfileForm from '../pages/Profile/ProfilePage/ProfileForm'
+import ProfileWallet from '../pages/Profile/ProfilePage/ProfileWallet'
 import FoodDetails from '../pages/Menu/MenuPage/FoodDetails'
 
 import MenuForm from '../pages/Menu/MenuPage/MenuForm'
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 
 import LaundryLanding from '../pages/Laundry/LaundryLanding'
+
 
 const Routes = ({ storeUser, loggedUser }) => {
 
@@ -37,6 +40,8 @@ const Routes = ({ storeUser, loggedUser }) => {
             <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
 
             <Route path="/perfil" render={() => <ProfileDetails loggedUser={loggedUser} />} />
+            <Route path="/perfil/editar?user_id=user_id" render={props => <ProfileForm loggedUser={loggedUser} {...props} />} />
+            <Route path="/perfil/wallet" render={() => <ProfileWallet loggedUser={loggedUser} />} />
         </Switch>
     )
 }

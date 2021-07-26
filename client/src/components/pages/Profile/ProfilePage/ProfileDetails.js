@@ -52,7 +52,10 @@ class ProfileDetails extends Component {
                                 <li>{this.state.profile.phone}</li>
                                 <li>{this.state.profile.role}</li>
                             </ul>
-                            <Button className="btn btn-dark">Editar perfil</Button>
+                            <Link to={`/perfil/edit?user_id=${this.state.profile.id}`} >
+                                <Button className="btn btn-dark">Editar perfil</Button>
+                            </Link>
+
 
                         </Col>
                     </Row>

@@ -4,7 +4,7 @@ import ProfileService from '../../../../services/profile.service'
 
 
 
-class ProfileService extends Component {
+class ProfileForm extends Component {
 
     constructor() {
         super()
@@ -37,7 +37,7 @@ class ProfileService extends Component {
             .newMenu(this.state.profile)
             .then(() => {
                 this.setState({
-                    menu: {
+                    profile: {
                         name: '',
                         lastName: '',
                         DNI: '',
@@ -58,21 +58,21 @@ class ProfileService extends Component {
 
                     <Form.Group controlId="name">
                         <Form.Label>Nombre:</Form.Label>
-                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="name" />
+                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="name" />
                     </Form.Group>
                     <Form.Group controlId="lasName">
                         <Form.Label>Apellido:</Form.Label>
-                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="lasName" />
+                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="lasName" />
                     </Form.Group>
 
                     <Form.Group controlId="DNI">
                         <Form.Label>DNI:</Form.Label>
-                        <Form.Control type="text" value={this.state.menu.date} onChange={this.handleInputChange} name="DNI" />
+                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="DNI" />
                     </Form.Group>
 
                     <Form.Group controlId="phone">
                         <Form.Label>Telefono:</Form.Label>
-                        <Form.Control type="text" value={this.state.menu.phone} onChange={this.handleInputChange} name="phone" />
+                        <Form.Control type="text" value={this.state.profile.phone} onChange={this.handleInputChange} name="phone" />
                     </Form.Group>
 
 
@@ -87,4 +87,4 @@ class ProfileService extends Component {
     }
 }
 
-export default ProfileService
+export default ProfileForm
