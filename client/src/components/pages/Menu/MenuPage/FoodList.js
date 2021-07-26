@@ -39,20 +39,13 @@ class FoodList extends Component {
                 <h3>CARGANDO...</h3>
                 :
                 (<>
-                    {/* {this.props.loggedUser && <Button onClick={() => this.setState({ modal: true })} variant="dark" style={{ marginBottom: '20px' }}>Crear nueva montaña</Button>} */}
+
 
                     <Row>
                         {this.state.foods.map(elm => <FoodCard key={elm._id} {...elm} />)}
                     </Row>
-                    {/* 
-                    <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
-                        <Modal.Header>
-                            <Modal.Title>Nueva Montaña rusa</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <CoasterForm refreshCoasters={this.loadCoasters} closeModal={() => this.setState({ modal: false })} />
-                        </Modal.Body>
-                    </Modal> */}
+
+
                 </>
                 )
         )
