@@ -1,18 +1,18 @@
 import { Component } from 'react'
-import { Container, Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import './Login.css'
+import './Signup.css'
 import mainLogo from '../../../layout/Navigation/IronHome.png';
-
 import AuthService from '../../../../services/auth.service'
 
-class Login extends Component {
+class Signup extends Component {
 
     constructor() {
         super()
         this.state = {
             mail: '',
-            pwd: ''
+            pwd: '',
+            name: ''
         }
         this.authService = new AuthService()
     }
@@ -28,10 +28,10 @@ class Login extends Component {
 
         e.preventDefault()
 
-        const { mail, pwd } = this.state
+        const { mail, pwd, name } = this.state
 
         this.authService
-            .login(mail, pwd)
+            .signup(mail, pwd, name)
             .then(loggedUserfromServer => {
                 this.props.storeUser(loggedUserfromServer.data)
                 this.props.history.push('/')         // Redirect with RRD props
@@ -55,8 +55,11 @@ class Login extends Component {
                                 <img class="logo" src={mainLogo} alt="IronHome"></img>
                             </div>
                             <div className='Form-Box'>
-                                <h3>Inciar Sesión</h3>
+                                <h3>Registrarse</h3>
                                 <Form onSubmit={this.handleFormSubmit}>
+                                    <Form.Group controlId="name">
+                                        <Form.Control type="text" value={this.state.name} onChange={this.handleInputChange} name="name" placeholder="Nombre" />
+                                    </Form.Group>
                                     <Form.Group controlId="mail">
                                         <Form.Control type="text" value={this.state.mail} onChange={this.handleInputChange} name="mail" placeholder="Email" />
                                     </Form.Group>
@@ -65,11 +68,11 @@ class Login extends Component {
                                         <Form.Control type="password" value={this.state.pwd} onChange={this.handleInputChange} name="pwd" placeholder="Constraseña" />
                                     </Form.Group>
 
-                                    <Button className='Button-Box' type="submit">Acceder</Button>
+                                    <Button className='Button-Box' type="submit">Registrarse</Button>
                                 </Form>
                             </div>
                             <div className='Span-Box'>
-                                <span><Link to="/">Registrarse</Link></span>
+                                <span><Link to="/iniciar-sesion">Login</Link></span>
                             </div>
                         </div>
                     </Col>
@@ -82,4 +85,4 @@ class Login extends Component {
 }
 
 
-export default Login
+export default Signup

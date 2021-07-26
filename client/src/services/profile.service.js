@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class Profile {
+class ProfileService {
 
     constructor() {
         this.app = axios.create({
@@ -14,4 +14,4 @@ class Profile {
     editProfile = (user_id, mail, name, lastName, DNI, phone, image) => this.app.put(`/edit?user_id=${user_id}`, { mail, name, lastName, DNI, phone, image })
 }
 
-export default Profile
+export default ProfileService

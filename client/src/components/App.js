@@ -1,10 +1,11 @@
 import { Component } from 'react'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 import Routes from './routes'
 import Navigation from './layout/Navigation/Navigation'
-// import Footer from './layout/Footer/Footer'
+import Footer from './layout/Footer/Footer'
 import AuthService from '../services/auth.service'
 
 
@@ -38,7 +39,7 @@ class App extends Component {
 
         <Routes storeUser={this.storeUser} loggedUser={this.state.loggedUser} />
 
-        {/* <Footer /> */}
+        <Footer />
       </>
     )
   }

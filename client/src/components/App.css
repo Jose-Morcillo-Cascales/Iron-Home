@@ -1,11 +1,12 @@
 body {
   font-family: 'Roboto',sans-serif !important;
+  padding-top: 5.5em!important;
 }
 
-h1, h2 {
+h1, h2, h3 {
     padding: 0;
     margin: 0 0 1.45rem;
-    color: inherit;
+    color: #2D354C;
     text-rendering: optimizeLegibility;
     line-height: 1.1;
 }

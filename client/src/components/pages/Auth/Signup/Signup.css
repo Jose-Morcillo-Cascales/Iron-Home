@@ -1,0 +1,66 @@
+.container-fluid{
+    background: url('https://res.cloudinary.com/dzbcqgzcb/image/upload/v1627241094/IronHome/bg-login_qwclot.png') no-repeat center center fixed;;
+    width: 100%;
+}
+
+.Login-Box{
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 80px auto;
+    max-width: 380px;
+    padding: 24px 32px 32px;
+    justify-content: center;
+}
+
+.Logo-Box{
+    margin-bottom: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.Logo-Box img{
+    width: 15vh;
+}
+
+.Form-Box{
+    text-align: center;
+}
+
+.Form-Box input{
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    padding: 8px 16px;
+    width: 300px;
+    margin-top: 1.2em;
+}
+
+.Button-Box{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #217cb7;
+    border-color: #217cb7;
+    padding: .5em;
+    font-size: 18px;
+
+}
+.Button-Box:hover{
+    background-color: #2D354C;
+    border-color: #2D354C;
+}
+
+.Span-Box{
+    margin-top: 1.2em;
+}
+
+.Span-Box a{
+    color: #217cb7;
+    text-decoration: none;
+}
+
+.Span-Box a:hover{
+    color: #2D354C;
+}
