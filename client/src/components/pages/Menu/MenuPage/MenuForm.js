@@ -16,25 +16,32 @@ class MenuForm extends Component {
                 dish: [],
             },
             modal: false,
-            loading: false
+            loading: false,
+            menu_id: ''
+
         }
         this.MenuPurchase = new MenuPurchase()
 
     }
 
-
     handleInputChange = e => {
-        console.log(e.target.name)
         const { name, value } = e.target
         this.setState({ menu: { ...this.state.menu, [name]: value } })
-        console.log(this.state.menu, 'este es el menu')
     }
-    handleCheckbox = newFood => {
+
+    handleCheckbox = (id, checked) => {
+        console.log('esto me llega', id, checked)
+
         const menuCopy = { ...this.state.menu }
-        console.log(menuCopy)
-        menuCopy.dish.push(newFood)
+        if (checked === true) {
+            menuCopy.dish.push(id)
+        }
+        if (checked === false) {
+            menuCopy.dish.splice(menuCopy.dish.indexOf(id), 1)
+        }
         this.setState({ menu: menuCopy })
-        console.log(this.state.menu.dish, 'este es el array de platos')
+        console.log(menuCopy)
+
     }
 
     handleFormSubmit = e => {
@@ -42,14 +49,17 @@ class MenuForm extends Component {
 
         this.MenuPurchase
             .newMenu(this.state.menu.date, this.state.menu.dish)
-            .then(() => {
+            .then(response => {
                 this.setState({ menu: { date: '', dish: [] } })
             })
             .catch(err => console.log(err))
     }
 
 
-
+    PriceMenu(Alldishes) {
+        let finalPrice = Alldishes * 6
+        return finalPrice
+    }
 
 
     render() {
@@ -66,26 +76,24 @@ class MenuForm extends Component {
 
                     <Form.Label>Platos del dia</Form.Label>
 
-                    <FoodList handleCheckbox={this.handleCheckbox} />
+                    <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
 
 
                     <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
                         {this.state.loading ? 'Tomando nota' : 'Comprar menu'}
                     </Button>
 
-
-
                     <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
                         <Modal.Header>
                             <Modal.Title>Recibo Menu</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <MenuDetails menu_id={this.state.menu.id} key={this.state.menu.id} closeModal={() => this.setState({ modal: false })} />
+                            <MenuDetails menu_id={this.state.menu_id} key={this.state.menu.id} closeModal={() => this.setState({ modal: false })} />
                         </Modal.Body>
                     </Modal>
 
                 </Form>
-
+                <h1>{this.PriceMenu(this.state.menu.dish.length)}</h1>
             </Container >
         )
     }

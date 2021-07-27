@@ -2,15 +2,11 @@
 import Container from 'react-bootstrap/esm/Container'
 import MenuForm from './MenuForm'
 
-const MenuPage = ({ loggedUser }) => {
+const MenuPage = ({ loggedUser, match }) => {
 
     return (
         <Container>
-
-
-            <MenuForm loggedUser={loggedUser} />
-
-
+            <MenuForm match={match} loggedUser={loggedUser} />
         </Container>
     )
 }

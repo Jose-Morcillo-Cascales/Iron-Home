@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Container, Row, Col, Button, Image } from 'react-bootstrap'
+import { Container, Row, Col, Button, Image, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ProfileService from './../../../../services/profile.service'
 
@@ -8,7 +8,8 @@ class ProfileDetails extends Component {
     constructor() {
         super()
         this.state = {
-            profile: undefined
+            profile: undefined,
+            modal: false
         }
         this.profileService = new ProfileService()
     }
@@ -52,17 +53,27 @@ class ProfileDetails extends Component {
                                 <li>{this.state.profile.phone}</li>
                                 <li>{this.state.profile.role}</li>
                             </ul>
-                            <Button className="btn btn-dark">Editar perfil</Button>
+                            <Link to={`/perfil/edit?user_id=${this.state.profile.id}`} >
+                                <Button className="btn btn-dark">Editar perfil</Button>
+                            </Link>
+
 
                         </Col>
                     </Row>
-
                 }
-
+                {/*  <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
+                    <Modal.Header>
+                        <Modal.Title>Recibo Menu</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <MenuDetails key={this.state.profile.id} closeModal={() => this.setState({ modal: false })} />
+                    </Modal.Body>
+                </Modal>
+ */}
             </Container>
         )
     }
 }
-
+// menu_id = { this.state.menu_id }
 
 export default ProfileDetails

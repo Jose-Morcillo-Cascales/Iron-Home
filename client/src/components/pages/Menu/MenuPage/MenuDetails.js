@@ -13,11 +13,11 @@ class MenuDetails extends Component {
     }
 
     loadMenuDetails() {
+        console.log(this.props)
 
-        const { menu_id } = this.props.match.params
 
         this.menuService
-            .menuDetails(menu_id)
+            .menuDetails(this.props.menu_id)
             .then(response => this.setState({ menu: response.data }))
             .catch(err => console.log(err))
 

@@ -40,8 +40,8 @@ class FoodList extends Component {
                 :
                 (<>
 
-                    <Row>
-                        {this.state.foods.map(elm => <FoodCard key={elm._id} {...elm} handleCheckbox={this.props.handleCheckbox} />)}
+                    <Row md={2}>
+                        {this.state.foods.map(elm => <FoodCard handleCheckbox={this.props.handleCheckbox} food={elm} key={elm._id} {...elm._id} />)}
 
                     </Row>
 
