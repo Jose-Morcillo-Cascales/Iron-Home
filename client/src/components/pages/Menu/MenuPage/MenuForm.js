@@ -17,31 +17,30 @@ class MenuForm extends Component {
             },
             modal: false,
             loading: false,
-            menu_id: '',
-            isChecked: false,
-            setIsChecked: false
+            menu_id: ''
+
         }
         this.MenuPurchase = new MenuPurchase()
 
     }
 
-    /* handleOnChange = () => {
-        this.state.setIsChecked(!this.state.isChecked)
-    } */
-
     handleInputChange = e => {
-
-
         const { name, value } = e.target
         this.setState({ menu: { ...this.state.menu, [name]: value } })
-
     }
-    handleCheckbox = newFood => {
+
+    handleCheckbox = (id, checked) => {
+        console.log('esto me llega', id, checked)
 
         const menuCopy = { ...this.state.menu }
-
-        menuCopy.dish.push(newFood)
+        if (checked === true) {
+            menuCopy.dish.push(id)
+        }
+        if (checked === false) {
+            menuCopy.dish.splice(menuCopy.dish.indexOf(id), 1)
+        }
         this.setState({ menu: menuCopy })
+        console.log(menuCopy)
 
     }
 
@@ -51,8 +50,6 @@ class MenuForm extends Component {
         this.MenuPurchase
             .newMenu(this.state.menu.date, this.state.menu.dish)
             .then(response => {
-                console.log(response)
-                this.setState({ menu_id: response.data.id })
                 this.setState({ menu: { date: '', dish: [] } })
             })
             .catch(err => console.log(err))
@@ -79,7 +76,7 @@ class MenuForm extends Component {
 
                     <Form.Label>Platos del dia</Form.Label>
 
-                    <FoodList handleCheckbox={this.handleCheckbox} handleOnChange={this.handleOnChange} checked={this.state.isChecked} />
+                    <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
 
 
                     <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>

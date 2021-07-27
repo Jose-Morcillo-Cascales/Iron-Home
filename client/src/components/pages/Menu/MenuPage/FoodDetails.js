@@ -30,20 +30,15 @@ class FoodDetails extends Component {
 
     loadFoodDetails() {
 
-        const { food_id } = this.props.match.params
-
         this.foodService
-            .foodDetails(food_id)
+            .foodDetails(this.props.food_id)
             .then(response => this.setState({ food: response.data }))
             .catch(err => console.log(err))
     }
+
     componentDidMount() {
         this.loadFoodDetails()
     }
-
-
-
-
 
     render() {
 

@@ -18,6 +18,7 @@ import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 import LaundryLanding from '../pages/Laundry/LaundryLanding'
 
 
+
 const Routes = ({ storeUser, loggedUser }) => {
 
     return (
@@ -34,7 +35,8 @@ const Routes = ({ storeUser, loggedUser }) => {
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} />} />
             <Route path="/registro" render={props => <Signup {...props} />} />
 
-            <Route path="/menu" exact render={() => <MenuPage loggedUser={loggedUser} />} />
+            <Route path="/menu" exact render={(props) => <MenuPage {...props} loggedUser={loggedUser} />} />
+
             <Route path="/menu/detalles-comida/:food_id" render={props => <FoodDetails loggedUser={loggedUser} {...props} />} />
             <Route path="/menu/crear" render={() => <MenuForm loggedUser={loggedUser} />} />
             <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
