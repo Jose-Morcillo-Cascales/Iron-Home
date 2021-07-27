@@ -33,10 +33,11 @@ class Login extends Component {
         this.authService
             .login(mail, pwd)
             .then(loggedUserfromServer => {
+                this.props.roomCheck()
                 this.props.storeUser(loggedUserfromServer.data)
                 this.props.history.push('/')         // Redirect with RRD props
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 
@@ -44,7 +45,7 @@ class Login extends Component {
     render() {
         return (
 
-            <div className='container-fluid' style={{ 'padding': "0" }} >
+            <div className='container-fluid con-login' style={{ 'padding': "0" }} >
 
 
                 <Row>
@@ -55,7 +56,7 @@ class Login extends Component {
                                 <img class="logo" src={mainLogo} alt="IronHome"></img>
                             </div>
                             <div className='Form-Box'>
-                                <h3>Inciar Sesión</h3>
+                                <h3>Iniciar Sesión</h3>
                                 <Form onSubmit={this.handleFormSubmit}>
                                     <Form.Group controlId="mail">
                                         <Form.Control type="text" value={this.state.mail} onChange={this.handleInputChange} name="mail" placeholder="Email" />

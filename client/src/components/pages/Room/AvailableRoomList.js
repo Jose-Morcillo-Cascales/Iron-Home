@@ -1,10 +1,11 @@
 import { Row, Container, DropdownButton, Dropdown } from "react-bootstrap"
 import { Component } from 'react'
-import RoomService from './../../../services/room.services'
+import RoomService from '../../../services/room.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
 import AvalaibleRoomCard from "./AvailableRoomCard"
+import Spinner from "../../shared/Spinner/Spinner"
 
 
 class AvalaibleRoom extends Component {
@@ -63,7 +64,7 @@ class AvalaibleRoom extends Component {
 
             !this.state.rooms
                 ?
-                <h3>CARGANDO...</h3>
+                <Spinner />
                 :
                 (<>
                     <Container>

@@ -1,4 +1,4 @@
-import { Col, Card, Row, Container, Button } from "react-bootstrap"
+import { Col, Row, Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -50,8 +50,8 @@ const LaundryLanding = () => {
             <Container>
                 <Row>
                     <div className='user-navegation'>
-                        <Link to={`/montañas-rusas/detalle/`}>
-                            <Button variant="dark" block >Ver detalles</Button>
+                        <Link to={'/lavanderia/reservas'}>
+                            <Button block >Comprar servicio</Button>
                         </Link>
                     </div>
                 </Row>

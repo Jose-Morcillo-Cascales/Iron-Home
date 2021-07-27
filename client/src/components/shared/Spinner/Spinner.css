@@ -1,0 +1,13 @@
+.cont-spinner {
+    width: 100%;
+    height: 80vh;
+}
+
+.Spinner-Box{
+    display: flex;
+    margin: 200px auto;
+    /* max-width: 380px; */
+    padding: 24px 32px 32px;
+    justify-content: center;
+    align-items: center;
+}

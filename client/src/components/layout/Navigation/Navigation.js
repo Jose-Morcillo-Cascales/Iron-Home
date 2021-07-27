@@ -6,14 +6,19 @@ import './Navigation.css'
 
 import AuthService from '../../../services/auth.service'
 
-const Navigation = ({ storeUser, loggedUser }) => {
+
+const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) => {
 
     const authserVice = new AuthService()
 
     const logout = () => {
         authserVice
             .logout()
-            .then(() => storeUser(undefined))
+            .then(() => {
+                showMessage('Has cerrado sesión')
+                roomCheck()
+                storeUser(undefined)
+            })
             .catch(err => console.log(err))
     }
 
@@ -29,7 +34,7 @@ const Navigation = ({ storeUser, loggedUser }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav className="mr-auto">
-                        <Link className="nav-link" to="/">Servicios</Link>
+                        <Link className="nav-link" to="/servicios">Servicios</Link>
                         <Link className="nav-link" to="/habitaciones">Habitaciones</Link>
 
                         {!loggedUser
@@ -40,9 +45,16 @@ const Navigation = ({ storeUser, loggedUser }) => {
                             </>
                             :
                             <>
-                                <Link className="nav-link" to="/menu">Menús</Link>
-                                <Link className="nav-link" to="/lavanderia">Lavanderia</Link>
-                                <Link className="nav-link" to="/mi-perfil">Biblioteca</Link>
+                                {hasRoom
+                                    ?
+                                    <>
+                                        <Link className="nav-link" to="/menu">Menús</Link>
+                                        <Link className="nav-link" to="/lavanderia">Lavanderia</Link>
+                                        <Link className="nav-link" to="/mi-perfil">Biblioteca</Link>
+                                    </>
+                                    :
+                                    null
+                                }
                                 <NavDropdown title="Perfil" id="navbarScrollingDropdown">
                                     <NavDropdown.Item><Link className="nav-link" to="/perfil">Perfil</Link></NavDropdown.Item>
                                     <NavDropdown.Item><Link className="nav-link" to="/mi-perfil">Mi Wallet</Link></NavDropdown.Item>

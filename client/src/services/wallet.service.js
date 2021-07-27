@@ -11,7 +11,6 @@ class Wallet {
 
     walletDetails = () => this.app.get('/')
     editWallet = (balance) => this.app.put(`/topUp`, { balance })
-    roomDetails = (room_id) => this.app.get(`/${room_id}`)
 
 }
 

@@ -14,22 +14,31 @@ import MenuForm from '../pages/Menu/MenuPage/MenuForm'
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 
 import LaundryLanding from '../pages/Laundry/LaundryLanding'
+import LaundryBooking from '../pages/Laundry/LaundryBooking'
+import Spinner from '../shared/Spinner/Spinner'
 
-const Routes = ({ storeUser, loggedUser }) => {
+
+
+
+const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
 
     return (
         <Switch>
             <Route path="/" exact render={() => <HomePage />} />
+            <Route path="/servicios" exact render={() => <Spinner />} />
+
 
             <Route path="/habitaciones" exact render={() => <RoomOption />} />
             <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
-            <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
-            <Route path="/lavanderia" render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/lavanderia" exact render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/lavanderia/reservas" render={props => loggedUser ? <LaundryBooking loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
 
-            <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} />} />
-            <Route path="/registro" render={props => <Signup {...props} />} />
+
+            <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} roomCheck={roomCheck} showMessage={showMessage} />} />
+            <Route path="/registro" render={props => <Signup {...props} storeUser={storeUser} />} />
 
             <Route path="/menu" exact render={() => <MenuPage loggedUser={loggedUser} />} />
             <Route path="/menu/detalles-comida/:food_id" render={props => <FoodDetails loggedUser={loggedUser} {...props} />} />

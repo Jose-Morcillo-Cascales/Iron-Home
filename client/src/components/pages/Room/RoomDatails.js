@@ -1,7 +1,8 @@
 import { Component } from 'react'
-import RoomService from './../../../services/room.services'
+import RoomService from '../../../services/room.service'
 import { Container, Row, Col, Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Spinner from "../../shared/Spinner/Spinner"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -37,7 +38,7 @@ class RoomDetails extends Component {
 
                 {!this.state.rooms
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <>
                         <Container>

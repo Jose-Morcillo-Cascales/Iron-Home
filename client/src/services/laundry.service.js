@@ -9,7 +9,7 @@ class LaundryService {
         })
     }
 
-    bookingLaundry = (bookingDate, user, type, quantity) => this.app.post('/bookingService', { bookingDate, user, type, quantity })
+    bookingLaundry = (booking) => this.app.post('/bookingService', booking)
     deleteBooking = service_id => this.app.delete(`/deleteBooking?service_id=${service_id}`)
 }
 

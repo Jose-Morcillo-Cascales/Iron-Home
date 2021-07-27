@@ -1,18 +1,23 @@
-import { Container, Row } from 'react-bootstrap'
-import Loader from "react-loader-spinner";
+import { Col, Container, Row } from 'react-bootstrap'
+import Loader from "react-loader-spinner"
+import './Spinner.css'
 
 const Spinner = () => {
     return (
-        <div className='container-fluid' style={{ 'padding': "0" }} >
+        <div className='container-fluid cont-spinner'>
 
-            <Row className="justify-content-md-center mt-5">
-                <Loader
-                    type="Puff"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={10000}
-                />
+            <Row className='align-items-center'>
+                <Col md={{ span: 4, offset: 4 }}>
+                    <div className='Spinner-Box'>
+                        <Loader
+                            type="Circles"
+                            color="#217cb7"
+                            height={60}
+                            width={60}
+                            timeout={40000}
+                        />
+                    </div>
+                </Col>
             </Row>
         </div>
     )

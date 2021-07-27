@@ -1,4 +1,4 @@
-import { Row, Container } from "react-bootstrap"
+import { Row, Container, Col } from "react-bootstrap"
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,7 @@ import '../../shared/UserNavigation/UserNavigation.css'
 import Spinner from "../../shared/Spinner/Spinner"
 
 
-import RoomService from './../../../services/room.services'
+import RoomService from '../../../services/room.service'
 import RoomOptionCard from './RoomCard'
 
 class RoomOption extends Component {
@@ -42,7 +42,7 @@ class RoomOption extends Component {
 
             !this.state.rooms
                 ?
-                <Spinner></Spinner>
+                <Spinner />
                 :
                 (<>
                     <Container>
@@ -53,9 +53,11 @@ class RoomOption extends Component {
                         </Row>
                     </Container>
                     <Container>
-                        <Row xs={1} md={2} className="g-4">
-                            {this.state.rooms.map(elm => <RoomOptionCard key={elm._id} {...elm} />)}
-                        </Row>
+                        <Col md={{ span: 10, offset: 1 }}>
+                            <Row xs={1} md={2} className="g-4">
+                                {this.state.rooms.map(elm => <RoomOptionCard key={elm._id} {...elm} />)}
+                            </Row>
+                        </Col>
                         <Link to="/habitaciones/disponibles" className="btn btn-primary">Reservar</Link>
 
                     </Container>

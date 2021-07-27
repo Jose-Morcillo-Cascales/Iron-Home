@@ -44,7 +44,7 @@ class Signup extends Component {
     render() {
         return (
 
-            <div className='container-fluid' style={{ 'padding': "0" }} >
+            <div className='container-fluid con-signup' style={{ 'padding': "0" }} >
 
 
                 <Row>

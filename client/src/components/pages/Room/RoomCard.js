@@ -6,7 +6,7 @@ const RoomOptionCard = ({ image, _id, name }) => {
     return (
 
         <Col>
-            <Card>
+            <Card className='room-card'>
                 <Card.Img variant="top" src={image[0]} />
                 <Card.Body>
                     <Card.Title><Link to={`/habitaciones/detalles/${_id}`}>{name}</Link></Card.Title>
