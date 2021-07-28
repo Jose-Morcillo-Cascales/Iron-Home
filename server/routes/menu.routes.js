@@ -33,7 +33,7 @@ router.post('/newMenu', (req, res) => {
 
   const user = req.session.currentUser._id
   const { dish, date } = req.body
-  //dish will be a checkbox
+
 
   Wallet
     .findOne({ user })

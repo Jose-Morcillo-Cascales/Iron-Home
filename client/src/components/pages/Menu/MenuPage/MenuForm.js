@@ -16,7 +16,6 @@ class MenuForm extends Component {
                 dish: [],
             },
             modal: false,
-            loading: false,
             menu_id: ''
 
         }
