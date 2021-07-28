@@ -79,7 +79,7 @@ class WalletDetails extends Component {
                             <Tab eventKey="home" title="Mi Wallet">
                                 <Row>
                                     <Col md={8}>
-                                        {/* <img class="logo-tokens" src={logoTokens} alt="IronTokens"></img> */}
+                                        {/* <img className="logo-tokens" src={logoTokens} alt="IronTokens"></img> */}
                                         <h1>Iron Wallet</h1>
                                         <h4>Titular:</h4>
                                         <p>{this.props.loggedUser.name}</p>

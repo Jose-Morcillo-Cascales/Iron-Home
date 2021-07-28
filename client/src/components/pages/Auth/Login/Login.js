@@ -53,7 +53,7 @@ class Login extends Component {
                     <Col md={{ span: 4, offset: 4 }}>
                         <div className='Login-Box'>
                             <div className='Logo-Box'>
-                                <img class="logo" src={mainLogo} alt="IronHome"></img>
+                                <img className="logo" src={mainLogo} alt="IronHome"></img>
                             </div>
                             <div className='Form-Box'>
                                 <h3>Iniciar Sesión</h3>
