@@ -1,14 +1,15 @@
 import { Component } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import MenuPurchase from '../../../../services/menu.service'
 import Spinner from './../../../shared/Spinner/Spinner'
 class FoodDetails extends Component {
 
-    constructor() {
-        super()
+    constructor(prop) {
+        super(prop)
         this.state = {
-            food: undefined
+            food: undefined,
+            modal: false
         }
         this.foodService = new MenuPurchase()
         this.vegetableboolean = elm => !elm ? 'Este plato contiene productos carnicos' : 'Plato vegetariano'
@@ -63,7 +64,7 @@ class FoodDetails extends Component {
 
                             <hr></hr>
 
-                            <Link to="/menu" className="btn btn-dark">Volver al listado</Link>
+                            <Button onClick={() => this.props.closeModal()} />
 
                         </Col>
 

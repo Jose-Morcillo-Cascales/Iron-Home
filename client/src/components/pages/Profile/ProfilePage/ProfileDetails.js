@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Container, Row, Col, Button, Image, Modal } from 'react-bootstrap'
+import { Container, Row, Col, Card, Image, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ProfileForm from './ProfileForm'
 import ProfileService from './../../../../services/profile.service'
@@ -11,7 +11,8 @@ class ProfileDetails extends Component {
         super()
         this.state = {
             profile: undefined,
-            modal: false
+            modal: false,
+            wallet: undefined
         }
         this.profileService = new ProfileService()
     }
@@ -19,7 +20,7 @@ class ProfileDetails extends Component {
     loadProfileDetails() {
 
         this.profileService
-            .profile()
+            .profile(this.state)
             .then(response => {
                 this.setState({ profile: response.data })
                 console.log(this.state.profile)
@@ -28,8 +29,18 @@ class ProfileDetails extends Component {
 
     }
 
+    loadWalletBalance = () => {
+        this.profileService
+            .profileWallet()
+            .then(response => {
+                this.setState({ wallet: response.data.balance })
+                console.log(response.data)
+            })
+    }
+
     componentDidMount() {
         this.loadProfileDetails()
+        this.loadWalletBalance()
     }
 
 
@@ -52,7 +63,7 @@ class ProfileDetails extends Component {
 
                             <Col md={4}>
 
-                                <h1>{this.state.profile.name}{this.state.profile.surname}</h1>
+                                <h1>{this.state.profile.name} {this.state.profile.lastName}</h1>
                                 <h5>{this.state.profile.DNI}</h5>
                                 <ul>
                                     <li>{this.state.profile.mail}</li>
@@ -63,11 +74,18 @@ class ProfileDetails extends Component {
 
 
                             </Col>
+                            <Card className="food-card">
+
+                                <Card.Body>
+                                    <Card.Title>{this.state.wallet}</Card.Title>
+
+                                </Card.Body>
+                            </Card>
                         </Row>
 
                         <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
                             <Modal.Body>
-                                <ProfileForm profile_id={this.state.profile._id} key={this.state.profile._id} closeModal={() => this.setState({ modal: false })} />
+                                <ProfileForm refreshProfile={() => this.loadProfileDetails()} profile={this.state.profile} key={this.state.profile._id} closeModal={() => this.setState({ modal: false })} />
                             </Modal.Body>
                         </Modal>
                     </>
@@ -77,6 +95,6 @@ class ProfileDetails extends Component {
         )
     }
 }
-// menu_id = { this.state.menu_id }
+
 
 export default ProfileDetails

@@ -11,7 +11,7 @@ class ProfileService {
 
     profile = () => this.app.get('/')
     profileWallet = () => this.app.get('/wallet')
-    editProfile = (user_id, mail, name, lastName, DNI, phone, image) => this.app.put(`/edit?user_id=${user_id}`, { mail, name, lastName, DNI, phone, image })
+    editProfile = (Profile) => this.app.put(`/edit`, Profile)
 }
 
 export default ProfileService
