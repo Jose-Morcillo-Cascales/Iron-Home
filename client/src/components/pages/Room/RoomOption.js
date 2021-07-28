@@ -26,7 +26,10 @@ class RoomOption extends Component {
     loadRooms = () => {
         this.RoomService
             .roomOptions()
-            .then(response => this.setState({ rooms: response.data }))
+            .then(response => {
+                console.log(response.data)
+                this.setState({ rooms: response.data })
+            })
             .catch(err => console.log(err))
     }
 

@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import MenuPurchase from '../../../../services/menu.service'
-
+import Spinner from './../../../shared/Spinner/Spinner'
 class MenuDetails extends Component {
 
     constructor() {
@@ -43,7 +43,7 @@ class MenuDetails extends Component {
 
                 {!this.state.menu
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <Row className="justify-content-around">
                         <Col md={4}>

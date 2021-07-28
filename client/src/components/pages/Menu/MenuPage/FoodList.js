@@ -4,7 +4,7 @@ import { Form, Row, Col } from 'react-bootstrap'      // Button, Modal
 import CoasterForm from '../CoasterForm/CoasterForm' */
 import MenuPurchase from '../../../../services/menu.service'
 import FoodCard from './FoodCard'
-
+import Spinner from './../../../shared/Spinner/Spinner'
 class FoodList extends Component {
 
     constructor() {
@@ -36,7 +36,7 @@ class FoodList extends Component {
 
             !this.state.foods
                 ?
-                <h3>CARGANDO...</h3>
+                <Spinner />
                 :
                 (<>
 

@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import MenuPurchase from '../../../../services/menu.service'
-
+import Spinner from './../../../shared/Spinner/Spinner'
 class FoodDetails extends Component {
 
     constructor() {
@@ -48,7 +48,7 @@ class FoodDetails extends Component {
 
                 {!this.state.food
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <Row className="justify-content-around">
                         <Col md={6}>

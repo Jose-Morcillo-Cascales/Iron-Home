@@ -4,6 +4,7 @@ import { Container, Card, Button, Col, Form, FormCheck, Modal } from 'react-boot
 import { Link } from 'react-router-dom'
 import MenuPurchase from '../../../../services/menu.service'
 import FoodDetails from './FoodDetails'
+import Spinner from './../../../shared/Spinner/Spinner'
 
 
 class FoodCard extends Component {
@@ -51,7 +52,7 @@ class FoodCard extends Component {
 
                 {!this.props.food
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <Col md={4}>
                         <Form.Group as={Col} controlId="dish">

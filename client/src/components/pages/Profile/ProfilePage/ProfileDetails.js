@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { Container, Row, Col, Button, Image, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ProfileService from './../../../../services/profile.service'
+import Spinner from './../../../shared/Spinner/Spinner'
 
 class ProfileDetails extends Component {
 
@@ -36,7 +37,7 @@ class ProfileDetails extends Component {
 
                 {!this.state.profile
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <Row className="justify-content-around">
 
@@ -53,7 +54,7 @@ class ProfileDetails extends Component {
                                 <li>{this.state.profile.phone}</li>
                                 <li>{this.state.profile.role}</li>
                             </ul>
-                            <Link to={`/perfil/edit?user_id=${this.state.profile.id}`} >
+                            <Link to={`/perfil/edit?user_id=${this.state.profile._id}`} >
                                 <Button className="btn btn-dark">Editar perfil</Button>
                             </Link>
 
@@ -62,14 +63,11 @@ class ProfileDetails extends Component {
                     </Row>
                 }
                 {/*  <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
-                    <Modal.Header>
-                        <Modal.Title>Recibo Menu</Modal.Title>
-                    </Modal.Header>
                     <Modal.Body>
-                        <MenuDetails key={this.state.profile.id} closeModal={() => this.setState({ modal: false })} />
+                        <FoodDetails food_id={this.props.food._id} key={this.props.food._id} closeModal={() => this.setState({ modal: false })} />
                     </Modal.Body>
-                </Modal>
- */}
+                </Modal> */}
+
             </Container>
         )
     }

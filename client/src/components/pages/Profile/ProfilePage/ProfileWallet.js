@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import ProfileService from './../../../../services/profile.service'
+import Spinner from './../../../shared/Spinner/Spinner'
 
 class ProfileWallet extends Component {
 
@@ -35,7 +36,7 @@ class ProfileWallet extends Component {
 
                 {!this.state.wallet
                     ?
-                    <h3>Cargando</h3>
+                    <Spinner />
                     :
                     <Row className="justify-content-around">
 
