@@ -16,7 +16,6 @@ class LaundryBooking extends Component {
             dark: false,
             delicate: false,
             user: '',
-            total: 0
         }
         this.laundryService = new LaundryService()
     }
@@ -32,10 +31,9 @@ class LaundryBooking extends Component {
     }
 
 
-    totalService = () => {
-        let totalCount = this.state.quantity * 8
-        console.log(totalCount, this.state.quantity)
-        this.setState({ total: totalCount })
+    totalService = (tulaQuantity) => {
+        let totalCount = tulaQuantity * 8
+        return totalCount
 
     }
 
@@ -101,7 +99,7 @@ class LaundryBooking extends Component {
                                 <p><strong>Cantidad:</strong> {this.state.quantity}</p>
                                 <p><strong>Precio:</strong> 8 TOKENS/Tula</p>
                                 <hr></hr>
-                                <h4><strong>Total:</strong>{this.state.total} </h4>
+                                <h4><strong>Total:</strong>{this.totalService(this.state.quantity)} </h4>
                             </div>
 
                         </Col>

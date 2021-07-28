@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Container, Row, Col, Button, Image, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import ProfileForm from './ProfileForm'
 import ProfileService from './../../../../services/profile.service'
 import Spinner from './../../../shared/Spinner/Spinner'
 
@@ -19,7 +20,10 @@ class ProfileDetails extends Component {
 
         this.profileService
             .profile()
-            .then(response => this.setState({ profile: response.data }))
+            .then(response => {
+                this.setState({ profile: response.data })
+                console.log(this.state.profile)
+            })
             .catch(err => console.log(err))
 
     }
@@ -39,34 +43,35 @@ class ProfileDetails extends Component {
                     ?
                     <Spinner />
                     :
-                    <Row className="justify-content-around">
+                    <>
+                        <Row className="justify-content-around">
 
-                        <Col md={4}>
-                            <Image src={this.state.profile.image} />
-                        </Col>
+                            <Col md={4}>
+                                <Image src={this.state.profile.image} />
+                            </Col>
 
-                        <Col md={4}>
+                            <Col md={4}>
 
-                            <h1>{this.state.profile.name}{this.state.profile.surname}</h1>
-                            <h5>{this.state.profile.DNI}</h5>
-                            <ul>
-                                <li>{this.state.profile.mail}</li>
-                                <li>{this.state.profile.phone}</li>
-                                <li>{this.state.profile.role}</li>
-                            </ul>
-                            <Link to={`/perfil/edit?user_id=${this.state.profile._id}`} >
-                                <Button className="btn btn-dark">Editar perfil</Button>
-                            </Link>
+                                <h1>{this.state.profile.name}{this.state.profile.surname}</h1>
+                                <h5>{this.state.profile.DNI}</h5>
+                                <ul>
+                                    <li>{this.state.profile.mail}</li>
+                                    <li>{this.state.profile.phone}</li>
+                                    <li>{this.state.profile.role}</li>
+                                </ul>
+                                <Link onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
 
 
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
+
+                        <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
+                            <Modal.Body>
+                                <ProfileForm profile_id={this.state.profile._id} key={this.state.profile._id} closeModal={() => this.setState({ modal: false })} />
+                            </Modal.Body>
+                        </Modal>
+                    </>
                 }
-                {/*  <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
-                    <Modal.Body>
-                        <FoodDetails food_id={this.props.food._id} key={this.props.food._id} closeModal={() => this.setState({ modal: false })} />
-                    </Modal.Body>
-                </Modal> */}
 
             </Container>
         )
