@@ -46,7 +46,7 @@ class App extends Component {
         this.storeUser(theLoggedUser.data)
         this.roomCheck()
       })
-      .catch(() => this.storeUser(undefined))
+      .catch(() => this.storeUser(null))
   }
 
 

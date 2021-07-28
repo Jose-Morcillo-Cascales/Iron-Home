@@ -12,7 +12,7 @@ router.get('/foodList', checkLoggedUser, (req, res) => {
   Food
     .find()
     .then(response => res.json(response))
-    .catch(err => console.log(err))
+    .catch(res.status(401).json({ message: 'Ha ocurrido un error al listar los platos de comida', err }))
 })
 
 
@@ -24,7 +24,7 @@ router.get('/foodDetails/:food_id', checkLoggedUser, (req, res) => {
   Food
     .findById(food_id)
     .then(response => res.json(response))
-    .catch(err => console.log(err))
+    .catch(res.json({ message: 'Ha ocurrido un error al cargar los detalles de el plato', err }))
 })
 
 
@@ -50,11 +50,11 @@ router.post('/newMenu', (req, res) => {
 
       } else {
 
-        res.json({ message: 'No enough tokens in your menu' })
+        res.json({ message: 'No tiene suficientes tokens' })
       }
     })
-    .then(() => res.json({ message: 'Menu purchased sucefully' }))
-    .catch(err => console.log(err))
+    .then(() => res.json({ message: 'Su menu ya esta reservado' }))
+    .catch(res.json({ message: 'Ha ocurrido un error', err }))
 })
 
 
@@ -77,8 +77,8 @@ router.delete('/delete', checkLoggedUser, (req, res) => {
 
       return Promise.all([menuDeletePromise, walletUpdatePromise])
     })
-    .then(() => res.json({ message: 'Menu sucefully deleted' }))
-    .catch(err => console.log(err))
+    .then(() => res.json({ message: 'Su menu ha sido cancelado correctamente' }))
+    .catch(res.json({ message: 'Ha ocurrido un error', err }))
 })
 
 
@@ -92,7 +92,7 @@ router.get("/details/:menu_id", checkLoggedUser, (req, res) => {
     .findById(user, { menu_id })
     .populate('dish')
     .then(response => res.json(response))
-    .catch(err => console.log(err))
+    .catch(res.status(401).json({ message: 'Ha ocurrido un error', err }))
 })
 
 

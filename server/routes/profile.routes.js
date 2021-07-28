@@ -12,7 +12,7 @@ router.get('/', checkLoggedUser, (req, res) => {
   User
     .findById(user_id)
     .then(response => res.json(response))
-    .catch(err => res.status(500).json({ code: 500, message: 'Error fetching user', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Error cargando usuario', err }))
 })
 
 
@@ -25,7 +25,7 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
     .findOne({ user: user_id })
     .select('balance')
     .then(response => res.json(response))
-    .catch(err => res.status(500).json({ code: 500, message: 'Error fetching wallet', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Error cargando wallet', err }))
 })
 
 
@@ -39,7 +39,7 @@ router.put('/edit', checkLoggedUser, (req, res) => {
   User
     .findByIdAndUpdate(user_id, { name, lastName, DNI, phone, image })
     .then(response => { res.json(response) })
-    .catch(err => res.status(500).json({ code: 500, message: 'Error editing user', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Error editando usuario', err }))
 
 })
 

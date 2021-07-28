@@ -43,11 +43,11 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
 
             <Route path="/menu" exact render={(props) => loggedUser ? <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
-            <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
+            <Route path="/menu/detalles-menu/:menu_id" render={(props) => loggedUser ? <MenuDetails loggedUser={loggedUser} {...props} /> : <Redirect to="/iniciar-sesion" />} />
 
-            <Route path="/perfil" render={() => <ProfileDetails loggedUser={loggedUser} />} />
-            <Route path="/perfil/editar?user_id=user_id" render={props => <ProfileForm loggedUser={loggedUser} {...props} />} />
-            <Route path="/perfil/wallet" render={() => <ProfileWallet loggedUser={loggedUser} />} />
+            <Route path="/perfil" render={(props) => loggedUser ? <ProfileDetails loggedUser={loggedUser} {...props} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/perfil/editar?user_id=user_id" render={(props) => loggedUser ? <ProfileForm loggedUser={loggedUser} {...props} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/perfil/wallet" render={(props) => loggedUser ? <ProfileWallet loggedUser={loggedUser} /> : <Redirect to="/iniciar-sesion" />} />
         </Switch>
     )
 }
