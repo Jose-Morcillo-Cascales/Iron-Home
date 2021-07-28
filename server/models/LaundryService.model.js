@@ -26,6 +26,9 @@ const laundryServiceSchema = new Schema({
   },
   quantity: {
     type: Number
+  },
+  total: {
+    type: Number
   }
 },
   { timestamps: true }

@@ -8,7 +8,7 @@ import Spinner from "../../shared/Spinner/Spinner"
 import WalletService from "../../../services/wallet.service"
 
 
-class walletDetails extends Component {
+class WalletDetails extends Component {
 
     constructor() {
         super()
@@ -47,7 +47,7 @@ class walletDetails extends Component {
 
         return (
 
-            !this.state.rooms
+            !this.state.wallet
                 ?
                 <Spinner />
                 :
@@ -72,5 +72,5 @@ class walletDetails extends Component {
     }
 }
 
-export default walletDetails
+export default WalletDetails
 

@@ -3,7 +3,7 @@ const Food = require('./../models/Food.model')
 const MenuPurchase = require('./../models/MenuPurchase.model')
 const Wallet = require('./../models/Wallet.model')
 const { checkLoggedUser } = require('./../middleware')
-const { removeBalance, repay } = require('./../utils')
+const { removeBalance, repay, totalTokens } = require('./../utils')
 
 
 //Food-list
@@ -38,6 +38,8 @@ router.post('/newMenu', (req, res) => {
   Wallet
     .findOne({ user })
     .then(response => {
+
+      //let total = totalTokens(quantity, 6)
       let balance = removeBalance(response.balance, dish.length, 6)
 
       if (balance >= 0) {

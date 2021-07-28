@@ -30,9 +30,11 @@ class App extends Component {
   roomCheck = () => {
     this.roomService
       .roomVerification()
-      .then(room => !room ? this.setState({ hasRoom: false }) : this.setState({ hasRoom: true }))
+      .then(room => !room.data ? this.setState({ hasRoom: false }) : this.setState({ hasRoom: true }))
       .catch(err => console.log(err))
   }
+
+
 
   storeUser = loggedUser => this.setState({ loggedUser })
   showMessage = text => this.setState({ alert: { show: true, text } })
