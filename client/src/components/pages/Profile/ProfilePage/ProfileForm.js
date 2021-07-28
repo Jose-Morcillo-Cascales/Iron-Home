@@ -1,26 +1,27 @@
 import { Component } from 'react'
 import { Form, Button, Container, Modal } from 'react-bootstrap'
 import ProfileService from '../../../../services/profile.service'
-
+import UploadsService from '../../../../services/uploads.service'
 
 
 class ProfileForm extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             profile: {
-                name: '',
-                lastName: '',
-                DNI: '',
-                phone: '',
-                image: '',
+                name: props.profile.name,
+                lastName: props.profile.lastName,
+                DNI: props.profile.DNI,
+                phone: props.profile.phone,
+                image: props.profile.image,
+
             },
             modal: false,
             loading: false
         }
         this.profileservice = new ProfileService()
-
+        this.uploadsService = new UploadsService()
     }
 
 
@@ -29,25 +30,43 @@ class ProfileForm extends Component {
         this.setState({ profile: { ...this.state.profile, [name]: value } })
     }
 
-
     handleFormSubmit = e => {
-        e.preventDefault()
 
+        e.preventDefault()
         this.profileservice
-            .newMenu(this.state.profile)
-            .then(() => {
+            .editProfile(this.state.profile)
+            .then((response) => {
+                this.setState({ profile: response })
+                this.props.closeModal()
+                this.props.refreshProfile()
+
+                console.log(this.state.profile)
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleFileUpload = e => {
+
+        this.setState({ loading: true })
+
+        const uploadData = new FormData()
+        uploadData.append('imageData', e.target.files[0])
+
+        this.uploadsService
+            .uploadImage(uploadData)
+            .then(response => {
                 this.setState({
-                    profile: {
-                        name: '',
-                        lastName: '',
-                        DNI: '',
-                        phone: '',
-                        image: '',
-                    }
+                    loading: false,
+                    profile: { ...this.state.profile, image: response.data.cloudinary_url }
                 })
             })
             .catch(err => console.log(err))
     }
+
+
+    // componentDidMount() {
+    //     this.props.refreshProfile()
+    // }
 
 
     render() {
@@ -58,21 +77,30 @@ class ProfileForm extends Component {
 
                     <Form.Group controlId="name">
                         <Form.Label>Nombre:</Form.Label>
-                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="name" />
+                        <Form.Control type="text" value={this.state.profile.name} onChange={this.handleInputChange} name="name" />
                     </Form.Group>
-                    <Form.Group controlId="lasName">
+                    <Form.Group controlId="lastName">
                         <Form.Label>Apellido:</Form.Label>
-                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="lasName" />
+                        <Form.Control type="text" value={this.state.profile.lastName} onChange={this.handleInputChange} name="lastName" />
                     </Form.Group>
 
                     <Form.Group controlId="DNI">
                         <Form.Label>DNI:</Form.Label>
-                        <Form.Control type="text" value={this.state.profile.date} onChange={this.handleInputChange} name="DNI" />
+                        <Form.Control type="text" value={this.state.profile.DNI} onChange={this.handleInputChange} name="DNI" />
                     </Form.Group>
 
                     <Form.Group controlId="phone">
                         <Form.Label>Telefono:</Form.Label>
                         <Form.Control type="text" value={this.state.profile.phone} onChange={this.handleInputChange} name="phone" />
+                    </Form.Group>
+                    <Form.Group controlId="mail">
+
+                        <Form.Control hidden type="text" value={this.props.profile.mail} name="mail" />
+                    </Form.Group>
+
+                    <Form.Group controlId="lng">
+                        <Form.Label>Imagen (file) </Form.Label>
+                        <Form.Control type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
 
 

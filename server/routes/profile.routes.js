@@ -22,7 +22,7 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
   const user_id = req.session.currentUser._id
 
   Wallet
-    .find({ user: user_id })
+    .findOne({ user: user_id })
     .select('balance')
     .then(response => res.json(response))
     .catch(err => res.status(500).json({ code: 500, message: 'Error fetching wallet', err }))
@@ -32,11 +32,12 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
 //Edit profile
 router.put('/edit', checkLoggedUser, (req, res) => {
 
-  const { mail, name, lastName, DNI, phone, image } = req.body
-  const { user_id } = req.query
+  const { name, lastName, DNI, phone, image } = req.body
+
+  const user_id = req.session.currentUser._id
 
   User
-    .findByIdAndUpdate(user_id, { mail, name, lastName, DNI, phone, image })
+    .findByIdAndUpdate(user_id, { name, lastName, DNI, phone, image })
     .then(response => { res.json(response) })
     .catch(err => res.status(500).json({ code: 500, message: 'Error editing user', err }))
 
