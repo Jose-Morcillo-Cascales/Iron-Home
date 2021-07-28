@@ -39,12 +39,12 @@ router.post('/newMenu', (req, res) => {
     .findOne({ user })
     .then(response => {
 
-      //let total = totalTokens(quantity, 6)
+      let total = totalTokens(dish.length, 6)
       let balance = removeBalance(response.balance, dish.length, 6)
 
       if (balance >= 0) {
 
-        const menuPromise = MenuPurchase.create({ user, date, dish })
+        const menuPromise = MenuPurchase.create({ user, date, dish, total })
         const walletPromise = Wallet.findOneAndUpdate({ user }, { balance }, { new: true })
         return Promise.all([menuPromise, walletPromise])
 

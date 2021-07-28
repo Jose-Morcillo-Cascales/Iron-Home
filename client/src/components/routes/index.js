@@ -41,7 +41,7 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} roomCheck={roomCheck} showMessage={showMessage} />} />
             <Route path="/registro" render={props => <Signup {...props} storeUser={storeUser} />} />
 
-            <Route path="/menu" exact render={(props) => <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} />} />
+            <Route path="/menu" exact render={(props) => loggedUser ? <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
             <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
 

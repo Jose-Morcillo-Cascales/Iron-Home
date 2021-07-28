@@ -11,16 +11,6 @@ const walletSchema = new Schema({
     type: Number,
     required: true,
     default: 0
-  },
-  expenses: {
-    menuPurchase: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'MenuPurchase'
-    },
-    laundryService: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'LaundryService'
-    }
   }
 },
   { timestamps: true }
