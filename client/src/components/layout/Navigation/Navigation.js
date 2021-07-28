@@ -57,9 +57,9 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                                 }
                                 <NavDropdown title="Perfil" id="navbarScrollingDropdown">
                                     <NavDropdown.Item><Link className="nav-link" to="/perfil">Perfil</Link></NavDropdown.Item>
-                                    <NavDropdown.Item><Link className="nav-link" to="/mi-perfil">Mi Wallet</Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link className="nav-link" to="/wallet">Mi Wallet</Link></NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item><span className="nav-link" onClick={logout}>Cerrar sesión</span></NavDropdown.Item>
+                                    <NavDropdown.Item><Link className="nav-link" to="/"><span className="nav-link" onClick={logout}>Cerrar sesión</span></Link></NavDropdown.Item>
                                 </NavDropdown>
                                 <span className="nav-link">¡Hola, {loggedUser.name}!</span>
                             </>

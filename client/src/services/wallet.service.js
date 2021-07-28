@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-class Wallet {
+class WalletService {
 
     constructor() {
         this.app = axios.create({
@@ -14,4 +14,4 @@ class Wallet {
 
 }
 
-export default Wallet
+export default WalletService
