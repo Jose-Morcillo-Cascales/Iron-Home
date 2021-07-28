@@ -19,30 +19,30 @@ const LaundryLanding = () => {
             <Container>
                 <Row>
                     <Col md={4} sm={6}>
-                        <div class="serviceBox">
-                            <div class="service-icon">
-                                <span><i class="fa fa-globe"></i></span>
+                        <div className="serviceBox">
+                            <div className="service-icon">
+                                <span><i className="fa fa-globe"></i></span>
                             </div>
-                            <h3 class="title">Web Design</h3>
-                            <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+                            <h3 className="title">Web Design</h3>
+                            <p className="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
                         </div>
                     </Col>
                     <Col md={4} sm={6}>
-                        <div class="serviceBox">
-                            <div class="service-icon">
-                                <span><i class="fa fa-globe"></i></span>
+                        <div className="serviceBox">
+                            <div className="service-icon">
+                                <span><i className="fa fa-globe"></i></span>
                             </div>
-                            <h3 class="title">Web Design</h3>
-                            <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+                            <h3 className="title">Web Design</h3>
+                            <p className="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
                         </div>
                     </Col>
                     <Col md={4} sm={6}>
-                        <div class="serviceBox">
-                            <div class="service-icon">
-                                <span><i class="fa fa-globe"></i></span>
+                        <div className="serviceBox">
+                            <div className="service-icon">
+                                <span><i className="fa fa-globe"></i></span>
                             </div>
-                            <h3 class="title">Web Design</h3>
-                            <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+                            <h3 className="title">Web Design</h3>
+                            <p className="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
                         </div>
                     </Col>
                 </Row>
