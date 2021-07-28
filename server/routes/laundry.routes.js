@@ -2,7 +2,7 @@ const router = require("express").Router()
 const LaundryService = require('./../models/LaundryService.model')
 const Wallet = require('./../models/Wallet.model')
 const { checkLoggedUser } = require('./../middleware')
-const { removeBalance, repay } = require('./../utils')
+const { removeBalance, repay, totalTokens } = require('./../utils')
 
 
 //create laundry
@@ -20,11 +20,12 @@ router.post('/bookingService', checkLoggedUser, (req, res) => {
     .findOne({ user })
     .then(response => {
 
+      let total = totalTokens(quantity, 8)
       let balance = removeBalance(response.balance, quantity, 8)
 
       if (balance >= 0) {
 
-        const laundryPromise = LaundryService.create({ bookingDate, user, type, quantity })
+        const laundryPromise = LaundryService.create({ bookingDate, user, type, quantity, total })
         const walletPromise = Wallet.findOneAndUpdate({ user }, { balance }, { new: true })
 
         return Promise.all([laundryPromise, walletPromise])

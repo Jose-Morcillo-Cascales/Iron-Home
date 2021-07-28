@@ -80,18 +80,9 @@ class MenuForm extends Component {
                     <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
 
 
-                    <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
+                    <Button variant="dark" type="submit" disabled={this.state.loading}>
                         {this.state.loading ? 'Tomando nota' : 'Comprar menu'}
                     </Button>
-
-                    <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
-                        <Modal.Header>
-                            <Modal.Title>Recibo Menu</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <MenuDetails menu_id={this.state.menu_id} key={this.state.menu.id} closeModal={() => this.setState({ modal: false })} />
-                        </Modal.Body>
-                    </Modal>
 
                 </Form>
                 <h1>{this.PriceMenu(this.state.menu.dish.length)}</h1>

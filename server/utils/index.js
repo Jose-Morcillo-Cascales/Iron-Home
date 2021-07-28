@@ -1,6 +1,11 @@
 
 module.exports = {
 
+    totalTokens(quantity, price) {
+        let total = quantity * price
+        return total
+    },
+
     removeBalance(balance, quantity, price) {
         let total = quantity * price
         let accountBalance = balance - total

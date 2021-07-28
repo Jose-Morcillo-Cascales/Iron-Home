@@ -11,13 +11,12 @@ import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 import ProfileForm from '../pages/Profile/ProfilePage/ProfileForm'
 import ProfileWallet from '../pages/Profile/ProfilePage/ProfileWallet'
 
-import MenuForm from '../pages/Menu/MenuPage/MenuForm'
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 
 import LaundryLanding from '../pages/Laundry/LaundryLanding'
 import LaundryBooking from '../pages/Laundry/LaundryBooking'
 import Spinner from '../shared/Spinner/Spinner'
-import walletDetails from '../pages/Wallet/WalletDatails'
+import WalletDetails from '../pages/Wallet/WalletDatails'
 
 
 
@@ -29,7 +28,6 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
             <Route path="/" exact render={() => <HomePage />} />
             <Route path="/servicios" exact render={() => <Spinner />} />
 
-
             <Route path="/habitaciones" exact render={() => <RoomOption />} />
             <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
             <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
@@ -37,7 +35,7 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
             <Route path="/lavanderia" exact render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
             <Route path="/lavanderia/reservas" render={props => loggedUser ? <LaundryBooking loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
-            <Route path="/wallet" render={props => loggedUser ? <walletDetails loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/wallet" render={props => loggedUser ? <WalletDetails loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
 
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} roomCheck={roomCheck} showMessage={showMessage} />} />
