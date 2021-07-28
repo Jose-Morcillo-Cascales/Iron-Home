@@ -10,7 +10,6 @@ import Signup from '../pages/Auth/Signup/Signup'
 import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 import ProfileForm from '../pages/Profile/ProfilePage/ProfileForm'
 import ProfileWallet from '../pages/Profile/ProfilePage/ProfileWallet'
-import FoodDetails from '../pages/Menu/MenuPage/FoodDetails'
 
 import MenuForm from '../pages/Menu/MenuPage/MenuForm'
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
@@ -18,6 +17,7 @@ import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 import LaundryLanding from '../pages/Laundry/LaundryLanding'
 import LaundryBooking from '../pages/Laundry/LaundryBooking'
 import Spinner from '../shared/Spinner/Spinner'
+import walletDetails from '../pages/Wallet/WalletDatails'
 
 
 
@@ -37,15 +37,14 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
             <Route path="/lavanderia" exact render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
             <Route path="/lavanderia/reservas" render={props => loggedUser ? <LaundryBooking loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
+            <Route path="/wallet" render={props => loggedUser ? <walletDetails loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
 
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} roomCheck={roomCheck} showMessage={showMessage} />} />
             <Route path="/registro" render={props => <Signup {...props} storeUser={storeUser} />} />
 
-            <Route path="/menu" exact render={(props) => <MenuPage {...props} loggedUser={loggedUser} />} />
+            <Route path="/menu" exact render={(props) => <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} />} />
 
-            <Route path="/menu/detalles-comida/:food_id" render={props => <FoodDetails loggedUser={loggedUser} {...props} />} />
-            <Route path="/menu/crear" render={() => <MenuForm loggedUser={loggedUser} />} />
             <Route path="/menu/detalles-menu/:menu_id" render={props => <MenuDetails loggedUser={loggedUser} {...props} />} />
 
             <Route path="/perfil" render={() => <ProfileDetails loggedUser={loggedUser} />} />

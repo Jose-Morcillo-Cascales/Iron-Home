@@ -1,3 +1,29 @@
 .room-card{
-    
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 380px;
+    padding: 22px 16px 30px;    
+    justify-content: center;
+    text-align: center;
+}
+
+.room-card:hover{
+    background-color: rgb(33, 122, 181, .2);
+
+}
+
+.room-card a{
+    color: #217cb7;
+    text-decoration: none;
+    letter-spacing: .6em;
+    font-size: 1.2em;
+    padding-top: 2em;
+}
+
+.title{
+    margin: 0;
 }
