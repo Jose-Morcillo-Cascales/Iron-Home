@@ -6,7 +6,7 @@ const { removeBalance, repay } = require('./../utils')
 
 
 //create laundry
-router.post('/bookService', checkLoggedUser, (req, res) => {
+router.post('/bookingService', checkLoggedUser, (req, res) => {
 
   const user = req.session.currentUser._id
   const type = {
@@ -30,11 +30,11 @@ router.post('/bookService', checkLoggedUser, (req, res) => {
         return Promise.all([laundryPromise, walletPromise])
 
       } else {
-        res.json({ message: 'No enough tokens in your wallet' })
+        throw Error("'No enough tokens in your wallet'")
       }
     })
     .then(() => res.json({ message: 'Laundry booking sucefully created' }))
-    .catch(err => console.log(err))
+    .catch(err => res.status(401).json({ message: err }))
 })
 
 

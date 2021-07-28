@@ -5,16 +5,19 @@ const { checkLoggedUser } = require('./../middleware')
 
 
 //List available rooms
-router.get('/:period_request', checkLoggedUser, (req, res) => {
-
-  const { period_request } = req.params
+router.get('/available/rooms', checkLoggedUser, (req, res) => {
 
   Room
-    .find({ 'period.first': true, 'period.second': true, 'period.third': true, 'period.fourth': true, 'period.fifth': true })
-    .then(bookings => {
-
-      period_request ? res.json(bookings) : res.json({ message: 'No available rooms' })
+    .find({
+      $or: [
+        { "period.first": true },
+        { "period.second": true },
+        { "period.third": true },
+        { "period.fourth": true },
+        { "period.fifth": true }
+      ]
     })
+    .then(rooms => res.json(rooms))
     .catch(err => console.log(err))
 })
 
@@ -37,26 +40,55 @@ router.post('/bookingRoom', checkLoggedUser, (req, res) => {
     })
     .then(response => {
 
-      const period = {}
+      let availability
 
-      !roomLeft ? period[period_request] = false :
-        period[period_request] = true
+      !roomLeft ? availability = false :
+        availability = true
 
-      return Room.findByIdAndUpdate(response.room, { period })
+      const periodProperty = `period.${period_request}`
+
+      return Room.findByIdAndUpdate(response.room, { [periodProperty]: availability })
     })
     .then(() => res.json({ code: 200, message: 'Room booked' }))
     .catch(err => console.log(err))
 })
 
+//Room Options
+router.get('/roomOptions', (req, res) => {
+
+  Room
+    .find({
+      $or: [
+        { _id: '60f7005b28ad7467b8676fa0' },
+        { _id: '60f7074328ad7467b8676fb6' },
+        { _id: '60f70a6428ad7467b8676fca' },
+        { _id: '60f70c1628ad7467b8676fe4' }
+      ]
+    })
+    .select('image _id name')
+    .then(rooms => res.json(rooms))
+    .catch(err => console.log(err))
+})
 
 //Datails room
-router.get('/:room_id', (req, res) => {
+router.get('/datails/:room_id', (req, res) => {
 
   const { room_id } = req.params
 
   Room
     .findById(room_id)
-    .then(response => res.json(response))
+    .then(rooms => res.json(rooms))
+    .catch(err => console.log(err))
+})
+
+//RoomConfirmation
+router.post('/userBooking', (req, res) => {
+
+  const user = req.session.currentUser._id
+
+  BookingRoom
+    .findOne({ user })
+    .then(book => res.json(book))
     .catch(err => console.log(err))
 })
 
