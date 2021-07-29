@@ -1,7 +1,40 @@
 .room-box{
     margin-bottom: 5em;
+    justify-content: center;
 }
 .book-box{
-    background-color: #ccc;
+    padding: 20em 2em;
+    background-color: #2D354C;
+    text-align: left;
+}
+.book-box h1{
+    color: #ffffff;
+    text-align: left;
+    border-left: 3px solid;
+    padding: .5em;
+}
+
+.btn-book {
+    font-size: 1.5em;
+    letter-spacing: .08em;
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: .4em;
+}
+
+.btn-book a{
+    color: #2D354C;
+}
+
+.btn-book:hover {
+    box-shadow: 2px 4px 12px rgb(33, 124, 183 /12%);
+    border: 1px solid #217cb7;
+    color: #217cb7;
+}
+
+.btn-book a:hover{
+    color: #217cb7;
 }
 /* #2D354C */

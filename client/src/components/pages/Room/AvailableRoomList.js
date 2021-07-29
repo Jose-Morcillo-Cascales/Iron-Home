@@ -1,4 +1,4 @@
-import { Row, Container, DropdownButton, Dropdown } from "react-bootstrap"
+import { Row, Container, DropdownButton, Dropdown, Col } from "react-bootstrap"
 import { Component } from 'react'
 import RoomService from '../../../services/room.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,8 @@ import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
 import AvalaibleRoomCard from "./AvailableRoomCard"
 import Spinner from "../../shared/Spinner/Spinner"
+import './AvalaibleRoomList.css'
+
 
 
 class AvalaibleRoom extends Component {
@@ -70,29 +72,36 @@ class AvalaibleRoom extends Component {
                     <Container>
                         <Row>
                             <div className='user-navegation'>
-                                <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
+                                <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/habitaciones">Volver</a></span>
                             </div>
                         </Row>
                     </Container>
 
                     <Container>
-                        <h1>Reserva tu habitación</h1>
-                        <hr></hr>
+                        <section>
+                            <Row>
+                                <Col md={6}>
+                                    <h1>Reserva tu habitación</h1>
+                                </Col>
+                                <Col md={6}>
+                                    <DropdownButton title="Periodo" id="dropdown-period" >
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="first" name="first">Primero</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="second" name="second">Segundo</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="third" name="third">Tercer</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fourth" name="fourth">Cuarto</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto</Dropdown.Item>
+                                    </DropdownButton>
+                                </Col>
+                                <hr></hr>
+                            </Row>
+                        </section>
+                        <section className='room-cards'>
+                            <h1>Habitaciones Disponibles</h1>
 
-                        <DropdownButton title="Periodo" id="dropdown-period" >
-                            <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="first" name="first">Primero</Dropdown.Item>
-                            <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="second" name="second">Segundo</Dropdown.Item>
-                            <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="third" name="third">Tercer</Dropdown.Item>
-                            <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fourth" name="fourth">Cuarto</Dropdown.Item>
-                            <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto</Dropdown.Item>
-                        </DropdownButton>
-                        <hr></hr>
-
-                        <h1>Habitaciones Disponibles</h1>
-
-                        <Row xs={1} md={5} className="g-4">
-                            {this.state.rooms.map(elm => <AvalaibleRoomCard key={elm._id} {...elm} periodRequest={this.state.periodRequest} bookRoom={this.bookRoom} />)}
-                        </Row>
+                            <Row xs={1} md={4} className="g-4">
+                                {this.state.rooms.map(elm => <AvalaibleRoomCard key={elm._id} {...elm} periodRequest={this.state.periodRequest} bookRoom={this.bookRoom} />)}
+                            </Row>
+                        </section>
                     </Container>
                 </>
                 )

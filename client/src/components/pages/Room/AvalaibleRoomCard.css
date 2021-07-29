@@ -1,0 +1,56 @@
+.card-box{
+    background: #217cb7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 40%);
+    flex-wrap: wrap;
+    max-width: 380px;
+    padding: 22px 16px 30px;    
+    justify-content: center;
+    text-align: center;
+}
+
+.card-box h4{
+    color: #ffffff;
+}
+
+.card-box hr{
+    border-top: 2px solid #ffffff;
+    margin: 0;
+}
+.card-box-icons{
+    background-color: #ffffff;
+    display: flex;
+    padding: 2em 1em 1em;
+    justify-content: space-between;
+}
+
+.card-box-icons .icon-font{
+    font-size: 35px;
+    color: #217cb7;
+}
+
+.card-box-icons p{
+    color: #217cb7;
+    margin-top: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.btn-card-box{
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-top: 1em;
+    background-color: #217cb7;
+    border-color: #217cb7;
+    text-decoration: underline;
+    transition: margin-top 1s;
+}
+
+.btn-card-box:hover{
+    margin-top: 2em;
+    background-color: #217cb7;
+    border-color: #217cb7;
+}
+

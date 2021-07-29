@@ -1,8 +1,9 @@
 import { Component } from 'react'
-import { Form, Button, Container, Modal } from 'react-bootstrap'
+import { Form, Button, Container, Modal, Col, Row } from 'react-bootstrap'
 import MenuPurchase from '../../../../services/menu.service'
 import FoodList from './FoodList'
-import MenuDetails from './MenuDetails'
+import './MenuForm.css'
+import logoTokens from './IronTokens.png'
 
 
 
@@ -65,28 +66,42 @@ class MenuForm extends Component {
 
     render() {
         return (
-            <Container>
+            <>
+                <Row>
+                    <div className='form-contain'>
+                        <Form onSubmit={this.handleFormSubmit}>
+                            <Form.Group controlId="date">
+                                <Row className='row-menu'>
+                                    <Col>
+                                        <Form.Label>1. ¿Qué día quiere?</Form.Label>
+                                        <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
+                                    </Col >
+                                    <Col>
+                                        <Button className='Button-Box' type="submit" disabled={this.state.loading}>
+                                            {this.state.loading ? 'Tomando nota' : 'Comprar menú'}
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Form.Group>
+                            <Form.Label>2. Elija los platos</Form.Label>
+                            <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
+                        </Form>
+                    </div>
+                </Row>
+                <Row>
+                    <div className='ticket-box'>
+                        <div className='logo-ticket'>
+                            <img src={logoTokens} alt="IronToken"></img>
+                        </div>
+                        <h1>Tu Compra</h1>
 
-                <Form onSubmit={this.handleFormSubmit}>
-
-                    <Form.Group controlId="date">
-                        <Form.Label>¿Que dia quiere?</Form.Label>
-                        <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
-                    </Form.Group>
-
-
-                    <Form.Label>Platos del dia</Form.Label>
-
-                    <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
-
-
-                    <Button variant="dark" type="submit" disabled={this.state.loading}>
-                        {this.state.loading ? 'Tomando nota' : 'Comprar menu'}
-                    </Button>
-
-                </Form>
-                <h1>{this.PriceMenu(this.state.menu.dish.length)}</h1>
-            </Container >
+                        <p><strong>Cantidad:</strong> </p>
+                        <h6><strong>Precio:</strong> 8 Tokens/Tula</h6>
+                        <hr></hr>
+                        <h3><strong>Total:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
+                    </div>
+                </Row>
+            </>
         )
     }
 }

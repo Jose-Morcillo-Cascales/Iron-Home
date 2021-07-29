@@ -49,8 +49,8 @@ class RoomDetails extends Component {
                                 </div>
                             </Row>
                         </Container>
-                        <Container fluid>
-                            <Row className="justify-content-around">
+                        <Container fluid className='datails-card'>
+                            <Row className="row-datails">
                                 <Col md={6}>
                                     <div className='carousel-card'>
                                         <Carousel>
@@ -71,11 +71,23 @@ class RoomDetails extends Component {
                                 <Col md={4}>
                                     <div className='datails-card'>
                                         <h1>{this.state.rooms.name}</h1>
-                                        <p>{this.state.rooms.description}</p>
+                                        <p className='p-datails'>{this.state.rooms.description}</p>
                                         <hr></hr>
-                                        <p><span><FontAwesomeIcon icon={faHouseUser} className='icon-font' /></span>Tipo: {this.state.rooms.type}</p>
-                                        <p><span><FontAwesomeIcon icon={faUserFriends} className='icon-font' /></span>Capacidad: {this.state.rooms.capacity}</p>
-                                        <p><span><FontAwesomeIcon icon={faReceipt} className='icon-font' /></span>Precio: {this.state.rooms.price} €</p>
+                                        <div className='details-icons'>
+                                            <div className='datails-box'>
+                                                <FontAwesomeIcon icon={faHouseUser} className='icon-font' />
+                                                <p>{this.state.rooms.type}</p>
+                                            </div>
+                                            <div className='datails-box'>
+                                                <FontAwesomeIcon icon={faUserFriends} className='icon-font' />
+                                                <p>{this.state.rooms.capacity}</p>
+                                            </div>
+                                            <div className='datails-box'>
+                                                <FontAwesomeIcon icon={faReceipt} className='icon-font' />
+                                                <p>{this.state.rooms.price}</p>
+                                            </div>
+                                        </div>
+                                        <Link to="/habitaciones/disponibles" className="btn btn-datail">Reservar</Link>
                                     </div>
                                 </Col>
                             </Row>

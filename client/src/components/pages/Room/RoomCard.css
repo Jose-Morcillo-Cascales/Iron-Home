@@ -13,17 +13,19 @@
 
 .room-card:hover{
     background-color: rgb(33, 122, 181, .2);
-
 }
 
-.room-card a{
-    color: #217cb7;
+.link-card{
     text-decoration: none;
-    letter-spacing: .6em;
-    font-size: 1.2em;
-    padding-top: 2em;
 }
 
 .title{
     margin: 0;
+    color: #2D354C;
+    text-decoration: none;
+    letter-spacing: .1em;
+    font-size: 1.6em;
+    padding-top: 2em;
 }
+
+

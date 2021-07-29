@@ -4,6 +4,9 @@ import LaundryService from '../../../services/laundry.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
+import './LaundryBooking.css'
+import logoTokens from './IronTokens.png'
+
 
 
 class LaundryBooking extends Component {
@@ -62,46 +65,46 @@ class LaundryBooking extends Component {
                 <Container>
                     <Row>
                         <div className='user-navegation'>
-                            <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
+                            <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/lavanderia">Volver</a></span>
                         </div>
                     </Row>
                 </Container>
 
-                <Container>
-
-                    <h1>Reservar Servicio</h1>
-                    <Row xs={1} md={6} className="g-4">
+                <Container fluid>
+                    <Row xs={1} md={6} className="row-reservation">
 
                         <Col md={6}>
-                            <Form onSubmit={this.handleFormSubmit}>
-                                <Form.Group controlId="date">
-                                    <Form.Label>¿Cuándo quieres tu servicio?</Form.Label>
-                                    <Form.Control type="date" value={this.state.bookingDate} onChange={this.handleInputChange} name="bookingDate" />
-                                </Form.Group>
-                                <Form.Group controlId="quantity">
-                                    <Form.Label>¿Cuantas tulas desea contratar?</Form.Label>
-                                    <Form.Control type="number" value={this.state.quantity} onChange={this.handleInputChange} name="quantity" />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="dark">
-                                    <Form.Check type="checkbox" label="Dark" value={this.state.dark} onChange={this.handleInputChange} name="dark" />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="delicate">
-                                    <Form.Check type="checkbox" label="Delicate" value={this.state.delicate} onChange={this.handleInputChange} name="delicate" />
-                                </Form.Group>
-                                <Button variant="primary" type="submit">
-                                    Submit
-                                </Button>
-                            </Form>
+                            <diV className='Form-laundry'>
+                                <Form onSubmit={this.handleFormSubmit}>
+                                    <h1>Reservar Servicio</h1>
+                                    <Form.Group controlId="date">
+                                        <Form.Label>¿Cuándo quieres tu servicio?</Form.Label>
+                                        <Form.Control type="date" value={this.state.bookingDate} onChange={this.handleInputChange} name="bookingDate" />
+                                    </Form.Group>
+                                    <Form.Group controlId="quantity">
+                                        <Form.Label>¿Cuántas tulas desea contratar?</Form.Label>
+                                        <Form.Control type="number" value={this.state.quantity} onChange={this.handleInputChange} name="quantity" />
+                                    </Form.Group>
+                                    <Form.Group className="choose-option" controlId="dark">
+                                        <Form.Check type="checkbox" label="Dark" value={this.state.dark} onChange={this.handleInputChange} name="dark" />
+                                        <Form.Check type="checkbox" label="Delicate" value={this.state.delicate} onChange={this.handleInputChange} name="delicate" />
+                                    </Form.Group>
+                                    <Button className='Button-Box' type="submit">Enviar</Button>
+                                </Form>
+                            </diV>
                         </Col>
-                        <Col md={6}>
-                            <div>
+                        <Col md={4}>
+                            <div className='ticket-box'>
+                                <div className='logo-ticket'>
+                                    <img src={logoTokens} alt="IronToken"></img>
+                                </div>
                                 <h1>Tu Compra</h1>
-                                <p><strong>Cantidad:</strong> {this.state.quantity}</p>
-                                <p><strong>Precio:</strong> 8 TOKENS/Tula</p>
-                                <hr></hr>
-                                <h4><strong>Total:</strong>{this.totalService(this.state.quantity)} </h4>
-                            </div>
 
+                                <p><strong>Cantidad:</strong> {this.state.quantity}</p>
+                                <h6><strong>Precio:</strong> 8 Tokens/Tula</h6>
+                                <hr></hr>
+                                <h3><strong>Total:</strong> {this.totalService(this.state.quantity)} </h3>
+                            </div>
                         </Col>
                     </Row>
                 </Container>

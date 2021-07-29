@@ -1,0 +1,82 @@
+.row-reservation{
+    padding: 0 8em 5em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-box{
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(45 53 76 / 50%);
+    flex-wrap: wrap;
+}
+.ticket-box h1 {
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+.ticket-box strong{
+    text-transform: uppercase;
+}
+.choose-option{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+}
+
+.Form-laundry{
+    padding: 8px 16px;
+    width: 30em;
+    text-align: left;
+}
+
+.Form-laundry h1 {
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+.Form-laundry input[type=number], input[type=date]{
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    padding: 8px 6px;
+    margin-bottom: .5rem;
+}
+
+.Form-laundry label{
+    font-size: 1.2em;
+    color: #217cb7;
+    padding: 8px 16px;
+    margin-bottom: .5rem;
+}
+
+.form-check-input {
+    width: 2em;
+    height: 2em;
+    margin-top: .25em;
+    vertical-align: top;
+    background-color: #2D354C;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 2px solid #e1e8ee;
+}
+
+.logo-ticket{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.logo-ticket img{
+    width: 15vh;
+}

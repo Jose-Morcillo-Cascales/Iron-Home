@@ -1,92 +1,46 @@
-.serviceBox{
-    font-family: 'Poppins', sans-serif;
+.steps-box{
+    display: flex;
     text-align: center;
-    padding: 0 20px 60px;
-    margin: 50px 0 50px 5px;
-    border-radius: 20px;
-    position: relative;
-    z-index: 1;
+    padding: 3em;
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(45 53 76/50%);
+    flex-wrap: wrap;
 }
-.serviceBox:before{
-    content: '';
-    background-color: #fff;
-    border-bottom: 30px solid #FF8F10;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 20px;
-    bottom: 0;
-    z-index: -1;
+
+.step-text-box{
+    padding: 10em 2em;
+    background-color: #2D354C;
+    text-align: left;
 }
-.serviceBox .service-icon{
-    color: #FF8F10;
-    background-color: #FF8F10;
-    font-size: 35px;
+
+.step-text-box h1{
+    color: #ffffff;
+    text-align: left;
+    border-left: 3px solid;
+    padding: .5em;
+}
+
+.step-row-box {
+    padding: 0 8em 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-box{
     text-align: center;
-    height: 74px;
-    width: 160px;
-    padding: 7px;
-    margin: 0 auto 30px;
-    border-radius: 25px;
-    position: relative;
+    width: 6rem;
 }
-.serviceBox .service-icon:before{
-    content: '';
-    background-color: #FF8F10;
-    height: 30px;
-    width: 30px;
-    border-radius: 5px;
-    transform: rotate(45deg);
-    position: absolute;
-    left: 25px;
-    bottom: -10px;
+
+.text-steps{
+    height: 10rem;
 }
-.serviceBox .service-icon span{
-    background-color: #fff;
-    line-height: 60px;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    display: inline-block;
+.text-steps h2{  
+    margin-top: 15px; 
+    color: #2D354C;  
 }
-.serviceBox .title{
-    color: #FF8F10;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    line-height: 27px;
-    text-transform: uppercase;
-    margin: 0 0 10px;
-}
-.serviceBox .description{
-    color: #999;
-    font-size: 14px;
-    line-height: 22px;
-    margin: 0;
-}
-.serviceBox.magenta:before{ border-color: #FF415A; }
-.serviceBox.magenta .service-icon,
-.serviceBox.magenta .service-icon:before{
-    color: #FF415A;
-    background-color: #FF415A;
-}
-.serviceBox.magenta .title{ color: #FF415A; }
-.serviceBox.pink:before{ border-color: #FF679F; }
-.serviceBox.pink .service-icon,
-.serviceBox.pink .service-icon:before{
-    color: #FF679F;
-    background-color: #FF679F;
-}
-.serviceBox.pink .title{ color: #FF679F; }
-.serviceBox.purple:before{ border-color: #A969BE; }
-.serviceBox.purple .service-icon,
-.serviceBox.purple .service-icon:before{
-    color: #A969BE;
-    background-color: #A969BE;
-}
-.serviceBox.purple .title{ color: #A969BE; }
-@media only screen and (max-width: 990px){
-    .serviceBox{ margin: 0 0 30px; }
+
+.step-col{
+    padding: 10em;
 }

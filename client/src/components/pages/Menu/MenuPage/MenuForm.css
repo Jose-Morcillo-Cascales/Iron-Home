@@ -1,0 +1,45 @@
+.form-contain{
+    padding: 0 8em 5em;
+}
+
+
+.row-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 8em;
+}
+
+.form-contain h1 {
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+.form-contain input[type=number], input[type=date]{
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    padding: 8px 6px;
+    margin-bottom: .5rem;
+}
+
+.form-contain label{
+    font-size: 1.8em;
+    color: #217cb7;
+    padding: 8px 16px;
+    margin-bottom: .5rem;
+}
+
+.form-check-input {
+    width: 2em;
+    height: 2em;
+    margin-top: .25em;
+    vertical-align: top;
+    background-color: #2D354C;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 2px solid #e1e8ee;
+}

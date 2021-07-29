@@ -11,14 +11,13 @@ const MenuPage = ({ loggedUser, match, showMessage, history }) => {
     return (
         <>
             <Container>
-                {console.log(history)}
                 <Row>
                     <div className='user-navegation'>
                         <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
                     </div>
                 </Row>
             </Container>
-            <Container>
+            <Container fluid>
                 <MenuForm history={history} match={match} loggedUser={loggedUser} showMessage={showMessage} />
             </Container>
         </>

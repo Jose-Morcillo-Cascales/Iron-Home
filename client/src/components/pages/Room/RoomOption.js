@@ -56,7 +56,7 @@ class RoomOption extends Component {
                         </Row>
                     </Container>
                     <Container>
-                        <Row className='row-box'>
+                        <Row className='step-row-box'>
                             <Col md={4}>
                                 <div className='book-box'>
                                     <h1>Conoce Nuestras Habitaciones</h1>

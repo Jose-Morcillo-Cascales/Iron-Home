@@ -1,8 +1,71 @@
 .carousel-card{
-    background: #fff;
+    background-color: rgb(33, 122, 181, .2);
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
     flex-wrap: wrap;
     padding: 24px 32px 32px;
+}
+
+.row-datails{
+    padding: 2em 0em 8em;
+    justify-content: center;
+    align-items: center;
+}
+
+.datails-card {
+    padding: 0 0 0 3em;
+}
+
+.datails-card hr{
+    border-top: 2px solid #217cb7;
+}
+.details-icons{
+    display: flex;
+    text-align: center;
+    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details-icons .icon-font{
+    font-size: 30px;
+}
+
+.datails-box p{
+    margin-top: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.datails-card {
+    padding: 0 0 0 3em;
+}
+
+.datails-card {
+    padding: 0 0 0 3em;
+}
+
+
+.btn-datail {
+    font-size: 1.5em;
+    letter-spacing: .08em;
+    width: 100%;
+    border: 2px solid #2D354C;
+    padding: .4em;
+}
+
+.btn-datail a{
+    color: #ffffff !important;
+}
+
+.btn-datail:hover {
+    box-shadow: 2px 4px 12px rgb(33, 124, 183 /12%);
+    border: 2px solid #217cb7;
+    color: #217cb7;
+}
+
+.btn-datail a:hover{
+    color: #217cb7;
 }
