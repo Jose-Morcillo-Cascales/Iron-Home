@@ -1,0 +1,46 @@
+.steps-box{
+    display: flex;
+    text-align: center;
+    padding: 3em;
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(45 53 76/50%);
+    flex-wrap: wrap;
+}
+
+.step-text-box{
+    padding: 10em 2em;
+    background-color: #2D354C;
+    text-align: left;
+}
+
+.step-text-box h1{
+    color: #ffffff;
+    text-align: left;
+    border-left: 3px solid;
+    padding: .5em;
+}
+
+.step-row-box {
+    padding: 0 8em 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-box{
+    text-align: center;
+    width: 6rem;
+}
+
+.text-steps{
+    height: 10rem;
+}
+.text-steps h2{  
+    margin-top: 15px; 
+    color: #2D354C;  
+}
+
+.step-col{
+    padding: 10em;
+}
