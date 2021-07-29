@@ -49,12 +49,13 @@ class MenuForm extends Component {
 
         this.MenuPurchase
             .newMenu(this.state.menu.date, this.state.menu.dish)
-            .then(() => {
+            .then((response) => {
+                console.log(response)
                 this.setState({ menu: { date: '', dish: [] } })
                 this.props.showMessage('Compra realizada')
                 this.props.history.push('/wallet')
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 
