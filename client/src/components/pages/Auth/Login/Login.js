@@ -35,6 +35,7 @@ class Login extends Component {
             .then(loggedUserfromServer => {
                 this.props.roomCheck()
                 this.props.storeUser(loggedUserfromServer.data)
+                this.props.showMessage('Sesión iniciada')
                 this.props.history.push('/')         // Redirect with RRD props
             })
             .catch(err => this.props.showMessage(err.response.data.message))
@@ -70,7 +71,7 @@ class Login extends Component {
                                 </Form>
                             </div>
                             <div className='Span-Box'>
-                                <span><Link to="/">Registrarse</Link></span>
+                                <span><Link to="/registro">Registrarse</Link></span>
                             </div>
                         </div>
                     </Col>

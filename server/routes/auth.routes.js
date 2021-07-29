@@ -16,7 +16,7 @@ router.post('/signup', (req, res) => {
     .then(user => {
 
       if (user) {
-        res.status(400).json({ code: 400, message: 'Username already exists' })
+        res.status(400).json({ code: 400, message: 'Este email ya ha sido registrado' })
         return
       }
 
@@ -28,10 +28,10 @@ router.post('/signup', (req, res) => {
         .then(response => {
           return Wallet.create({ user: response.id })
         })
-        .then(() => res.json({ code: 200, message: 'user created' }))
-        .catch(err => res.status(500).json({ code: 500, message: 'DB error while creating user', err }))
+        .then(() => res.json({ code: 200, message: 'Usuario creado' }))
+        .catch(err => res.status(500).json({ code: 500, message: 'Ha ocurrido un error mientras se creaba el usuario', err }))
     })
-    .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Ha ocurrido un error mientras se creaba el usuario', err }))
 })
 
 
@@ -45,28 +45,28 @@ router.post('/login', (req, res) => {
     .then(user => {
 
       if (!user) {
-        res.status(401).json({ code: 401, message: 'Username not registered' })
+        res.status(401).json({ code: 401, message: 'Usuario no registrado' })
         return
       }
 
       if (bcrypt.compareSync(pwd, user.password) === false) {
-        res.status(401).json({ code: 401, message: 'Incorect password' })
+        res.status(401).json({ code: 401, message: 'Contraseña incorrecta' })
         return
       }
 
       req.session.currentUser = user
       res.json(req.session.currentUser)
     })
-    .catch(err => res.status(500).json({ code: 500, message: 'DB error while fetching user', err }))
+    .catch(err => res.status(500).json({ code: 500, message: 'Ha ocurrido un error de inicio de  sesión', err }))
 })
 
 
 router.get('/logout', (req, res) => {
-  req.session.destroy((err) => res.json({ mssage: 'Logout successful' }));
+  req.session.destroy((err) => res.json({ mssage: 'Ha cerrado la sesión correctamente' }));
 })
 
 router.post('/isloggedIn', (req, res) => {
-  req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
+  req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'No esta autorizado' })
 })
 
 

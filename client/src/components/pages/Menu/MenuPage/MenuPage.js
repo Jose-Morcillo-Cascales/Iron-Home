@@ -6,11 +6,12 @@ import '../../../shared/UserNavigation/UserNavigation.css'
 
 
 
-const MenuPage = ({ loggedUser, match, showMessage }) => {
+const MenuPage = ({ loggedUser, match, showMessage, history }) => {
 
     return (
         <>
             <Container>
+                {console.log(history)}
                 <Row>
                     <div className='user-navegation'>
                         <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
@@ -18,7 +19,7 @@ const MenuPage = ({ loggedUser, match, showMessage }) => {
                 </Row>
             </Container>
             <Container>
-                <MenuForm match={match} loggedUser={loggedUser} showMessage={showMessage} />
+                <MenuForm history={history} match={match} loggedUser={loggedUser} showMessage={showMessage} />
             </Container>
         </>
     )

@@ -49,7 +49,7 @@ class LaundryBooking extends Component {
             .then(() => {
                 this.props.showMessage('Compra realizada')
                 this.setState({ bookingDate: '', dark: false, delicate: false, quantity: '', total: 0 })
-                this.props.history.push('/perfil')
+                this.props.history.push('/wallet')
             })
             .catch(err => this.props.showMessage(err.response.data.message))
     }

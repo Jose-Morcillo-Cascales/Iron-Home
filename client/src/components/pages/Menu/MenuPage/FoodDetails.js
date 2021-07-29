@@ -34,7 +34,7 @@ class FoodDetails extends Component {
         this.foodService
             .foodDetails(this.props.food_id)
             .then(response => this.setState({ food: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     componentDidMount() {

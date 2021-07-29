@@ -18,7 +18,7 @@ class MenuDetails extends Component {
         this.menuService
             .menuDetails(this.props.menu_id)
             .then(response => this.setState({ menu: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
 
     }
     /*  deleteMenu() {

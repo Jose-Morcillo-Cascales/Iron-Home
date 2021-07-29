@@ -17,7 +17,7 @@ router.get('/', checkLoggedUser, (req, res) => {
 
   Promise.all([menuPromise, walletPromise, laundryPromise])
     .then(response => res.json(response))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 
@@ -38,7 +38,7 @@ router.put('/topUp', checkLoggedUser, (req, res) => {
       return Wallet.findOneAndUpdate({ user: user_id }, { balance: addTokens }, { new: true })
     })
     .then(response => res.json(response))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 

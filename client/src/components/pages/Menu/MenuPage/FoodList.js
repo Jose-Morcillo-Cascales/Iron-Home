@@ -21,7 +21,7 @@ class FoodList extends Component {
         this.MenuPurchase
             .foodList()
             .then(response => this.setState({ foods: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 

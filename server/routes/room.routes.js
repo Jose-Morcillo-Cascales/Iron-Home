@@ -18,7 +18,7 @@ router.get('/available/rooms', checkLoggedUser, (req, res) => {
       ]
     })
     .then(rooms => res.json(rooms))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error', err }))
 })
 
 
@@ -49,8 +49,8 @@ router.post('/bookingRoom', checkLoggedUser, (req, res) => {
 
       return Room.findByIdAndUpdate(response.room, { [periodProperty]: availability })
     })
-    .then(() => res.json({ code: 200, message: 'Room booked' }))
-    .catch(err => console.log(err))
+    .then(() => res.json({ code: 200, message: 'Habitación reservada' }))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 //Room Options
@@ -67,7 +67,7 @@ router.get('/roomOptions', (req, res) => {
     })
     .select('image _id name')
     .then(rooms => res.json(rooms))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 //Datails room
@@ -78,7 +78,7 @@ router.get('/datails/:room_id', (req, res) => {
   Room
     .findById(room_id)
     .then(rooms => res.json(rooms))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 //RoomConfirmation
@@ -89,7 +89,7 @@ router.post('/userBooking', (req, res) => {
   BookingRoom
     .findOne({ user })
     .then(book => res.json(book))
-    .catch(err => console.log(err))
+    .catch(err => res.json({ message: 'Ha ocurrido un error ', err }))
 })
 
 //Create Rooms

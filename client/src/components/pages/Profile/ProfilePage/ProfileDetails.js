@@ -25,7 +25,7 @@ class ProfileDetails extends Component {
                 this.setState({ profile: response.data })
                 console.log(this.state.profile)
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
 
     }
 
@@ -36,6 +36,7 @@ class ProfileDetails extends Component {
                 this.setState({ wallet: response.data.balance })
                 console.log(response.data)
             })
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     componentDidMount() {

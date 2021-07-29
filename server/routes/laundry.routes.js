@@ -31,11 +31,11 @@ router.post('/bookingService', checkLoggedUser, (req, res) => {
         return Promise.all([laundryPromise, walletPromise])
 
       } else {
-        throw Error("'No enough tokens in your wallet'")
+        throw Error('No tienes suficientes Irontokens')
       }
     })
-    .then(() => res.json({ message: 'Laundry booking sucefully created' }))
-    .catch(err => res.status(401).json({ message: err }))
+    .then(() => res.json({ message: 'Su reserva ha sido realizada' }))
+    .catch(err => res.json({ message: 'Ha ocurrido un error', err }))
 })
 
 
@@ -57,8 +57,8 @@ router.delete('/deleteBooking', checkLoggedUser, (req, res) => {
 
       return Promise.all([laundryDeletePromise, walletUpdatePromise])
     })
-    .then(() => res.json({ message: 'Laundry booking sucefully deleted' }))
-    .catch(err => console.log(err))
+    .then(() => res.json({ message: 'Su reserva ha sido cancelada con éxito' }))
+    .catch(err => res.json({ message: 'Ha ocurrido un error', err }))
 })
 
 

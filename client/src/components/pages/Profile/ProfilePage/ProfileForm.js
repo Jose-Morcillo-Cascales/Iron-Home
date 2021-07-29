@@ -60,13 +60,11 @@ class ProfileForm extends Component {
                     profile: { ...this.state.profile, image: response.data.cloudinary_url }
                 })
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 
-    // componentDidMount() {
-    //     this.props.refreshProfile()
-    // }
+
 
 
     render() {

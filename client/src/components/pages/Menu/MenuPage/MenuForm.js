@@ -51,7 +51,7 @@ class MenuForm extends Component {
             .then(() => {
                 this.setState({ menu: { date: '', dish: [] } })
                 this.props.showMessage('Compra realizada')
-                this.props.history.push('/perfil')
+                this.props.history.push('/wallet')
             })
             .catch(err => console.log(err))
     }

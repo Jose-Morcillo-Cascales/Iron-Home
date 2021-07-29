@@ -34,9 +34,10 @@ class Signup extends Component {
             .signup(mail, pwd, name)
             .then(loggedUserfromServer => {
                 this.props.storeUser(loggedUserfromServer.data)
-                this.props.history.push('/')         // Redirect with RRD props
+                this.props.showMessage('Usuario creado')
+                this.props.history.push('/')
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 
