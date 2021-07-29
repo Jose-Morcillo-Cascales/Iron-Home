@@ -24,8 +24,8 @@ const MenuLanding = () => {
                 <section>
                     <Row className='step-row-box'>
                         <Col md={4} className='step-text-box'>
-                            <h1>¿Cómo Funciona?</h1>
-                            <Link to="/lavanderia/reservas" className="btn btn-book">Reservar</Link>
+                            <h1>¿Con Hambre?</h1>
+                            <Link to="/menu/reservas" className="btn btn-book">¡A comer!</Link>
                         </Col>
                         <Col md={8}>
                             <Row>
@@ -39,9 +39,9 @@ const MenuLanding = () => {
                                             />
                                         </div>
                                         <div className='text-steps'>
-                                            <h2>Tulas</h2>
+                                            <h2>Menú</h2>
                                             <p>
-                                                Una <strong>Tula </strong> son 25 prendas, cada tula son 8 <strong>IronTokens </strong>elige la cantidad de tulas que quieres lavar.
+                                                Un <strong>Menú </strong> puede contener todos los platos que quieras, cada plato son 6 <strong>IronTokens </strong>.
                                             </p>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@ const MenuLanding = () => {
                                         <div className='text-steps'>
                                             <h2>Fecha</h2>
                                             <p>
-                                                Seleciona el <b>día</b> en el que quieres que recojan tu tula.
+                                                Seleciona el <b>día</b> en el que quieras que te preparen tu Menú.
                                             </p>
                                         </div>
                                     </div>

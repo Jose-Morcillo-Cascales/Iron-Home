@@ -47,8 +47,16 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                                 {hasRoom
                                     ?
                                     <>
-                                        <Link className="nav-link" to="/menu">Menús</Link>
-                                        <Link className="nav-link" to="/lavanderia">Lavanderia</Link>
+
+                                        <NavDropdown title="Menús" id="navbarScrollingDropdown">
+                                            <NavDropdown.Item><Link className="nav-link" to="/menu">Menús</Link></NavDropdown.Item>
+                                            <NavDropdown.Item><Link className="nav-link" to="/menu/reservas">Compra</Link></NavDropdown.Item>
+                                        </NavDropdown>
+
+                                        <NavDropdown title="Lavanderia" id="navbarScrollingDropdown">
+                                            <NavDropdown.Item><Link className="nav-link" to="/lavanderia">Lavanderia</Link></NavDropdown.Item>
+                                            <NavDropdown.Item><Link className="nav-link" to="/lavanderia/reservas">Compra</Link></NavDropdown.Item>
+                                        </NavDropdown>
                                     </>
                                     :
                                     null
