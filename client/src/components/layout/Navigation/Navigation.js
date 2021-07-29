@@ -24,7 +24,7 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
 
     return (
 
-        <Navbar fixed='top' expand="md">
+        <Navbar fixed='top' expand="md" id="reload">
             <Container>
                 <Navbar.Brand>
                     <Link className="nav-link" to="/"><img src={mainLogo} width="60" height="60" className="d-inline-block align-top" alt="Iron Home logo" />
