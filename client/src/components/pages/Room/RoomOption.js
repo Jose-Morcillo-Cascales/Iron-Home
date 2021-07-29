@@ -56,21 +56,19 @@ class RoomOption extends Component {
                         </Row>
                     </Container>
                     <Container>
-                        <Row>
+                        <Row className='row-box'>
                             <Col md={4}>
-                                <h1>Conoce Nuestras Habitaciones</h1>
-                                <Link to="/habitaciones/disponibles" className="btn btn-primary">Reservar</Link>
+                                <div className='book-box'>
+                                    <h1>Conoce Nuestras Habitaciones</h1>
+                                    <Link to="/habitaciones/disponibles" className="btn btn-book">Reservar</Link>
+                                </div>
                             </Col>
                             <Col md={8}>
                                 <div className='room-box'>
-
                                     <Row xs={1} md={2} className="g-4">
-
                                         {this.state.rooms.map(elm => <RoomOptionCard key={elm._id} {...elm} />)}
-
                                     </Row>
                                 </div>
-
                             </Col>
                         </Row>
                     </Container>

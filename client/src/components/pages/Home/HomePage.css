@@ -2,7 +2,7 @@
     background-color: rgb(33, 124, 183, .1);
 }
 .iron-box{
-    padding: 5em;
+    padding: 4em;
 }
 .iron-box img{
     background: #fff;
@@ -32,15 +32,59 @@
 }
 
 .service-box{
-        background-color: rgb(45, 53, 76, .5);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 2em;
 
+}
+.row-box h1{
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.icon-service{
+    margin-bottom: 24px;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+}
+.icon-service .icon-font {
+    color: #2D354C;
+}
+
+.text-service h2{   
+    color: #217cb7;  
+}
+
+.client-box{
+    background-color: #f5f5f5;
+    padding: 5em;
 }
 
 .counter {
-    background-color:#f5f5f5;
-    padding: 20px 0;
+    background-color:#ffffff;
+    padding: 50px 0;
     border-radius: 5px;
     text-align: center;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+
+}
+
+.counter-box{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.counter-box h1{
+    color: #217cb7;  
+
+}
+
+.counter .icon-font {
+    font-size: 2em;
 }
 
 .count-title {

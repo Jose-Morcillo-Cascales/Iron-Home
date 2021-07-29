@@ -4,7 +4,7 @@ class RoomService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:5000/api/room',
+            baseURL: `${process.env.REACT_APP_BASE_URL}/room`,
             withCredentials: true
         })
     }

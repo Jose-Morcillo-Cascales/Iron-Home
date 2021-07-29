@@ -4,7 +4,7 @@ class LibraryService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:5000/api/library',
+            baseURL: `${process.env.REACT_APP_BASE_URL}/library`,
             withCredentials: true
         })
     }
