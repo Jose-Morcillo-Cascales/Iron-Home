@@ -1,10 +1,9 @@
 import { Component } from 'react'
 import { Form, Row, Col } from 'react-bootstrap'      // Button, Modal
-/* 
-import CoasterForm from '../CoasterForm/CoasterForm' */
 import MenuPurchase from '../../../../services/menu.service'
 import FoodCard from './FoodCard'
 import Spinner from './../../../shared/Spinner/Spinner'
+
 class FoodList extends Component {
 
     constructor() {
@@ -42,7 +41,6 @@ class FoodList extends Component {
 
                     <Row md={2}>
                         {this.state.foods.map(elm => <FoodCard handleCheckbox={this.props.handleCheckbox} food={elm} key={elm._id} {...elm._id} />)}
-
                     </Row>
 
 

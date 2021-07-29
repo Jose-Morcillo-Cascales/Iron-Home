@@ -58,12 +58,7 @@ class RoomDetails extends Component {
                                         <Carousel>
                                             {this.state.rooms.image.map(elm =>
                                                 <Carousel.Item key={elm}>
-                                                    <img
-                                                        className="d-block w-100"
-                                                        src={elm}
-                                                        alt={elm}
-                                                        style={{ width: '100%' }}
-                                                    />
+                                                    <img className="d-block w-100" src={elm} alt={elm} style={{ width: '100%' }} />
                                                 </Carousel.Item>
                                             )}
                                         </Carousel>

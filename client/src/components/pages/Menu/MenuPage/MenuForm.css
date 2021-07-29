@@ -15,7 +15,6 @@
     text-align: left;
     border-left: 3px solid #2D354C;
     padding: .5em;
-    margin-bottom: 2rem;
 }
 
 .form-contain input[type=number], input[type=date]{
@@ -42,4 +41,12 @@
     background-position: center;
     background-size: contain;
     border: 2px solid #e1e8ee;
+}
+.ticket-menu{
+    width: 25em;
+}
+.ticket-row{
+    justify-content: center;
+    background-color: #2D354C;
+    padding: 6em 4em;
 }

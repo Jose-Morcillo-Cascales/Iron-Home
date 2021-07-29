@@ -70,6 +70,7 @@ class MenuForm extends Component {
                 <Row>
                     <div className='form-contain'>
                         <Form onSubmit={this.handleFormSubmit}>
+                            <h1>Reservar Menú</h1>
                             <Form.Group controlId="date">
                                 <Row className='row-menu'>
                                     <Col>
@@ -88,13 +89,12 @@ class MenuForm extends Component {
                         </Form>
                     </div>
                 </Row>
-                <Row>
-                    <div className='ticket-box'>
+                <Row className='ticket-row'>
+                    <div className='ticket-box ticket-menu'>
                         <div className='logo-ticket'>
                             <img src={logoTokens} alt="IronToken"></img>
                         </div>
                         <h1>Tu Compra</h1>
-
                         <p><strong>Cantidad:</strong> </p>
                         <h6><strong>Precio:</strong> 8 Tokens/Tula</h6>
                         <hr></hr>
