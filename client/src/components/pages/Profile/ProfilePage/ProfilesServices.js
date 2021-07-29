@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import logoTokens from './IronTokens.png'
 import Spinner from "../../../shared/Spinner/Spinner"
 import WalletService from "../../../../services/wallet.service"
-
-
+import MenuPurchase from "../../../../services/menu.service"
+import LaundryService from "./../../../../services/laundry.service"
 
 
 class ProfileServices extends Component {
@@ -21,6 +21,8 @@ class ProfileServices extends Component {
             modal: false
         }
         this.walletService = new WalletService()
+        this.menuService = new MenuPurchase()
+        this.laundryService = new LaundryService()
     }
     darkChoose = elm => !elm ? 'Ropa oscura' : 'Ropa clara'
     delicateChoose = elm => !elm ? 'Ropa delicada' : 'Ropa no delicada'
@@ -35,6 +37,26 @@ class ProfileServices extends Component {
 
             .catch(err => this.props.showMessage(err.response.data.message))
     }
+    deleteLaundry(laundry_id) {
+
+        this.laundryService
+            .deleteBooking(laundry_id)
+            .then(() => {
+                this.props.showMessage('servicio anulado')
+                this.loadWallet()
+            })
+            .catch(err => this.props.showMessage(err.response.data.message))
+
+    }
+    deleteMenu(menu_id) {
+        this.menuService
+            .deleteMenu(menu_id)
+            .then(() => {
+                this.props.showMessage('servicio anulado')
+                this.loadWallet()
+            })
+            .catch(err => this.props.showMessage(err.response.data.message))
+    }
 
     toDate = (date) => {
         date = new Date(date).toISOString().slice(0, 10)
@@ -44,6 +66,7 @@ class ProfileServices extends Component {
 
     componentDidMount = () => {
         this.loadWallet()
+
     }
 
 
@@ -88,7 +111,7 @@ class ProfileServices extends Component {
                                                                             <p>{elm.total}</p>
                                                                             <p>{this.darkChoose(elm.type.dark)}</p>
                                                                             <p>{this.delicateChoose(elm.type.delicate)}</p>
-                                                                            <Button></Button>
+                                                                            <Button onClick={() => this.deleteLaundry(elm._id)}></Button>
                                                                         </Card.Body>
                                                                     </Card>
                                                                 </Col>
@@ -119,10 +142,10 @@ class ProfileServices extends Component {
                                                             <Col>
                                                                 <Card className='room-card'>
                                                                     <Card.Body>
-                                                                        {/* <p>{this.toDate(elm.createdAt)}</p> */}
-                                                                        <p>{elm.quantity}</p>
+                                                                        <p>{this.toDate(elm.date)}</p>
+                                                                        {elm.dish.map(food => <p>{food.name}</p>)}
                                                                         <p>{elm.total}</p>
-
+                                                                        <Button onClick={() => this.deleteMenu(elm._id)}></Button>
                                                                     </Card.Body>
                                                                 </Card>
                                                             </Col>

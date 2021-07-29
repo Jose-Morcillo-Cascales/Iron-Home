@@ -12,7 +12,7 @@ router.get('/', checkLoggedUser, (req, res) => {
   const user_id = req.session.currentUser._id
 
   const walletPromise = Wallet.findOne({ user: user_id })
-  const menuPromise = MenuPurchase.find({ user: user_id })
+  const menuPromise = MenuPurchase.find({ user: user_id }).populate('dish')
   const laundryPromise = LaundryService.find({ user: user_id })
 
   Promise.all([menuPromise, walletPromise, laundryPromise])

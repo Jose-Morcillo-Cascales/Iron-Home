@@ -22,14 +22,14 @@ import ProfilePage from '../pages/Profile/ProfilePage/ProfilePage'
 
 
 
-const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
+const Routes = ({ storeUser, loggedUser, roomCheck, showMessage, hasRoom }) => {
 
     return (
         <Switch>
             <Route path="/" exact render={() => <HomePage />} />
             <Route path="/servicios" exact render={() => <Spinner />} />
 
-            <Route path="/habitaciones" exact render={() => <RoomOption />} />
+            <Route path="/habitaciones" exact render={(props) => <RoomOption roomCheck={roomCheck} hasRoom={hasRoom} />} />
             <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
             <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 

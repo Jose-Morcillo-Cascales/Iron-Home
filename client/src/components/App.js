@@ -60,7 +60,7 @@ class App extends Component {
       <>
         <Navigation storeUser={this.storeUser} loggedUser={this.state.loggedUser} hasRoom={this.state.hasRoom} roomCheck={this.roomCheck} showMessage={this.showMessage} />
 
-        <Routes storeUser={this.storeUser} loggedUser={this.state.loggedUser} roomCheck={this.roomCheck} showMessage={this.showMessage} />
+        <Routes storeUser={this.storeUser} loggedUser={this.state.loggedUser} hasRoom={this.state.hasRoom} roomCheck={this.roomCheck} showMessage={this.showMessage} />
 
         <Footer />
 
