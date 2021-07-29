@@ -18,7 +18,7 @@ import LaundryBooking from '../pages/Laundry/LaundryBooking'
 import Spinner from '../shared/Spinner/Spinner'
 import WalletDetails from '../pages/Wallet/WalletDatails'
 import ProfilePage from '../pages/Profile/ProfilePage/ProfilePage'
-
+import MenuLanding from './../pages/Menu/MenuPage/MenuLanding'
 
 
 
@@ -42,7 +42,10 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage, hasRoom }) => {
             <Route path="/iniciar-sesion" render={props => <Login {...props} storeUser={storeUser} roomCheck={roomCheck} showMessage={showMessage} />} />
             <Route path="/registro" render={props => <Signup {...props} storeUser={storeUser} showMessage={showMessage} />} />
 
-            <Route path="/menu" exact render={(props) => loggedUser ? <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/menu/reservas" exact render={(props) => loggedUser ? <MenuPage {...props} loggedUser={loggedUser} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/menu" exact render={props => loggedUser ? <MenuLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />
+
+
 
             <Route path="/menu/detalles-menu/:menu_id" render={(props) => loggedUser ? <MenuDetails loggedUser={loggedUser} {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import ProfileForm from './ProfileForm'
 import ProfileService from './../../../../services/profile.service'
 import Spinner from './../../../shared/Spinner/Spinner'
+import './ProfileDetails.css'
+
 
 class ProfileDetails extends Component {
 
@@ -57,25 +59,25 @@ class ProfileDetails extends Component {
                     <Spinner />
                     :
                     <>
-                        <Row className="justify-content-around">
+                        <Row className="row-datails">
 
+                            <Col md={6}>
+                                <Image className="d-block w-100" style={{ width: '100%' }} alt={this.state.profile.image} src={this.state.profile.image} />
+                            </Col>
                             <Col md={4}>
-                                <Image src={this.state.profile.image} />
+                                <div className='datails-card'>
+                                    <h3>{this.state.profile.name} {this.state.profile.lastName}</h3>
+
+                                    <p className='p-datails'>DNI:{this.state.profile.DNI}</p>
+                                    <p className='p-datails'>Email:{this.state.profile.mail}</p>
+                                    <p className='p-datails'>Teléfono:{this.state.profile.phone}</p>
+                                    {/* <p className='p-datails'>{this.state.profile.role}</p> */}
+
+                                    <Link className="btn btn-datail" onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
+
+                                </div>
                             </Col>
 
-                            <Col md={4}>
-
-                                <h1>{this.state.profile.name} {this.state.profile.lastName}</h1>
-                                <h5>{this.state.profile.DNI}</h5>
-                                <ul>
-                                    <li>{this.state.profile.mail}</li>
-                                    <li>{this.state.profile.phone}</li>
-                                    <li>{this.state.profile.role}</li>
-                                </ul>
-                                <Link onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
-
-
-                            </Col>
                             <Card className="food-card">
 
                                 <Card.Body>
