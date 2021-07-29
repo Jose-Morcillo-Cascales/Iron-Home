@@ -4,7 +4,7 @@ class WalletService {
 
     constructor() {
         this.app = axios.create({
-            baseURL: 'http://localhost:5000/api/wallet',
+            baseURL: `${process.env.REACT_APP_BASE_URL}/wallet`,
             withCredentials: true
         })
     }

@@ -1,62 +1,57 @@
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import './Footer.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faFacebook, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faLocationArrow, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+
+import '../../shared/UserNavigation/UserNavigation.css'
+import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
 
-    const style = { background: '#217cb7', color: 'white', textAlign: 'center', fontSize: '.9em', bottom: 0, padding: 15, width: '100%' }
-
     return (
         <>
-            <footer className="footer">
-                <div className="container bottom_border">
-                    <div className="row">
-                        <div className=" col-sm-4 col-md col-sm-4  col-12 col">
-                            <h5 className="headin5_amrc col_white_amrc pt2">Find us</h5>
-                            <p className="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                            <p><i className="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
-                            <p><i className="fa fa-phone"></i>  +91-9999878398  </p>
-                            <p><i className="fa fa fa-envelope"></i> info@example.com  </p>
+            <footer>
+                <Container className="bottom_border">
+                    <Row>
+                        <Col>
+                            <div className='footer-box'>
+                                <h5 className="col-color pt2">Acerca de Nosotros</h5>
+                                <p className="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                            </div>
+                        </Col>
 
+                        <Col>
+                            <div className='footer-box'>
+                                <h5 className="col-color pt2">Acceso Rápido</h5>
+                                <ul className="footer-ul">
+                                    <li><Link className="nav-link" to="/">Home</Link></li>
+                                    <li><Link className="nav-link" to="/habitaciones">Habitaciones</Link></li>
+                                    <li><Link className="nav-link" to="/habitaciones">Iron Hack</Link></li>
+                                </ul>
+                            </div>
+                        </Col>
 
-                        </div>
-
-
-                        <div className=" col-sm-4 col-md  col-6 col">
-                            <h5 className="headin5_amrc col_white_amrc pt2">Quick links</h5>
-                            <ul className="footer_ul_amrc">
-                                <li><a href="http://webenlance.com">Image Rectoucing</a></li>
-                                <li><a href="http://webenlance.com">Clipping Path</a></li>
-                                <li><a href="http://webenlance.com">Hollow Man Montage</a></li>
-                                <li><a href="http://webenlance.com">Ebay & Amazon</a></li>
-                                <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                                <li><a href="http://webenlance.com">Image Cropping</a></li>
-                            </ul>
-                        </div>
-
-
-                        <div className=" col-sm-4 col-md  col-6 col">
-                            <h5 className="headin5_amrc col_white_amrc pt2">Quick links</h5>
-                            <ul className="footer_ul_amrc">
-                                <li><a href="http://webenlance.com">Remove Background</a></li>
-                                <li><a href="http://webenlance.com">Shadows & Mirror Reflection</a></li>
-                                <li><a href="http://webenlance.com">Logo Design</a></li>
-                                <li><a href="http://webenlance.com">Vectorization</a></li>
-                                <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-                                <li><a href="http://webenlance.com">Image Cropping</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                        <Col className='contact-box'>
+                            <div className='footer-box'>
+                                <h5 className="col-color pt2">Contacto</h5>
+                                <p><FontAwesomeIcon icon={faLocationArrow} className='icon-font' /> En algún lugar de la mancha </p>
+                                <p><FontAwesomeIcon icon={faPhone} className='icon-font' />  +34-667253882  </p>
+                                <p><FontAwesomeIcon icon={faEnvelope} className='icon-font' /> info@holi.com  </p>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
 
 
                 <Container>
-                    <p className="text-center">Desarrollo por:<strong> Pepe & Lali </strong>|| © Todos los derechos reservados</p>
-
-                    <ul className="social_footer_ul">
-                        <li><a href="http://webenlance.com"><i className="fab fa-facebook-f"></i></a></li>
-                        <li><a href="http://webenlance.com"><i className="fab fa-twitter"></i></a></li>
-                        <li><a href="http://webenlance.com"><i className="fab fa-linkedin"></i></a></li>
-                        <li><a href="http://webenlance.com"><i className="fab fa-instagram"></i></a></li>
+                    <p className="footer-box">Desarrollo por:<strong> Pepe & Lali </strong>|| © Todos los derechos reservados</p>
+                    <ul className="social-footer">
+                        <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faFacebook} className='icon-font' /></Link></li>
+                        <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faInstagram} className='icon-font' /></Link></li>
+                        <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faLinkedin} className='icon-font' /></Link></li>
+                        <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faTwitter} className='icon-font' /></Link></li>
                     </ul>
                 </Container>
 

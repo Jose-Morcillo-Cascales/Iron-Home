@@ -1,0 +1,8 @@
+.carousel-card{
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    flex-wrap: wrap;
+    padding: 24px 32px 32px;
+}

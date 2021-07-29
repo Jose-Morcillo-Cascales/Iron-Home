@@ -46,10 +46,7 @@ class Login extends Component {
         return (
 
             <div className='container-fluid con-login' style={{ 'padding': "0" }} >
-
-
                 <Row>
-
                     <Col md={{ span: 4, offset: 4 }}>
                         <div className='Login-Box'>
                             <div className='Logo-Box'>
@@ -75,7 +72,6 @@ class Login extends Component {
                         </div>
                     </Col>
                 </Row>
-
             </div>
 
         )

@@ -34,7 +34,6 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav className="mr-auto">
-                        <Link className="nav-link" to="/servicios">Servicios</Link>
                         <Link className="nav-link" to="/habitaciones">Habitaciones</Link>
 
                         {!loggedUser
@@ -50,7 +49,6 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                                     <>
                                         <Link className="nav-link" to="/menu">Menús</Link>
                                         <Link className="nav-link" to="/lavanderia">Lavanderia</Link>
-                                        <Link className="nav-link" to="/mi-perfil">Biblioteca</Link>
                                     </>
                                     :
                                     null
