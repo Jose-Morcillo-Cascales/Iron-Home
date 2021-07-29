@@ -76,11 +76,11 @@ class LaundryBooking extends Component {
                             <Form onSubmit={this.handleFormSubmit}>
                                 <Form.Group controlId="date">
                                     <Form.Label>¿Cuándo quieres tu servicio?</Form.Label>
-                                    <Form.Control type="date" value={this.state.bookingDate} onChange={this.handleInputChange} name="bookingDate" />
+                                    <Form.Control required type="date" value={this.state.bookingDate} onChange={this.handleInputChange} name="bookingDate" />
                                 </Form.Group>
                                 <Form.Group controlId="quantity">
                                     <Form.Label>¿Cuantas tulas desea contratar?</Form.Label>
-                                    <Form.Control type="number" value={this.state.quantity} onChange={this.handleInputChange} name="quantity" />
+                                    <Form.Control required type="number" value={this.state.quantity} onChange={this.handleInputChange} name="quantity" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="dark">
                                     <Form.Check type="checkbox" label="Dark" value={this.state.dark} onChange={this.handleInputChange} name="dark" />

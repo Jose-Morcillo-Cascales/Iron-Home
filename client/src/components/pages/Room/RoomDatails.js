@@ -18,7 +18,9 @@ class RoomDetails extends Component {
         }
         this.RoomService = new RoomService()
     }
+    /* loadDetailsRoom() {
 
+    } */
 
     componentDidMount() {
 
@@ -27,7 +29,7 @@ class RoomDetails extends Component {
         this.RoomService
             .roomDetails(room_id)
             .then(response => this.setState({ rooms: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 

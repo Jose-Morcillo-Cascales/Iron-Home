@@ -14,8 +14,8 @@ import AddTokens from "./AddTokens"
 
 class WalletDetails extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             menu: undefined,
             wallet: undefined,
@@ -31,21 +31,21 @@ class WalletDetails extends Component {
         this.walletService
             .walletDetails()
             .then(response => this.setState({ wallet: response.data[1], menu: response.data[0], laundry: response.data[2] }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     toDate = (date) => {
         date = new Date(date).toISOString().slice(0, 10)
-        console.log(date)
+
         return date
     }
 
     addTokens = () => {
 
-        this.RoomService
+        this.WalletService
             .editWallet()
             .then(() => this.props.history.push('/perfil'))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     componentDidMount = () => {
@@ -153,7 +153,7 @@ class WalletDetails extends Component {
                             <Modal.Title>Cargar Tokens</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <AddTokens wallet={this.state.wallet} refreshWallet={this.loadWallet} closeModal={() => this.setState({ modal: false })} />
+                            <AddTokens wallet={this.state.wallet} refreshWallet={this.loadWallet} closeModal={() => this.setState({ modal: false })} showMessage={this.props.showMessage} />
                         </Modal.Body>
                     </Modal>
                 </>

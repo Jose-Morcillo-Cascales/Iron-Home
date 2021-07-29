@@ -1,18 +1,29 @@
-import Container from 'react-bootstrap/esm/Container'
+import { Container, Row } from "react-bootstrap"
 import ProfileDetails from './ProfileDetails'
-import ProfileWallet from './ProfileWallet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import '../../../shared/UserNavigation/UserNavigation.css'
+import ProfileServices from './ProfilesServices'
 
-
-const ProfilePage = ({ loggedUser }) => {
+const ProfilePage = ({ loggedUser, showMessage }) => {
 
     return (
-        <Container>
+        <>
+            <Container>
+                <Row>
+                    <div className='user-navegation'>
+                        <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
+                    </div>
+                </Row>
+            </Container>
+            <Container>
 
-            <ProfileDetails loggedUser={loggedUser} />
-            <ProfileWallet loggedUser={loggedUser} />
+                <ProfileDetails loggedUser={loggedUser} showMessage={showMessage} />
+                <ProfileServices loggedUser={loggedUser} showMessage={showMessage} />
 
 
-        </Container>
+            </Container>
+        </>
     )
 }
 

@@ -22,7 +22,7 @@ router.get('/wallet', checkLoggedUser, (req, res) => {
   const user_id = req.session.currentUser._id
 
   Wallet
-    .find({ user: user_id })
+    .findOne({ user: user_id })
     .select('balance')
     .then(response => res.json(response))
     .catch(err => res.status(500).json({ code: 500, message: 'Ha ocurrido un error relacionado con la wallet', err }))

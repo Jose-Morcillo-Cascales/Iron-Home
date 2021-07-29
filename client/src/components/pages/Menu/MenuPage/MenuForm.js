@@ -71,7 +71,7 @@ class MenuForm extends Component {
 
                     <Form.Group controlId="date">
                         <Form.Label>¿Que dia quiere?</Form.Label>
-                        <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
+                        <Form.Control required type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
                     </Form.Group>
 
 

@@ -9,7 +9,7 @@ import Signup from '../pages/Auth/Signup/Signup'
 
 import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 import ProfileForm from '../pages/Profile/ProfilePage/ProfileForm'
-import ProfileWallet from '../pages/Profile/ProfilePage/ProfileWallet'
+
 
 import MenuDetails from '../pages/Menu/MenuPage/MenuDetails'
 
@@ -17,6 +17,7 @@ import LaundryLanding from '../pages/Laundry/LaundryLanding'
 import LaundryBooking from '../pages/Laundry/LaundryBooking'
 import Spinner from '../shared/Spinner/Spinner'
 import WalletDetails from '../pages/Wallet/WalletDatails'
+import ProfilePage from '../pages/Profile/ProfilePage/ProfilePage'
 
 
 
@@ -45,9 +46,9 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage }) => {
 
             <Route path="/menu/detalles-menu/:menu_id" render={(props) => loggedUser ? <MenuDetails loggedUser={loggedUser} {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
-            <Route path="/perfil" render={(props) => loggedUser ? <ProfileDetails loggedUser={loggedUser} {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
+            <Route path="/perfil" render={(props) => loggedUser ? <ProfilePage loggedUser={loggedUser} {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
             <Route path="/perfil/editar?user_id=user_id" render={(props) => loggedUser ? <ProfileForm loggedUser={loggedUser} {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
-            <Route path="/perfil/wallet" render={(props) => loggedUser ? <ProfileWallet loggedUser={loggedUser} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
+
         </Switch>
     )
 }

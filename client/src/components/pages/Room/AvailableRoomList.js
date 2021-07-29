@@ -26,15 +26,18 @@ class AvalaibleRoom extends Component {
         this.RoomService
             .availableRoomList()
             .then(response => this.setState({ rooms: response.data, list: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     bookRoom = (id, period, capacity) => {
 
         this.RoomService
             .createBooking(id, period, capacity)
-            .then(() => this.props.history.push('/perfil'))
-            .catch(err => console.log(err))
+            .then(() => {
+                this.props.history.push('/')
+                this.props.showMessage('Su habitación ha sido reservada correctamente')
+            })
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     componentDidMount = () => {
@@ -78,14 +81,14 @@ class AvalaibleRoom extends Component {
                     <Container>
                         <h1>Reserva tu habitación</h1>
                         <hr></hr>
-
-                        <DropdownButton title="Periodo" id="dropdown-period" >
+                        <DropdownButton required title="Periodo" id="dropdown-period" >
                             <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="first" name="first">Primero</Dropdown.Item>
                             <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="second" name="second">Segundo</Dropdown.Item>
                             <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="third" name="third">Tercer</Dropdown.Item>
                             <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fourth" name="fourth">Cuarto</Dropdown.Item>
                             <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto</Dropdown.Item>
                         </DropdownButton>
+
                         <hr></hr>
 
                         <h1>Habitaciones Disponibles</h1>

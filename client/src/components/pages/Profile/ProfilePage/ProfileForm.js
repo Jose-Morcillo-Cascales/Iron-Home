@@ -39,8 +39,9 @@ class ProfileForm extends Component {
                 this.setState({ profile: response })
                 this.props.closeModal()
                 this.props.refreshProfile()
+                this.props.showMessage('Perfil editado correctamente')
 
-                console.log(this.state.profile)
+
             })
             .catch(err => console.log(err))
     }
@@ -59,13 +60,11 @@ class ProfileForm extends Component {
                     loading: false,
                     profile: { ...this.state.profile, image: response.data.cloudinary_url }
                 })
+
             })
             .catch(err => this.props.showMessage(err.response.data.message))
+
     }
-
-
-
-
 
     render() {
         return (
@@ -103,7 +102,7 @@ class ProfileForm extends Component {
 
 
                     <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
-                        {this.state.loading ? 'Editando' : 'Editar'}
+                        {this.state.loading ? 'Subiendo imagen' : 'Editar'}
                     </Button>
 
                 </Form>
