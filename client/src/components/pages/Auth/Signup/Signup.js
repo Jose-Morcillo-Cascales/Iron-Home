@@ -35,7 +35,7 @@ class Signup extends Component {
             .then(loggedUserfromServer => {
                 this.props.storeUser(loggedUserfromServer.data)
                 this.props.showMessage('Usuario creado')
-                this.props.history.push('/')
+                this.props.history.push('/iniciar-sesion')
             })
             .catch(err => this.props.showMessage(err.response.data.message))
     }

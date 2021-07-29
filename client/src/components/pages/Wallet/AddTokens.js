@@ -33,9 +33,10 @@ class AddTokens extends Component {
             .then(() => {
                 this.props.closeModal()
                 this.props.refreshWallet()
+                this.props.showMessage('Su recarga ha sido realizada con exito')
                 this.setState({ wallet: { balance: '' } })
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 

@@ -7,14 +7,15 @@ import Spinner from './../../../shared/Spinner/Spinner'
 
 class ProfileDetails extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             profile: undefined,
             modal: false,
             wallet: undefined
         }
         this.profileService = new ProfileService()
+
     }
 
     loadProfileDetails() {
@@ -23,7 +24,7 @@ class ProfileDetails extends Component {
             .profile(this.state)
             .then(response => {
                 this.setState({ profile: response.data })
-                console.log(this.state.profile)
+
             })
             .catch(err => this.props.showMessage(err.response.data.message))
 
@@ -34,7 +35,7 @@ class ProfileDetails extends Component {
             .profileWallet()
             .then(response => {
                 this.setState({ wallet: response.data.balance })
-                console.log(response.data)
+
             })
             .catch(err => this.props.showMessage(err.response.data.message))
     }
@@ -86,7 +87,7 @@ class ProfileDetails extends Component {
 
                         <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
                             <Modal.Body>
-                                <ProfileForm refreshProfile={() => this.loadProfileDetails()} profile={this.state.profile} key={this.state.profile._id} closeModal={() => this.setState({ modal: false })} />
+                                <ProfileForm refreshProfile={() => this.loadProfileDetails()} profile={this.state.profile} key={this.state.profile._id} closeModal={() => this.setState({ modal: false })} showMessage={this.props.showMessage} />
                             </Modal.Body>
                         </Modal>
                     </>

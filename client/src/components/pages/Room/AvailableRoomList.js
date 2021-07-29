@@ -28,15 +28,18 @@ class AvalaibleRoom extends Component {
         this.RoomService
             .availableRoomList()
             .then(response => this.setState({ rooms: response.data, list: response.data }))
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     bookRoom = (id, period, capacity) => {
 
         this.RoomService
             .createBooking(id, period, capacity)
-            .then(() => this.props.history.push('/perfil'))
-            .catch(err => console.log(err))
+            .then(() => {
+                this.props.history.push('/')
+                this.props.showMessage('Su habitación ha sido reservada correctamente')
+            })
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
     componentDidMount = () => {
@@ -92,7 +95,7 @@ class AvalaibleRoom extends Component {
                                         <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto</Dropdown.Item>
                                     </DropdownButton>
                                 </Col>
-                                <hr></hr>
+                                s                    <hr></hr>
                             </Row>
                         </section>
                         <section className='room-cards'>

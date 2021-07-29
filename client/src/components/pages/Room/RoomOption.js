@@ -14,8 +14,8 @@ import RoomOptionCard from './RoomCard'
 
 class RoomOption extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             rooms: undefined
         }
@@ -27,10 +27,10 @@ class RoomOption extends Component {
         this.RoomService
             .roomOptions()
             .then(response => {
-                console.log(response.data)
                 this.setState({ rooms: response.data })
+                console.log(this.props)
             })
-            .catch(err => console.log(err))
+            .catch(err => this.props.showMessage(err.response.data.message))
     }
 
 
@@ -60,7 +60,7 @@ class RoomOption extends Component {
                             <Col md={4}>
                                 <div className='book-box'>
                                     <h1>Conoce Nuestras Habitaciones</h1>
-                                    <Link to="/habitaciones/disponibles" className="btn btn-book">Reservar</Link>
+                                    {!this.props.hasRoom ? <Link to="/habitaciones/disponibles" className="btn btn-book">Reservar</Link> : null}
                                 </div>
                             </Col>
                             <Col md={8}>
