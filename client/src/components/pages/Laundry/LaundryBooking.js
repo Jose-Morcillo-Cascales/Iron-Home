@@ -65,7 +65,7 @@ class LaundryBooking extends Component {
                 <Container>
                     <Row>
                         <div className='user-navegation'>
-                            <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/lavanderia">Volver</a></span>
+                            <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
                         </div>
                     </Row>
                 </Container>

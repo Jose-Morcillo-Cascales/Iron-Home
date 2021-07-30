@@ -18,7 +18,7 @@ const Footer = () => {
                         <Col>
                             <div className='footer-box'>
                                 <h5 className="col-color pt2">Acerca de Nosotros</h5>
-                                <p className="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                <p className="mb10">Somos 2 intentos de programadores que les toca escribir este párrafo a las 2 de la madrugada , gracias Ironhack por esta experiencia.</p>
                             </div>
                         </Col>
 
@@ -46,7 +46,7 @@ const Footer = () => {
 
 
                 <Container>
-                    <p className="footer-box">Desarrollo por:<strong> Pepe & Lali </strong>|| © Todos los derechos reservados</p>
+                    <p className="footer-box">Desarrollo por:<strong> Pepe & Lali </strong>|| © Todos los derechos reservados para Carol</p>
                     <ul className="social-footer">
                         <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faFacebook} className='icon-font' /></Link></li>
                         <li><Link className="nav-link" to=""><FontAwesomeIcon icon={faInstagram} className='icon-font' /></Link></li>
