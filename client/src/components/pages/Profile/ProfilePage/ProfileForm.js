@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { Form, Button, Container, Modal } from 'react-bootstrap'
 import ProfileService from '../../../../services/profile.service'
 import UploadsService from '../../../../services/uploads.service'
-
+import './ProfileForm.css'
 
 class ProfileForm extends Component {
 
@@ -70,7 +70,7 @@ class ProfileForm extends Component {
         return (
             <Container>
 
-                <Form onSubmit={this.handleFormSubmit}>
+                <Form onSubmit={this.handleFormSubmit} className='Form-perfil'>
 
                     <Form.Group controlId="name">
                         <Form.Label>Nombre:</Form.Label>
@@ -91,17 +91,16 @@ class ProfileForm extends Component {
                         <Form.Control type="text" value={this.state.profile.phone} onChange={this.handleInputChange} name="phone" />
                     </Form.Group>
                     <Form.Group controlId="mail">
-
                         <Form.Control hidden type="text" value={this.props.profile.mail} name="mail" />
                     </Form.Group>
 
                     <Form.Group controlId="lng">
-                        <Form.Label>Imagen (file) </Form.Label>
+                        <Form.Label>Imagen: </Form.Label>
                         <Form.Control type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
 
 
-                    <Button onClick={() => this.setState({ modal: true })} variant="dark" type="submit" disabled={this.state.loading}>
+                    <Button onClick={() => this.setState({ modal: true })} className='Button-Box' type="submit" disabled={this.state.loading}>
                         {this.state.loading ? 'Subiendo imagen' : 'Editar'}
                     </Button>
 

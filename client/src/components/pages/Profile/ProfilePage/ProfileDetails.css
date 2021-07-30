@@ -1,20 +1,40 @@
-.carousel-card{
-    background-color: rgb(33, 122, 181, .2);
+.row-profile{
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row-datails{
+    padding: 4em 6em;
+    width: 50em;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
     flex-wrap: wrap;
-    padding: 24px 32px 32px;
+    margin-bottom: 6em;
+}
+.row-datails img{
+    width: 200px;
+    
+}
+.btn-perfil{
+    color: #217cb7;
+    text-transform: uppercase;
 }
 
-.row-datails{
-    padding: 2em 0em 8em;
-    justify-content: center;
-    align-items: center;
+.btn-perfil:hover{
+    color: #2D354C;
 }
 
 .datails-card {
     padding: 0 0 0 3em;
+}
+
+.datails-card h3{
+    color:  #217cb7;
 }
 
 .datails-card hr{
@@ -68,4 +88,23 @@
 
 .btn-datail a:hover{
     color: #217cb7;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+    margin: 0;
+}
+
+.modal-dialog {
+    max-width: 550px;
+    margin: 1.75rem auto;
 }

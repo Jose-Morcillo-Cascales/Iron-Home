@@ -1,0 +1,46 @@
+.Service-con{
+    padding: 0 4em 6em 4em;
+}
+
+.tickets-perfil{
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+.profile-card {
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 380px;
+    padding: 22px 16px 30px;
+    justify-content: center;
+    text-align: left;
+}
+
+.profile-card p{
+margin-bottom: 0;
+}
+
+.link-perfil {
+    color: rgb(192, 19, 19);
+    font-size: 1em;
+    text-align: end;
+    letter-spacing: .08em;
+    width: 100%;
+    padding: .4em;
+    background-color: #fff;
+    border-color: #fff;
+    margin-top: 10px;
+}
+.link-perfil:hover {
+    color: #217cb7;
+}
+
+.link-perfil a:hover{
+    color: #217cb7;
+}

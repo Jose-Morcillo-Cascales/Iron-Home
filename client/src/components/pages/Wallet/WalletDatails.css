@@ -1,0 +1,41 @@
+.wallet-box{
+    padding: 0 4em 6em 4em;
+}
+.wallet-box img{
+    width: 80px;
+    object-fit: contain;
+}
+.iron-token{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wallet-box .nav-tabs .nav-link {
+    font-size: 20px;
+}
+
+.wallet-box h2, h1{
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+.wallet-box h4{
+    color: #217cb7;
+}
+
+.wallet-card {
+    background: #fff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 380px;
+    padding: 22px 16px 30px;
+    justify-content: center;
+    text-align: left;
+}
+

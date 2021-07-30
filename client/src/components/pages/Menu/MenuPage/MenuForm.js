@@ -73,8 +73,8 @@ class MenuForm extends Component {
                             <h1>Reservar Menú</h1>
                             <Form.Group controlId="date">
                                 <Row className='row-menu'>
+                                    <Form.Label>1. ¿Qué día quiere?</Form.Label>
                                     <Col>
-                                        <Form.Label>1. ¿Qué día quiere?</Form.Label>
                                         <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
                                     </Col >
                                     <Col>

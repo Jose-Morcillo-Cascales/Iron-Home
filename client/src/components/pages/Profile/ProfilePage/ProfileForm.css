@@ -1,0 +1,32 @@
+.Form-perfil{
+    padding: 8px 16px;
+    width: 30em;
+    text-align: left;
+}
+
+.Form-perfil h1 {
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+.Form-perfil input[type=number], input[type=text],input[type=file]{
+    border: 2px solid #e1e8ee;
+    border-radius: 6px;
+    padding: 8px 6px;
+    margin-bottom: .5rem;
+}
+
+.Form-perfil label{
+    font-size: 1.2em;
+    color: #217cb7;
+    padding: 8px 1px;
+    margin-bottom: .5rem;
+}
+
+#lng{
+    margin-top: 25px;
+    padding-right: 4.3em;
+}

@@ -81,26 +81,25 @@ class AvalaibleRoom extends Component {
                     </Container>
 
                     <Container>
-                        <section>
+                        <section className='period-box'>
                             <Row>
                                 <Col md={6}>
-                                    <h1>Reserva tu habitación</h1>
-                                </Col>
-                                <Col md={6}>
-                                    <DropdownButton title="Periodo" id="dropdown-period" >
-                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="first" name="first">Primero</Dropdown.Item>
-                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="second" name="second">Segundo</Dropdown.Item>
-                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="third" name="third">Tercer</Dropdown.Item>
-                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fourth" name="fourth">Cuarto</Dropdown.Item>
-                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto</Dropdown.Item>
+                                    <h5>1. Elige tu periodo de estadia</h5>
+                                    <DropdownButton title="Periodo" id="dropdown-period" className='period-link' >
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="first" name="first">Primero Ago-Sep</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="second" name="second">Segundo Feb-Mrz</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="third" name="third">Tercer Abr-May</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fourth" name="fourth">Cuarto Jun-Jul</Dropdown.Item>
+                                        <Dropdown.Item onClick={(e) => this.periodRoom(e)} value="fifth" name="fifth">Quinto Oct-Nov</Dropdown.Item>
                                     </DropdownButton>
+                                    <h4>Periodo Selecionado: {this.state.periodRequest}</h4>
+
                                 </Col>
-                                s                    <hr></hr>
+                                <hr></hr>
                             </Row>
                         </section>
                         <section className='room-cards'>
                             <h1>Habitaciones Disponibles</h1>
-
                             <Row xs={1} md={4} className="g-4">
                                 {this.state.rooms.map(elm => <AvalaibleRoomCard key={elm._id} {...elm} periodRequest={this.state.periodRequest} bookRoom={this.bookRoom} />)}
                             </Row>

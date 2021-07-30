@@ -1,3 +1,20 @@
 .room-cards{
     padding: 2em 2em 7em;
 }
+
+#dropdown-period{
+    width: 40%;
+    color: #fff;
+    background-color: #217cb7;
+    border-color: #217cb7;
+    margin: 15px 0 25px 0;
+}
+
+#dropdown-period:hover{
+    background-color: #2D354C;
+    border-color: #2D354C;
+}
+
+.period-box h5{
+    color: #217cb7;
+}

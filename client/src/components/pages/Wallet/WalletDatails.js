@@ -9,6 +9,7 @@ import logoTokens from './IronTokens.png'
 import Spinner from "../../shared/Spinner/Spinner"
 import WalletService from "../../../services/wallet.service"
 import AddTokens from "./AddTokens"
+import './WalletDatails.css'
 
 
 
@@ -72,45 +73,45 @@ class WalletDetails extends Component {
                         </Row>
                     </Container>
 
-                    <Container>
-                        <h1>Wallet</h1>
-                        <hr></hr>
+                    <Container className='wallet-box'>
                         <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
                             <Tab eventKey="home" title="Mi Wallet">
                                 <Row>
                                     <Col md={8}>
-                                        {/* <img className="logo-tokens" src={logoTokens} alt="IronTokens"></img> */}
-                                        <h1>Iron Wallet</h1>
-                                        <h4>Titular:</h4>
-                                        <p>{this.props.loggedUser.name}</p>
-                                        <h4>Nº Wallet:</h4>
-                                        <p>{this.state.wallet._id}</p>
+                                        <div>
+                                            <h1>Iron Wallet</h1>
+                                            <h4>Titular:</h4>
+                                            <p>{this.props.loggedUser.name}</p>
+                                            <h4>Nº Wallet:</h4>
+                                            <p>{this.state.wallet._id}</p>
+                                        </div>
                                     </Col>
                                     <Col md={4}>
-                                        <h4>Saldo Dispoble:</h4>
-                                        <p>{this.state.wallet.balance} </p>
+                                        <div className='iron-token'>
+                                            <div className='saldo'>
+                                                <h4>Saldo Dispoble:</h4>
+                                                <h2>{this.state.wallet.balance} </h2>
+                                            </div>
+                                            <img className="logo-tokens" src={logoTokens} alt="IronTokens"></img>
+                                        </div>
                                         <Button onClick={() => this.setState({ modal: true })} className='Button-Box' >Cargar Tokens</Button>
                                     </Col>
                                 </Row>
                             </Tab>
                             <Tab eventKey="profile" title="Movimientos">
-                                <h1>Gastos</h1>
                                 <Row>
-                                    <h4>Laundry Tickets:</h4>
+                                    <h2 className='gastos'>Gastos Laundry:</h2>
                                     <Col md={12}>
-                                        <div className='room-box' style={{ maxHeight: '50vh', overflow: 'scroll' }}>
-
+                                        <div className='room-box' style={{ maxHeight: '50vh' }}>
                                             <Row xs={1} md={4} className="g-4">
-
                                                 {this.state.laundry.map(elm =>
-                                                    // console.log(elm)
                                                     <Col>
-                                                        <Card className='room-card'>
+                                                        <Card className='wallet-card'>
                                                             <Card.Body>
-                                                                <p>{this.toDate(elm.createdAt)}</p>
-                                                                <p>{elm.quantity}</p>
-                                                                <p>{elm.total}</p>
-
+                                                                <p><strong>Fecha Compra: </strong><br></br>
+                                                                    {this.toDate(elm.createdAt)}</p>
+                                                                <p><strong>Cantidad: </strong>{elm.quantity}</p>
+                                                                <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
                                                             </Card.Body>
                                                         </Card>
                                                     </Col>
@@ -121,21 +122,18 @@ class WalletDetails extends Component {
                                 </Row>
                                 <hr></hr>
                                 <Row>
-                                    <h4>Menú Tickets</h4>
+                                    <h2 className='gastos'>Gastos Menú</h2>
                                     <Col>
                                         <div className='room-box'>
-
                                             <Row xs={1} md={4} className="g-4">
-
                                                 {this.state.menu.map(elm =>
-                                                    // console.log(elm)
                                                     <Col>
-                                                        <Card className='room-card'>
+                                                        <Card className='wallet-card'>
                                                             <Card.Body>
-                                                                <p>{this.toDate(elm.createdAt)}</p>
-                                                                <p>{elm.quantity}</p>
-                                                                <p>{elm.total}</p>
-
+                                                                <p><strong>Fecha Compra: </strong><br></br>
+                                                                    {this.toDate(elm.createdAt)}</p>
+                                                                <p><strong>Cantidad: </strong>{elm.quantity}</p>
+                                                                <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
                                                             </Card.Body>
                                                         </Card>
                                                     </Col>

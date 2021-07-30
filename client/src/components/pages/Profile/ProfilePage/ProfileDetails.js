@@ -59,32 +59,23 @@ class ProfileDetails extends Component {
                     <Spinner />
                     :
                     <>
-                        <Row className="row-datails">
+                        <Row className="row-profile">
+                            <div className="row-datails" >
+                                <Col md={6}>
+                                    <Image className="profile-image" alt={this.state.profile.image} src={this.state.profile.image} />
+                                </Col>
+                                <Col md={6}>
+                                    <div className='datails-card'>
+                                        <h3>{this.state.profile.name} {this.state.profile.lastName}</h3>
+                                        <p className='p-datails'><strong>DNI:</strong> {this.state.profile.DNI}</p>
+                                        <p className='p-datails'><strong>Email:</strong> {this.state.profile.mail}</p>
+                                        <p className='p-datails'><strong>Teléfono: </strong>{this.state.profile.phone}</p>
 
-                            <Col md={6}>
-                                <Image className="d-block w-100" style={{ width: '100%' }} alt={this.state.profile.image} src={this.state.profile.image} />
-                            </Col>
-                            <Col md={4}>
-                                <div className='datails-card'>
-                                    <h3>{this.state.profile.name} {this.state.profile.lastName}</h3>
+                                        <Link className="btn-perfil" onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
 
-                                    <p className='p-datails'>DNI:{this.state.profile.DNI}</p>
-                                    <p className='p-datails'>Email:{this.state.profile.mail}</p>
-                                    <p className='p-datails'>Teléfono:{this.state.profile.phone}</p>
-                                    {/* <p className='p-datails'>{this.state.profile.role}</p> */}
-
-                                    <Link className="btn btn-datail" onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
-
-                                </div>
-                            </Col>
-
-                            <Card className="food-card">
-
-                                <Card.Body>
-                                    <Card.Title>{this.state.wallet}</Card.Title>
-
-                                </Card.Body>
-                            </Card>
+                                    </div>
+                                </Col>
+                            </div>
                         </Row>
 
                         <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>

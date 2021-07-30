@@ -17,11 +17,8 @@ const ProfilePage = ({ loggedUser, showMessage }) => {
                 </Row>
             </Container>
             <Container>
-
                 <ProfileDetails loggedUser={loggedUser} showMessage={showMessage} />
                 <ProfileServices loggedUser={loggedUser} showMessage={showMessage} />
-
-
             </Container>
         </>
     )
