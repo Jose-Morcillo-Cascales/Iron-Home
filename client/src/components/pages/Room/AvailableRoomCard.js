@@ -8,15 +8,18 @@ const AvailableRoomCard = ({ image, number, bath, price, capacity, type, _id, pe
     const bathicon = elm => !elm ? <FontAwesomeIcon icon={faToilet} className='icon-font' /> : <FontAwesomeIcon icon={faToiletPaperSlash} className='icon-font' />
     const bathboolean = elm => !elm ? 'si' : 'no'
     const capacityIcon = elm => elm === 1 ? <FontAwesomeIcon icon={faUser} className='icon-font' /> : <FontAwesomeIcon icon={faUserFriends} className='icon-font' />
-    // const random = elm => Math.floor(Math.random() * (4 - 1)) 
+    const random = () => {
+        let randonImage = Math.floor(Math.random() * (5 - 1))
+        return image[randonImage]
+    }
     const capitalized = string => string.toUpperCase()
 
     return (
         <Col >
             <Card className='card-box'>
-                <Card.Img variant="top" src={image[0]} />
+                <Card.Title className='title-card'>{capitalized(type)} Nº {number}</Card.Title>
+                <Card.Img variant="top" src={random()} />
                 <Card.Body>
-                    <Card.Title className='title'>{capitalized(type)} Nº {number}</Card.Title>
                     <div className='card-box-icons'>
                         <div className='card-datails-box'>
                             {bathicon(bath)}

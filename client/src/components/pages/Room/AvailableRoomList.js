@@ -113,18 +113,18 @@ class AvalaibleRoom extends Component {
 
         if (this.state.checkBath && this.state.single) {
             const SingBathRooms = roomListCopy.filter(rooms => !rooms.bath && rooms.capacity === 1 ? rooms : null)
-            this.setState({ query: SingBathRooms.slice(0, 2) })
+            this.setState({ query: SingBathRooms.slice(0, 3) })
         } else if (!this.state.checkBath && this.state.single) {
             const SingNoBathRooms = roomListCopy.filter(rooms => rooms.bath && rooms.capacity === 1 ? rooms : null)
-            this.setState({ query: SingNoBathRooms.slice(0, 2) })
+            this.setState({ query: SingNoBathRooms.slice(0, 3) })
         } else if (this.state.checkBath && this.state.double) {
             const DouBathRooms = roomListCopy.filter(rooms => !rooms.bath && rooms.capacity === 2 ? rooms : null)
-            this.setState({ query: DouBathRooms.slice(0, 2) })
+            this.setState({ query: DouBathRooms.slice(0, 3) })
         } else if (!this.state.checkBath && this.state.double) {
             const DouNoBathRoomsbathRooms = roomListCopy.filter(rooms => rooms.bath && rooms.capacity === 2 ? rooms : null)
-            this.setState({ query: DouNoBathRoomsbathRooms.slice(0, 2) })
+            this.setState({ query: DouNoBathRoomsbathRooms.slice(0, 3) })
         } else {
-            this.setState({ query: roomListCopy.slice(0, 10) })
+            this.setState({ query: roomListCopy.slice(0, 9) })
         }
     }
 
@@ -136,10 +136,13 @@ class AvalaibleRoom extends Component {
     }
 
     buttonDisabled = () => {
-        if (!this.state.single || !this.state.double)
-            if (!this.state.periodSelected)
-                return true
-            else return false
+        // if (!this.state.single || !this.state.double)
+        //     if (!this.state.periodSelected)
+        //         return true
+        //     else return false
+
+        return !((this.state.single || this.state.double) && this.state.periodSelected)
+
     }
     changeBoolean = boolean => boolean ? 'SI' : 'NO'
 

@@ -13,11 +13,14 @@
 .card-box h4{
     color: #ffffff;
 }
-
-.card-box hr{
-    border-top: 2px solid #ffffff;
+.title-card{
+    border-radius: 0.4rem;
+    padding: 1rem 0;
+    color: #ffffff;
+    font-size: 1.5rem;
     margin: 0;
 }
+
 .card-box-icons{
     background-color: #ffffff;
     display: flex;
