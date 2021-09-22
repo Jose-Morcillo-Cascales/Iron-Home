@@ -1,43 +1,43 @@
 import { Col, Card, ListGroup, ListGroupItem, Button } from "react-bootstrap"
-import { Link } from 'react-router-dom'
-import './AvalaibleRoomCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faToiletPaper, faToiletPaperSlash, faUserFriends, faReceipt, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faToiletPaperSlash, faUserFriends, faReceipt, faUser, faToilet } from '@fortawesome/free-solid-svg-icons'
+import './AvailableRoomCard.css'
 
+const AvailableRoomCard = ({ image, number, bath, price, capacity, type, _id, periodRequest, bookRoom }) => {
 
-const AvalaibleRoomCard = ({ number, bath, price, capacity, type, _id, periodRequest, bookRoom }) => {
-
-    const bathicon = elm => !elm ? <FontAwesomeIcon icon={faToiletPaper} className='icon-font' /> : <FontAwesomeIcon icon={faToiletPaperSlash} className='icon-font' />
+    const bathicon = elm => !elm ? <FontAwesomeIcon icon={faToilet} className='icon-font' /> : <FontAwesomeIcon icon={faToiletPaperSlash} className='icon-font' />
     const bathboolean = elm => !elm ? 'si' : 'no'
     const capacityIcon = elm => elm === 1 ? <FontAwesomeIcon icon={faUser} className='icon-font' /> : <FontAwesomeIcon icon={faUserFriends} className='icon-font' />
-
+    // const random = elm => Math.floor(Math.random() * (4 - 1)) 
     const capitalized = string => string.toUpperCase()
 
     return (
-
-        <Col>
-            <div className='card-box'>
-                <h4>{capitalized(type)} Nº {number}</h4>
-                <hr></hr>
-                <div className='card-box-icons'>
-                    <div className='card-datails-box'>
-                        {bathicon(bath)}
-                        <p>{bathboolean(bath)}</p>
+        <Col >
+            <Card className='card-box'>
+                <Card.Img variant="top" src={image[0]} />
+                <Card.Body>
+                    <Card.Title className='title'>{capitalized(type)} Nº {number}</Card.Title>
+                    <div className='card-box-icons'>
+                        <div className='card-datails-box'>
+                            {bathicon(bath)}
+                            <p>{bathboolean(bath)}</p>
+                        </div>
+                        <div className='card-datails-box'>
+                            {capacityIcon(capacity)}
+                            <p>{capacity}</p>
+                        </div>
+                        <div className='card-datails-box'>
+                            <FontAwesomeIcon icon={faReceipt} className='icon-font' />
+                            <p>{price} €</p>
+                        </div>
                     </div>
-                    <div className='card-datails-box'>
-                        {capacityIcon(capacity)}
-                        <p>{capacity}</p>
-                    </div>
-                    <div className='card-datails-box'>
-                        <FontAwesomeIcon icon={faReceipt} className='icon-font' />
-                        <p>{price} €</p>
-                    </div>
-                </div>
-                <hr></hr>
+                </Card.Body>
                 <Button className='btn-card-box' onClick={() => bookRoom(_id, periodRequest, capacity)}>BOOK NOW!</Button>
-            </div>
+
+            </Card>
         </Col>
+
     )
 }
 
-export default AvalaibleRoomCard
+export default AvailableRoomCard

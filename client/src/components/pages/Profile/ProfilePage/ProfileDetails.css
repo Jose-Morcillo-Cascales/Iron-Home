@@ -21,7 +21,7 @@
     
 }
 .btn-perfil{
-    color: #217cb7;
+    color: #2dc5fa;
     text-transform: uppercase;
 }
 
@@ -34,11 +34,11 @@
 }
 
 .datails-card h3{
-    color:  #217cb7;
+    color:  #2dc5fa;
 }
 
 .datails-card hr{
-    border-top: 2px solid #217cb7;
+    border-top: 2px solid #2dc5fa;
 }
 .details-icons{
     display: flex;
@@ -82,12 +82,12 @@
 
 .btn-datail:hover {
     box-shadow: 2px 4px 12px rgb(33, 124, 183 /12%);
-    border: 2px solid #217cb7;
-    color: #217cb7;
+    border: 2px solid #2dc5fa;
+    color: #2dc5fa;
 }
 
 .btn-datail a:hover{
-    color: #217cb7;
+    color: #2dc5fa;
 }
 
 .modal-content {

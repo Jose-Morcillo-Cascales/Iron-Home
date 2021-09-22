@@ -1,20 +1,136 @@
+.room-list h2, h1 {
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+
+.rg-col{
+    border-right: 3px solid #2dc5fa;
+}
+.period-box{
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 3em;
+    margin: 0;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    border: 2px solid rgb(45, 53, 76, .5);
+    text-align: center;
+}
+.period-box h5{
+    color: #2dc5fa;
+    font-weight: 400;
+}
+.room-option{
+    display: inline-block;
+}
+#dropdown-period{
+    width: 100%;
+    color: #fff;
+    background-color: #2D354C;
+    border-color: #2D354C;
+    margin: 15px 0;
+    padding: .4em 0;
+}
+
+#dropdown-period:hover{
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
+}
+
+.g-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+
+}
+.btn-opt:focus {
+    background-color: #2D354C;
+    outline: 0;
+    box-shadow: none;
+    border-color: rgb(0, 0, 0, 0);
+}
+.btn-opt-no{
+   background-color: #2D354C;
+   border-color: #2D354C; 
+}
+.btn-opt:hover{
+   background-color: #2dc5fa;
+   border-color: #2dc5fa; 
+}
+.btn-opt-sel{
+   background-color: #0e8134;
+   border-color: #0e8134; 
+}
+.btn-opt:active{
+   background-color: #2dc5fa;
+   border-color: #2dc5fa; 
+}
+.btn-search{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
+    padding: .5em;
+    font-size: 18px;
+}
+.btn-search:hover{
+    background-color: #2D354C;
+    border-color: #2D354C; 
+}
+.btn-remove{
+    margin-top: .3em;
+    color: #9e2323;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+    text-decoration: none;
+}
+.btn-remove:hover{
+    background-color: rgb(0, 0, 0, 0);
+    border-color: rgb(0, 0, 0, 0);
+    color: #2D354C;
+}
+.btn-remove:focus {
+    background-color: rgb(0, 0, 0, 0);
+    color: #9e2323;
+    outline: 0;
+    box-shadow: none;
+    border-color: rgb(0, 0, 0, 0);
+}
+
+.select-option h4{
+    width: 80%;
+    border-left: 3px solid #2D354C;
+    display: inline;
+    padding: 0em 1em;
+}
+
+.info-room{
+    margin-top: 2em;
+}
+
+.info-room h5{
+    margin-top: 1em;
+}
+
+.info-room p{
+    color: #2D354C;
+    font-size: 1.08em;
+    font-weight: 600;
+    letter-spacing: .09em;
+    width: 50%;
+    margin: .1em auto;
+    padding-bottom: .6em;
+    border-bottom: .1em solid #2dc5fa;
+}
 .room-cards{
     padding: 2em 2em 7em;
 }
 
-#dropdown-period{
-    width: 40%;
-    color: #fff;
-    background-color: #217cb7;
-    border-color: #217cb7;
-    margin: 15px 0 25px 0;
-}
 
-#dropdown-period:hover{
-    background-color: #2D354C;
-    border-color: #2D354C;
-}
-
-.period-box h5{
-    color: #217cb7;
-}

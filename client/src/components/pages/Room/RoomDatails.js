@@ -3,11 +3,11 @@ import RoomService from '../../../services/room.service'
 import { Container, Row, Col, Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Spinner from "../../shared/Spinner/Spinner"
-import './RoomDatails.css'
-
+import UserNavigation from '../../shared/UserNavigation/UserNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faUserFriends, faReceipt, faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
+import './RoomDatails.css'
 
 class RoomDetails extends Component {
 
@@ -37,28 +37,22 @@ class RoomDetails extends Component {
 
         return (
 
-            <Container>
+            <>
 
                 {!this.state.rooms
                     ?
                     <Spinner />
                     :
-                    <>
-                        <Container>
-                            <Row>
-                                <div className='user-navegation'>
-                                    <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/habitaciones">Volver</a></span>
-                                </div>
-                            </Row>
-                        </Container>
-                        <Container fluid className='datails-card'>
-                            <Row className="row-datails">
+                    <div className='bg-blue'>
+                        <UserNavigation color link="/habitaciones" text='Volver' />
+                        <Container fluid className=''>
+                            <Row className="room-row-datails">
                                 <Col md={6}>
                                     <div className='carousel-card'>
-                                        <Carousel>
+                                        <Carousel fade>
                                             {this.state.rooms.image.map(elm =>
                                                 <Carousel.Item key={elm}>
-                                                    <img className="d-block w-100" src={elm} alt={elm} style={{ width: '100%' }} />
+                                                    <img className="d-block w-100" src={elm} alt={elm} />
                                                 </Carousel.Item>
                                             )}
                                         </Carousel>
@@ -66,11 +60,10 @@ class RoomDetails extends Component {
                                 </Col>
 
                                 <Col md={4}>
-                                    <div className='datails-card'>
+                                    <div className='room-datails-card'>
                                         <h1>{this.state.rooms.name}</h1>
-                                        <p className='p-datails'>{this.state.rooms.description}</p>
-                                        <hr></hr>
-                                        <div className='details-icons'>
+                                        <p>{this.state.rooms.description}</p>
+                                        <div className='room-details-icons'>
                                             <div className='datails-box'>
                                                 <FontAwesomeIcon icon={faHouseUser} className='icon-font' />
                                                 <p>{this.state.rooms.type}</p>
@@ -81,18 +74,19 @@ class RoomDetails extends Component {
                                             </div>
                                             <div className='datails-box'>
                                                 <FontAwesomeIcon icon={faReceipt} className='icon-font' />
-                                                <p>{this.state.rooms.price}</p>
+                                                <p>{this.state.rooms.price} €</p>
                                             </div>
                                         </div>
-                                        <Link to="/habitaciones/disponibles" className="btn btn-datail">Reservar</Link>
+                                        <Link to="/habitaciones/disponibles" className="btn btn-roomd">RESERVAR</Link>
                                     </div>
                                 </Col>
                             </Row>
                         </Container>
-                    </>
+                    </div>
                 }
 
-            </Container>
+            </>
+
 
         )
     }

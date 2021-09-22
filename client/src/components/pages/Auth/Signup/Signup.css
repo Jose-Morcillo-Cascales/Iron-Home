@@ -41,8 +41,8 @@
 .Button-Box{
     margin-top: 20px;
     width: 100%;
-    background-color: #217cb7;
-    border-color: #217cb7;
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
     padding: .5em;
     font-size: 18px;
 
@@ -57,7 +57,7 @@
 }
 
 .Span-Box a{
-    color: #217cb7;
+    color: #2dc5fa;
     text-decoration: none;
 }
 

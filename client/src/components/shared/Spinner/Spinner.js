@@ -11,7 +11,7 @@ const Spinner = () => {
                     <div className='Spinner-Box'>
                         <Loader
                             type="Circles"
-                            color="#217cb7"
+                            color="#2dc5fa"
                             height={60}
                             width={60}
                             timeout={40000}

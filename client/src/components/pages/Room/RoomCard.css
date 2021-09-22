@@ -1,18 +1,22 @@
 .room-card{
-    background: #fff;
+    background-color: rgba(0,0,0,0);
     border-radius: 6px;
     box-sizing: border-box;
-    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
     display: flex;
     flex-wrap: wrap;
     max-width: 380px;
     padding: 22px 16px 30px;    
     justify-content: center;
     text-align: center;
+    border: none;
+    transition: all 0.3s ease 0s;
+
 }
 
 .room-card:hover{
-    background-color: rgb(33, 122, 181, .2);
+    background-color: #ffffff;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+
 }
 
 .link-card{
@@ -20,12 +24,20 @@
 }
 
 .title{
-    margin: 0;
-    color: #2D354C;
+    margin-top: 1.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    border: 2px solid rgb(45, 197, 250);
+    padding: 1rem 0;
+    color: rgb(45, 197, 250);
+    font-size: 1.3rem;
     text-decoration: none;
-    letter-spacing: .1em;
-    font-size: 1.6em;
-    padding-top: 2em;
+    transition: all 0.3s ease 0s;
 }
 
-
+.room-card:hover .title {
+    color: #2D354C;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0;
+}

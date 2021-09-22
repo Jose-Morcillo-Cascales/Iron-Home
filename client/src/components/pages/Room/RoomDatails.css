@@ -1,5 +1,9 @@
+.bg-blue{
+    background-color: #2d354c;
+}
+
 .carousel-card{
-    background-color: rgb(33, 122, 181, .2);
+    background-color: #ffffff;
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
@@ -7,28 +11,36 @@
     padding: 24px 32px 32px;
 }
 
-.row-datails{
+.room-row-datails{
     padding: 2em 0em 8em;
     justify-content: center;
     align-items: center;
 }
-
-.datails-card {
+.room-datails-card{
     padding: 0 0 0 3em;
+    color: #b5c1e5;  
+}
+.room-datails-card h1 {
+    color: #ffffff;
+    text-align: left;
+    border-left: 3px solid #ffffff;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+.room-datails-card p {
+    margin-bottom: 2em;
 }
 
-.datails-card hr{
-    border-top: 2px solid #217cb7;
-}
-.details-icons{
+.room-details-icons{
     display: flex;
     text-align: center;
-    padding: 1em;
+    padding: 2em 1em 1em;
     justify-content: space-between;
     align-items: center;
+    border-top: 4px solid #ffffff;
 }
 
-.details-icons .icon-font{
+.room-details-icons .icon-font{
     font-size: 30px;
 }
 
@@ -39,33 +51,43 @@
     text-align: center;
 }
 
-.datails-card {
-    padding: 0 0 0 3em;
-}
-
-.datails-card {
-    padding: 0 0 0 3em;
-}
-
-
-.btn-datail {
-    font-size: 1.5em;
-    letter-spacing: .08em;
+.btn-roomd {
+    display: inline-block;
+    margin-top: 1.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: .09em;
     width: 100%;
-    border: 2px solid #2D354C;
-    padding: .4em;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: .8rem 0;
+    color: #2d354c;
+    transition: all .5s ease 0s;
 }
 
-.btn-datail a{
-    color: #ffffff !important;
+.btn-roomd a{
+    color: #ffffff;
 }
 
-.btn-datail:hover {
+.btn-roomd:hover {
     box-shadow: 2px 4px 12px rgb(33, 124, 183 /12%);
-    border: 2px solid #217cb7;
-    color: #217cb7;
+    border: 2px solid #2dc5fa;
+    color: #ffffff;
+    background-color: #2dc5fa;
 }
 
-.btn-datail a:hover{
-    color: #217cb7;
+.btn-roomd a:hover{
+    color: #ffffff;
+}
+
+/* QUERIES */
+@media (max-width: 767px) {
+    .room-datails-card{
+         padding: 3em 3em 0;   
+    }
+    .room-row-datails{
+    padding: 0em 2em 4em;
+    }
 }

@@ -12,7 +12,7 @@
     text-align: center;
 }
 .food-card .card-title{
-    color: #217cb7;
+    color: #2dc5fa;
 }
 .food-card .icon-font{
     margin-right: .8em;
@@ -27,7 +27,7 @@
 
 .card-choose a{
     text-transform: uppercase;
-    color: #217cb7;
+    color: #2dc5fa;
 }
 
 .details-modal{

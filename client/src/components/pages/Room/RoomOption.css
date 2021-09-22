@@ -1,10 +1,16 @@
-.room-box{
-    margin-bottom: 5em;
-    justify-content: center;
+.bg-color{
+    background-color: #f8f8f8;
 }
+
+.room-row-box {
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .book-box{
-    padding: 20em 2em;
-    background-color: #2D354C;
+    padding: 25em 2em;
+    background-color: #2dc5fa;
     text-align: left;
 }
 .book-box h1{
@@ -15,26 +21,40 @@
 }
 
 .btn-book {
-    font-size: 1.5em;
-    letter-spacing: .08em;
-    margin-top: 50px;
+    display: inline-block;
+    margin-top: 1.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: .09em;
     width: 100%;
     background-color: #ffffff;
     border-color: #ffffff;
-    padding: .4em;
+    padding: .8rem 0;
+    color: #2dc5fa;
+    transition: all .5s ease 0s;
+
 }
 
 .btn-book a{
-    color: #2D354C;
+    color: #2dc5fa;
 }
 
 .btn-book:hover {
-    box-shadow: 2px 4px 12px rgb(33, 124, 183 /12%);
-    border: 1px solid #217cb7;
-    color: #217cb7;
+    box-shadow: 2px 4px 12px rgb(0, 0, 0 /12%);
+    border: 1px solid #2D354C;
+    background-color: #2D354C;
+    color: #ffffff;
 }
 
 .btn-book a:hover{
-    color: #217cb7;
+    color: #2D354C;
 }
-/* #2D354C */
+
+/* QUERIES */
+@media (max-width: 767px) {
+    .book-box{
+        padding: 10em 2em;
+    }
+}
