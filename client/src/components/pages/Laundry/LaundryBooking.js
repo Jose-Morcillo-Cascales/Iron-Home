@@ -55,6 +55,12 @@ class LaundryBooking extends Component {
             .catch(err => this.props.showMessage(err.response.data.message))
     }
 
+    buttonDisabled = () => {
+
+        return !(this.state.bookingDate.length > 0 && this.state.quantity > 0)
+
+    }
+
     render() {
 
         return (
@@ -82,7 +88,7 @@ class LaundryBooking extends Component {
                                             <Form.Check type="checkbox" label="Dark" value={this.state.dark} onChange={this.handleInputChange} name="dark" />
                                             <Form.Check type="checkbox" label="Delicate" value={this.state.delicate} onChange={this.handleInputChange} name="delicate" />
                                         </Form.Group>
-                                        <Button className='btn-roomd' type="submit">ENVIAR</Button>
+                                        <Button className='btn-roomd' type="submit" disabled={this.buttonDisabled()}>ENVIAR</Button>
                                     </Form>
                                 </diV>
                             </Col>

@@ -4,6 +4,7 @@ import MenuPurchase from '../../../../services/menu.service'
 import FoodList from './FoodList'
 import './MenuForm.css'
 import logoTokens from './IronTokens.png'
+import { faWallet } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -52,7 +53,6 @@ class MenuForm extends Component {
             .then((response) => {
                 console.log(response)
                 this.setState({ menu: { date: '', dish: [] } })
-
                 this.props.showMessage('Compra realizada')
                 this.props.history.push('/wallet')
             })
