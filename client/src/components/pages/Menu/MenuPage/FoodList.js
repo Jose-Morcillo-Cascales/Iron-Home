@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Form, Row, Col } from 'react-bootstrap'      // Button, Modal
+import { Row } from 'react-bootstrap'      // Button, Modal
 import MenuPurchase from '../../../../services/menu.service'
 import FoodCard from './FoodCard'
 import Spinner from './../../../shared/Spinner/Spinner'

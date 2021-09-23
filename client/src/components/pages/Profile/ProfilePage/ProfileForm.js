@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Form, Button, Container, Modal } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 import ProfileService from '../../../../services/profile.service'
 import UploadsService from '../../../../services/uploads.service'
 import './ProfileForm.css'

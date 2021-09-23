@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Spinner from "../../shared/Spinner/Spinner"
 import UserNavigation from '../../shared/UserNavigation/UserNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faUserFriends, faReceipt, faHouseUser } from '@fortawesome/free-solid-svg-icons'
+import { faUserFriends, faReceipt, faHouseUser } from '@fortawesome/free-solid-svg-icons'
 import '../../shared/UserNavigation/UserNavigation.css'
 import './RoomDatails.css'
 

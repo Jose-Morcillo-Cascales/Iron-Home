@@ -1,6 +1,5 @@
 import { Row, Container, Tab, Tabs, Col, Button, Modal, Card } from "react-bootstrap"
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'

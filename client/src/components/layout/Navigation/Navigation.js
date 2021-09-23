@@ -49,12 +49,12 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                                     <>
 
                                         <NavDropdown title="Menús" id="navbarScrollingDropdown">
-                                            <NavDropdown.Item><Link className="nav-link" to="/menu">Menús</Link></NavDropdown.Item>
+                                            <NavDropdown.Item><Link className="nav-link" to="/menu">Servicio</Link></NavDropdown.Item>
                                             <NavDropdown.Item><Link className="nav-link" to="/menu/reservas">Compra</Link></NavDropdown.Item>
                                         </NavDropdown>
 
                                         <NavDropdown title="Lavanderia" id="navbarScrollingDropdown">
-                                            <NavDropdown.Item><Link className="nav-link" to="/lavanderia">Lavanderia</Link></NavDropdown.Item>
+                                            <NavDropdown.Item><Link className="nav-link" to="/lavanderia">Servicio</Link></NavDropdown.Item>
                                             <NavDropdown.Item><Link className="nav-link" to="/lavanderia/reservas">Compra</Link></NavDropdown.Item>
                                         </NavDropdown>
                                     </>
@@ -62,7 +62,7 @@ const Navigation = ({ storeUser, loggedUser, hasRoom, roomCheck, showMessage }) 
                                     null
                                 }
                                 <NavDropdown title="Perfil" id="navbarScrollingDropdown">
-                                    <NavDropdown.Item><Link className="nav-link" to="/perfil">Perfil</Link></NavDropdown.Item>
+                                    <NavDropdown.Item><Link className="nav-link" to="/perfil">Mi Perfil</Link></NavDropdown.Item>
 
                                     {hasRoom ? <NavDropdown.Item><Link className="nav-link" to="/wallet">Mi Wallet</Link></NavDropdown.Item> : null}
 

@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
 import WalletService from "../../../services/wallet.service"
-import Spinner from "../../shared/Spinner/Spinner"
 
 
 

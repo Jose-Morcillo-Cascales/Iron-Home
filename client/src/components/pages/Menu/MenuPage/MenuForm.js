@@ -1,10 +1,9 @@
 import { Component } from 'react'
-import { Form, Button, Container, Modal, Col, Row } from 'react-bootstrap'
+import { Form, Button, Col, Row } from 'react-bootstrap'
 import MenuPurchase from '../../../../services/menu.service'
 import FoodList from './FoodList'
 import './MenuForm.css'
 import logoTokens from './IronTokens.png'
-import { faWallet } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -31,7 +30,7 @@ class MenuForm extends Component {
     }
 
     handleCheckbox = (id, checked) => {
-        console.log('esto me llega', id, checked)
+
 
         const menuCopy = { ...this.state.menu }
         if (checked === true) {
@@ -41,7 +40,7 @@ class MenuForm extends Component {
             menuCopy.dish.splice(menuCopy.dish.indexOf(id), 1)
         }
         this.setState({ menu: menuCopy })
-        console.log(menuCopy)
+
 
     }
 
@@ -51,7 +50,7 @@ class MenuForm extends Component {
         this.MenuPurchase
             .newMenu(this.state.menu.date, this.state.menu.dish)
             .then((response) => {
-                console.log(response)
+
                 this.setState({ menu: { date: '', dish: [] } })
                 this.props.showMessage('Compra realizada')
                 this.props.history.push('/wallet')
@@ -96,7 +95,7 @@ class MenuForm extends Component {
                                             <h2>Tu Compra</h2>
                                         </div>
                                         <div className='ticket-body-menu'>
-                                            <p><strong>CANTIDAD:</strong> </p>
+                                            <p><strong>CANTIDAD:</strong>{this.state.menu.dish.length} </p>
                                             <p><strong>PRECIO:</strong> <b>6</b> Tokens / Plato</p>
                                             <h3><strong>TOTAL:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
                                         </div>

@@ -1,4 +1,4 @@
-import { Col, Card, ListGroup, ListGroupItem, Button } from "react-bootstrap"
+import { Col, Card, Button } from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faToiletPaperSlash, faUserFriends, faReceipt, faUser, faToilet } from '@fortawesome/free-solid-svg-icons'
 import './AvailableRoomCard.css'

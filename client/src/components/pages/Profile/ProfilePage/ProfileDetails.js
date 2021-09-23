@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Container, Row, Col, Card, Image, Modal } from 'react-bootstrap'
+import { Container, Row, Col, Image, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ProfileForm from './ProfileForm'
 import ProfileService from './../../../../services/profile.service'
