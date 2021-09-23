@@ -22,19 +22,18 @@
 }
 
 .card-box-icons{
-    background-color: #ffffff;
     display: flex;
-    padding: 2em 1em 1em;
-    justify-content: space-between;
+    padding: 2em 1em 0;
+    justify-content: space-around;
 }
 
 .card-box-icons .icon-font{
     font-size: 35px;
-    color: #2dc5fa;
+    color: #b5c1e5;
 }
 
 .card-box-icons p{
-    color: #2dc5fa;
+    color: #b5c1e5;
     margin-top: .8em;
     font-weight: 600;
     text-transform: uppercase;
@@ -43,16 +42,17 @@
 
 .btn-card-box{
     color: #ffffff;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: .09em;
     margin-top: 1em;
-    background-color: #2dc5fa;
-    border-color: #2dc5fa;
-    text-decoration: underline;
-    transition: margin-top 1s;
+    border: rgb(0, 0, 0, 0);
+    background-color: rgb(0, 0, 0, 0);
+
+
 }
 
 .btn-card-box:hover{
-    margin-top: 2em;
     background-color: #2dc5fa;
     border-color: #2dc5fa;
 }

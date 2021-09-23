@@ -68,40 +68,43 @@ class MenuForm extends Component {
     render() {
         return (
             <>
-                <Row>
-                    <div className='form-contain'>
-                        <Form onSubmit={this.handleFormSubmit}>
-                            <h1>Reservar Menú</h1>
-                            <Form.Group controlId="date">
-                                <Row className='row-menu'>
-                                    <Form.Label>1. ¿Qué día quiere?</Form.Label>
-                                    <Col>
+                <div className='form-menu'>
+                    <Form onSubmit={this.handleFormSubmit}>
+                        <Form.Group controlId="date">
+                            <Row className='row-menu'>
+                                <h1>Reservar Menú</h1>
+
+                                <Col md={6}>
+                                    <div className='menu-ticket'>
+                                        <Form.Label>1. ¿Qué día quiere?</Form.Label>
                                         <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
-                                    </Col >
-                                    <Col>
                                         <Button className='Button-Box' type="submit" disabled={this.state.loading}>
                                             {this.state.loading ? 'Tomando nota' : 'Comprar menú'}
                                         </Button>
-                                    </Col>
-                                </Row>
-                            </Form.Group>
-                            <Form.Label>2. Elija los platos</Form.Label>
-                            <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
-                        </Form>
-                    </div>
-                </Row>
-                <Row className='ticket-row'>
-                    <div className='ticket-box ticket-menu'>
-                        <div className='logo-ticket'>
-                            <img src={logoTokens} alt="IronToken"></img>
-                        </div>
-                        <h1>Tu Compra</h1>
-                        <p><strong>Cantidad:</strong> </p>
-                        <h6><strong>Precio:</strong> 8 Tokens/Tula</h6>
-                        <hr></hr>
-                        <h3><strong>Total:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
-                    </div>
-                </Row>
+                                    </div>
+                                </Col >
+                                <Col md={6}>
+
+                                    <div className='ticket-menu'>
+                                        <div className='ticket-title-menu' >
+                                            <img className='logo-ticket-menu' src={logoTokens} alt="IronToken"></img>
+                                            <h2>Tu Compra</h2>
+                                        </div>
+                                        <p><strong>CANTIDAD:</strong> </p>
+                                        <p><strong>PRECIO:</strong> 8 Tokens/Tula</p>
+                                        <h3><strong>TOTAL:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Row className='bg-color'>
+                            <div className='form-contain'>
+                                <Form.Label>2. Elija los platos</Form.Label>
+                                <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
+                            </div>
+                        </Row>
+                    </Form>
+                </div>
             </>
         )
     }

@@ -34,7 +34,7 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  reloadPage = () => this.state.alert.text === 'Please, log-in' ? (this.props.history.push('/login'), window.location.reload(false)) : null
+  reloadPage = () => this.state.alert.text === 'Please, log-in' ? (this.props.history.push('/'), window.location.reload(false)) : null
 
 
   storeUser = loggedUser => this.setState({ loggedUser })

@@ -34,8 +34,8 @@ const AvailableRoomCard = ({ image, number, bath, price, capacity, type, _id, pe
                             <p>{price} €</p>
                         </div>
                     </div>
+                    <Button className='btn-card-box' onClick={() => bookRoom(_id, periodRequest, capacity)}>BOOK NOW!</Button>
                 </Card.Body>
-                <Button className='btn-card-box' onClick={() => bookRoom(_id, periodRequest, capacity)}>BOOK NOW!</Button>
 
             </Card>
         </Col>
