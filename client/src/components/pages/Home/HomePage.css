@@ -3,6 +3,10 @@
     object-fit: cover;
 }
 
+.exp-row {
+    justify-content: center;
+}
+
 .main-box {
     background-color: rgb(33, 124, 183, .1);
 }
