@@ -11,8 +11,8 @@ import './RoomDatails.css'
 
 class RoomDetails extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             rooms: undefined
         }
@@ -77,7 +77,8 @@ class RoomDetails extends Component {
                                                 <p>{this.state.rooms.price} €</p>
                                             </div>
                                         </div>
-                                        <Link to="/habitaciones/disponibles" className="btn btn-roomd">RESERVAR</Link>
+                                        {!this.props.hasRoom ? <Link to="/habitaciones/disponibles" className="btn btn-roomd">RESERVAR</Link> : null}
+
                                     </div>
                                 </Col>
                             </Row>

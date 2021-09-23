@@ -52,12 +52,17 @@ class MenuForm extends Component {
             .then((response) => {
                 console.log(response)
                 this.setState({ menu: { date: '', dish: [] } })
+
                 this.props.showMessage('Compra realizada')
                 this.props.history.push('/wallet')
             })
             .catch(err => this.props.showMessage(err.response.data.message))
     }
+    buttonDisabled = () => {
 
+        return !(this.state.menu.dish.length > 0 && this.state.menu.date.length > 0)
+
+    }
 
     PriceMenu(Alldishes) {
         let finalPrice = Alldishes * 6
@@ -78,7 +83,7 @@ class MenuForm extends Component {
                                     <div className='menu-ticket'>
                                         <Form.Label>1. ¿Qué día quiere?</Form.Label>
                                         <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
-                                        <Button className='Button-Box' type="submit" disabled={this.state.loading}>
+                                        <Button className='Button-Box' type="submit" loading={this.state.loading} disabled={this.buttonDisabled()}>
                                             {this.state.loading ? 'Tomando nota' : 'Comprar menú'}
                                         </Button>
                                     </div>
