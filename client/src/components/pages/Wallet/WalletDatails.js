@@ -132,7 +132,7 @@ class WalletDetails extends Component {
                                                             <Card.Body>
                                                                 <p><strong>Fecha Compra: </strong><br></br>
                                                                     {this.toDate(elm.createdAt)}</p>
-                                                                <p><strong>Cantidad: </strong>{elm.quantity}</p>
+                                                                <p><strong>Cantidad: </strong>{elm.dish.length}</p>
                                                                 <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
                                                             </Card.Body>
                                                         </Card>

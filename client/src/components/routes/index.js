@@ -30,7 +30,7 @@ const Routes = ({ storeUser, loggedUser, roomCheck, showMessage, hasRoom }) => {
             <Route path="/servicios" exact render={() => <Spinner />} />
 
             <Route path="/habitaciones" exact render={(props) => <RoomOption roomCheck={roomCheck} hasRoom={hasRoom} />} />
-            <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} />} />
+            <Route path="/habitaciones/detalles/:room_id" render={props => <RoomDetails {...props} hasRoom={hasRoom} />} />
             <Route path="/habitaciones/disponibles" render={props => loggedUser ? <AvalaibleRoomList loggedUser={loggedUser}  {...props} showMessage={showMessage} /> : <Redirect to="/iniciar-sesion" />} />
 
             <Route path="/lavanderia" exact render={props => loggedUser ? <LaundryLanding loggedUser={loggedUser}  {...props} /> : <Redirect to="/iniciar-sesion" />} />

@@ -136,10 +136,6 @@ class AvalaibleRoom extends Component {
     }
 
     buttonDisabled = () => {
-        // if (!this.state.single || !this.state.double)
-        //     if (!this.state.periodSelected)
-        //         return true
-        //     else return false
 
         return !((this.state.single || this.state.double) && this.state.periodSelected)
 
