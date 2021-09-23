@@ -24,7 +24,7 @@
   "scripts": {
     "start": "dotenv -e .env.local react-scripts start",
     "build": "dotenv -e .env.prod react-scripts build",
-    "deploy": "rm -Recurse -Force build; npm run build; cd ..; rm -Recurse -Force  server/public/*; mv client/build/* server/public; git add .; git commit -m deploy; git subtree push --prefix=server heroku main",
+    "deploy": "Remove-Item -Recurse -Force build; npm run build; cd ..; Remove-Item -Recurse -Force  server/public/*; mv client/build/* server/public; git add .; git commit -m deploy; git subtree push --prefix=server heroku main",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
