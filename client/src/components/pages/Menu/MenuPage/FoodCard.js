@@ -72,7 +72,7 @@ class FoodCard extends Component {
                                 </Card>
                             </Form.Group>
                         </Col>
-                        <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })} className='details-modal'>
+                        <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })} size="lg" centered>
                             <Modal.Body>
                                 <FoodDetails food_id={this.props.food._id} key={this.props.food._id} closeModal={() => this.setState({ modal: false })} />
                             </Modal.Body>

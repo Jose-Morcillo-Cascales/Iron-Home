@@ -77,14 +77,14 @@ class MenuForm extends Component {
                     <Form onSubmit={this.handleFormSubmit}>
                         <Form.Group controlId="date">
                             <Row className='row-menu'>
-                                <h1>Reservar Menú</h1>
 
                                 <Col md={6}>
-                                    <div className='menu-ticket'>
-                                        <Form.Label>1. ¿Qué día quiere?</Form.Label>
+                                    <div className='option-menu'>
+                                        <h1>Reservar Menú</h1>
+                                        <Form.Label>1. Seleciona fecha</Form.Label>
                                         <Form.Control type="date" value={this.state.menu.date} onChange={this.handleInputChange} name="date" />
-                                        <Button className='Button-Box' type="submit" loading={this.state.loading} disabled={this.buttonDisabled()}>
-                                            {this.state.loading ? 'Tomando nota' : 'Comprar menú'}
+                                        <Button className='btn-box-menu' type="submit" loading={this.state.loading} disabled={this.buttonDisabled()}>
+                                            {this.state.loading ? 'Tomando nota' : 'COMPRAR'}
                                         </Button>
                                     </div>
                                 </Col >
@@ -95,16 +95,19 @@ class MenuForm extends Component {
                                             <img className='logo-ticket-menu' src={logoTokens} alt="IronToken"></img>
                                             <h2>Tu Compra</h2>
                                         </div>
-                                        <p><strong>CANTIDAD:</strong> </p>
-                                        <p><strong>PRECIO:</strong> 8 Tokens/Tula</p>
-                                        <h3><strong>TOTAL:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
+                                        <div className='ticket-body-menu'>
+                                            <p><strong>CANTIDAD:</strong> </p>
+                                            <p><strong>PRECIO:</strong> <b>6</b> Tokens / Plato</p>
+                                            <h3><strong>TOTAL:</strong> {this.PriceMenu(this.state.menu.dish.length)}  </h3>
+                                        </div>
                                     </div>
                                 </Col>
                             </Row>
                         </Form.Group>
                         <Row className='bg-color'>
                             <div className='form-contain'>
-                                <Form.Label>2. Elija los platos</Form.Label>
+                                <h1>Nuestros Platos</h1>
+                                <Form.Label>2. Elige los platos</Form.Label>
                                 <FoodList match={this.props.match} handleCheckbox={this.handleCheckbox} />
                             </div>
                         </Row>

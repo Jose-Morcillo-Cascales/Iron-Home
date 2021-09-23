@@ -1,0 +1,55 @@
+.food-details-modal{
+    padding: 2em;
+}
+
+.carousel-card-menu{
+    background-color: #2D354C;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
+    flex-wrap: wrap;
+    padding: 24px 32px 32px;
+    width: 85%;
+}
+
+.details-card-menu{
+    padding: 3em 2em 0;
+
+
+}
+.details-card-menu h1{
+    color: #2D354C;
+    text-align: left;
+    border-left: 3px solid #2D354C;
+    padding: .5em;
+    margin-bottom: 2rem;
+}
+
+.details-icons-menu {
+    display: flex;
+    text-align: center;
+    padding: 1em 4em 0;
+    justify-content: space-around;
+    align-items: center;
+    border-top: .1em solid #2dc5fa;
+    font-size: 1.3em;
+    font-weight: 500;
+    letter-spacing: .09em;
+    margin-top: 1.5em;
+
+}
+
+.datails-box-menu .icon-font {
+    font-size: 3em;
+    color: #2dc5fa;
+}
+
+
+
+
+
+/* .menu-details {
+    padding: 2em 0em 3em;
+    justify-content: center;
+    align-items: center;
+} */

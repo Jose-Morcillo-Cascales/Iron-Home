@@ -1,5 +1,5 @@
 .row-reservation{
-    padding: 0 8em 5em;
+    padding: 4em 8em 5em;
     justify-content: space-between;
     align-items: center;
 }
@@ -30,45 +30,51 @@
     margin-top: 2em;
 }
 
-.Form-laundry{
+.form-laundry{
     padding: 8px 16px;
     width: 30em;
     text-align: left;
 }
 
-.Form-laundry h1 {
-    color: #2D354C;
+.form-laundry h1 {
+    color: #ffffff;
     text-align: left;
-    border-left: 3px solid #2D354C;
+    border-left: 3px solid #ffffff;
     padding: .5em;
     margin-bottom: 2rem;
 }
 
-.Form-laundry input[type=number], input[type=date]{
+.form-laundry input[type=number], input[type=date]{
     border: 2px solid #e1e8ee;
     border-radius: 6px;
     padding: 8px 6px;
     margin-bottom: .5rem;
 }
 
-.Form-laundry label{
-    font-size: 1.2em;
-    color: #2dc5fa;
+.form-laundry label{
+    font-size: 1.4em;
+    color: #b5c1e5;
     padding: 8px 16px;
     margin-bottom: .5rem;
 }
 
-.form-check-input {
+.form-laundry .form-check-input {
     width: 2em;
     height: 2em;
     margin-top: .25em;
     vertical-align: top;
-    background-color: #2D354C;
+    background-color: #b5c1e5;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     border: 2px solid #e1e8ee;
 }
+
+.form-laundry .form-check-input:checked {
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
+}
+
 
 .logo-ticket{
     display: flex;

@@ -22,10 +22,21 @@
     padding: .5em;
 }
 
+.title-menu {
+    color: #2D354C;
+    text-align: left;
+    padding: .5em;
+    margin-bottom: 2rem;
+    font-size: 3em;
+}
+
 .step-row-box {
-    padding: 0 8em 3em;
+    padding: 3em 8em 0;    
     justify-content: center;
     align-items: center;
+}
+.steps{
+    padding: 0 0 0 2em;
 }
 
 .number-box{
@@ -43,4 +54,26 @@
 
 .step-col{
     padding: 10em;
+}
+
+.btn-menu-book{
+    display: inline-block;
+    margin-top: 1.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: .09em;
+    width: 100%;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: .8rem 0;
+    color: #2D354C;
+    transition: all .5s ease 0s;
+}
+
+.btn-menu-book:hover{
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
+    color: #ffffff;
 }
