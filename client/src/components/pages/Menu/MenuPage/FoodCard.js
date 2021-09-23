@@ -1,8 +1,7 @@
 
 import { Component } from 'react'
-import { Container, Card, Button, Col, Form, FormCheck, Modal } from 'react-bootstrap'
+import { Card, Col, Form, FormCheck, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import MenuPurchase from '../../../../services/menu.service'
 import FoodDetails from './FoodDetails'
 import Spinner from './../../../shared/Spinner/Spinner'
 import './FoodCard.css'
@@ -17,7 +16,7 @@ class FoodCard extends Component {
             checked: false,
             modal: false
         }
-        // this.foodService = new MenuPurchase()
+
         this.vegetableboolean = elm => !elm ? 'No Vegetariano' : 'Plato vegetariano'
         this.translation = type => {
 
@@ -26,7 +25,7 @@ class FoodCard extends Component {
                     return 'Primero'
                 case 'second':
                     return 'Segundo'
-                case 'dessert':
+                default:
                     return 'Postre'
             }
 

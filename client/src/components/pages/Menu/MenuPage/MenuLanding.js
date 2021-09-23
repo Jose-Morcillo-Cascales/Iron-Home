@@ -1,11 +1,9 @@
-import { Col, Row, Container, Button } from "react-bootstrap"
+import { Col, Row, Container } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import './MenuLanding.css'
 import step1 from './1-steps.png'
 import step2 from './2-steps.png'
 import step3 from './3-steps.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import '../../../shared/UserNavigation/UserNavigation.css'
 import UserNavigation from "../../../shared/UserNavigation/UserNavigation"
 
@@ -23,7 +21,7 @@ const MenuLanding = () => {
                                 <Link to="/menu/reservas" className="btn btn-menu-book">¡A COMER!</Link>
                             </Col>
                             <Col md={8}>
-                                <h2 className='title-menu'>Asi funciona</h2>
+
                                 <Row className='steps'>
                                     <Col md={4} className='col-stetps'>
                                         <div className='steps-box'>

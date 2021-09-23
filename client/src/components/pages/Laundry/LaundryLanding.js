@@ -1,4 +1,4 @@
-import { Col, Row, Container, Button } from "react-bootstrap"
+import { Col, Row, Container } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import './LaundryLanding.css'
 import step1 from './1-steps.png'
@@ -16,7 +16,7 @@ const LaundryLanding = () => {
                     <section>
                         <Row className='step-row-box'>
                             <Col md={4} className='step-text-box'>
-                                <h1>¿Cómo Funciona?</h1>
+                                <h1>¡Nosotros lavamos por ti!</h1>
                                 <Link to="/lavanderia/reservas" className="btn btn-menu-book">RESERVAR</Link>
                             </Col>
                             <Col md={8}>

@@ -1,5 +1,4 @@
-import { Container, Button, Col, Carousel, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Col, Carousel, Row } from 'react-bootstrap'
 import './HomePage.css'
 import kitchen from './iron-kitchen.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

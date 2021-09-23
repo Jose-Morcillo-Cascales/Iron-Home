@@ -99,7 +99,7 @@ class LaundryBooking extends Component {
                                         <h2>Tu Compra</h2>
                                     </div>
                                     <div className='ticket-body-menu'>
-                                        <p><strong>CANTIDAD:</strong> </p>
+                                        <p><strong>CANTIDAD:</strong>{this.state.quantity} </p>
                                         <p><strong>PRECIO:</strong> <b>8</b> Tokens / Tula</p>
                                         <h3><strong>TOTAL:</strong> {this.totalService(this.state.quantity)}  </h3>
                                     </div>

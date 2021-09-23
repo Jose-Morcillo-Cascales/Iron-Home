@@ -1,4 +1,4 @@
-import { Row, Container, DropdownButton, Dropdown, Col, Form, Button, ButtonGroup } from "react-bootstrap"
+import { Row, Container, DropdownButton, Dropdown, Col, Button, ButtonGroup } from "react-bootstrap"
 import { Component } from 'react'
 import RoomService from '../../../services/room.service'
 import AvalaibleRoomCard from "./AvailableRoomCard"
@@ -49,22 +49,22 @@ class AvalaibleRoom extends Component {
         switch (lang) {
             case "first":
                 return 'PRIMERO'
-                break
+
             case "second":
                 return 'SEGUNDO'
-                break
+
             case "third":
                 return 'TERCERO'
-                break
+
             case "fourth":
                 return 'CUARTO'
-                break
+
             case "fifth":
                 return 'QUINTO'
-                break
+
             default:
                 return ' '
-                break
+
         }
 
     }

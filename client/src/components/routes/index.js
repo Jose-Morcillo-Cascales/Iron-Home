@@ -7,7 +7,6 @@ import RoomDetails from '../pages/Room/RoomDatails'
 import AvalaibleRoomList from '../pages/Room/AvailableRoomList'
 import Signup from '../pages/Auth/Signup/Signup'
 
-import ProfileDetails from '../pages/Profile/ProfilePage/ProfileDetails'
 import ProfileForm from '../pages/Profile/ProfilePage/ProfileForm'
 
 

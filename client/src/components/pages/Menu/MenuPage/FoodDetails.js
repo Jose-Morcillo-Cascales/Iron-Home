@@ -1,10 +1,9 @@
 import { Component } from 'react'
-import { Container, Row, Col, Button, Carousel, } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Container, Row, Carousel } from 'react-bootstrap'
 import MenuPurchase from '../../../../services/menu.service'
 import Spinner from './../../../shared/Spinner/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faConciergeBell, faCarrot, faHouseUser } from '@fortawesome/free-solid-svg-icons'
+import { faConciergeBell, faCarrot } from '@fortawesome/free-solid-svg-icons'
 import './FoodDetails.css'
 
 class FoodDetails extends Component {
@@ -24,7 +23,7 @@ class FoodDetails extends Component {
                     return 'Primero'
                 case 'second':
                     return 'Segundo'
-                case 'dessert':
+                default:
                     return 'Postre'
 
 

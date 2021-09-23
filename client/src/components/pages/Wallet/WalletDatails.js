@@ -1,6 +1,5 @@
 import { Row, Container, Tab, Tabs, Col, Button, Modal, Card } from "react-bootstrap"
 import { Component } from 'react'
-import { Link } from 'react-router-dom'
 import logoTokens from './IronTokens.png'
 import Spinner from "../../shared/Spinner/Spinner"
 import WalletService from "../../../services/wallet.service"
