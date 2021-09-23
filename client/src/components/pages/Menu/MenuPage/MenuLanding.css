@@ -1,4 +1,4 @@
-.steps-box{
+.steps-box {
     display: flex;
     text-align: center;
     padding: 3em;
@@ -9,13 +9,13 @@
     flex-wrap: wrap;
 }
 
-.step-text-box{
+.step-text-box {
     padding: 10em 2em;
     background-color: #2D354C;
     text-align: left;
 }
 
-.step-text-box h1{
+.step-text-box h1 {
     color: #ffffff;
     text-align: left;
     border-left: 3px solid;
@@ -31,32 +31,34 @@
 }
 
 .step-row-box {
-    padding: 3em 8em 0;    
+    padding: 3em 8em 0;
     justify-content: center;
     align-items: center;
 }
-.steps{
+
+.steps {
     padding: 0 0 0 2em;
 }
 
-.number-box{
+.number-box {
     text-align: center;
     width: 6rem;
 }
 
-.text-steps{
+.text-steps {
     height: 10rem;
 }
-.text-steps h2{  
-    margin-top: 15px; 
-    color: #2D354C;  
+
+.text-steps h2 {
+    margin-top: 15px;
+    color: #2D354C;
 }
 
-.step-col{
+.step-col {
     padding: 10em;
 }
 
-.btn-menu-book{
+.btn-menu-book {
     display: inline-block;
     margin-top: 1.6rem;
     text-align: center;
@@ -72,8 +74,27 @@
     transition: all .5s ease 0s;
 }
 
-.btn-menu-book:hover{
+.btn-menu-book:hover {
     background-color: #2dc5fa;
     border-color: #2dc5fa;
     color: #ffffff;
+}
+
+/* QUERIES */
+
+@media (max-width: 767px) {
+    .step-row-box {
+        padding: 0;
+        justify-content: ce
+    }
+    .steps {
+        padding: 0;
+    }
+    .steps-box {
+        margin-bottom: 2em;
+    }
+    .step-text-box {
+        padding: 5em 2em;
+        margin-top: 2em;
+    }
 }

@@ -39,7 +39,7 @@ class FoodList extends Component {
                 :
                 (<>
 
-                    <Row md={2}>
+                    <Row xs={1} md={2}>
                         {this.state.foods.map(elm => <FoodCard handleCheckbox={this.props.handleCheckbox} food={elm} key={elm._id} {...elm._id} />)}
                     </Row>
 

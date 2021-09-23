@@ -62,17 +62,19 @@ class ProfileDetails extends Component {
                         <Row className="row-profile">
                             <div className="row-datails" >
                                 <Col md={6}>
-                                    <Image className="profile-image" alt={this.state.profile.image} src={this.state.profile.image} />
+                                    <div class="circular--portrait">
+                                        <Image className="profile-image" alt={this.state.profile.image} src={this.state.profile.image} />
+                                    </div>
                                 </Col>
                                 <Col md={6}>
                                     <div className='datails-card'>
-                                        <h3>{this.state.profile.name} {this.state.profile.lastName}</h3>
+                                        <h1>{this.state.profile.name} {this.state.profile.lastName}</h1>
                                         <p className='p-datails'><strong>DNI:</strong> {this.state.profile.DNI}</p>
                                         <p className='p-datails'><strong>Email:</strong> {this.state.profile.mail}</p>
                                         <p className='p-datails'><strong>Teléfono: </strong>{this.state.profile.phone}</p>
-
-                                        <Link className="btn-perfil" onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
-
+                                        <div className='link-edit'>
+                                            <Link className="btn-perfil" onClick={() => this.setState({ modal: true })}>Editar perfil</Link>
+                                        </div>
                                     </div>
                                 </Col>
                             </div>

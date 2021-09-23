@@ -1,32 +1,98 @@
-.wallet-box{
-    padding: 0 4em 6em 4em;
+.tab-row {
+    padding: 2em 0;
 }
-.wallet-box img{
-    width: 80px;
+
+.wallet-box {
+    padding: 4em 4em 6em;
+}
+
+.wallet-box img {
+    width: 20%;
     object-fit: contain;
 }
-.iron-token{
+
+.iron-token {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .wallet-box .nav-tabs .nav-link {
     font-size: 20px;
+    color: #2D354C;
 }
 
-.wallet-box h2, h1{
+.wallet-box .nav-tabs .nav-link.active {
+    color: #2dc5fa;
+    background-color: rgb(0, 0, 0, 0);
+    border: 2px solid;
+    border-color: #2D354C #2D354C rgb(0, 0, 0, 0);
+}
+
+.wallet-box .nav-tabs {
+    border-bottom: 2px solid #2D354C;
+}
+
+.saldo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 1em;
+}
+
+.saldo p {
+    font-size: 4em;
     color: #2D354C;
+    margin: 0;
+}
+
+.wallet-box h2, h1 {
+    color: #2dc5fa;
     text-align: left;
-    border-left: 3px solid #2D354C;
+    border-left: 3px solid #2dc5fa;
     padding: .5em;
     margin-bottom: 2rem;
 }
 
-.wallet-box h4{
-    color: #2dc5fa;
+.wallet-data h4 {
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: .09em;
+    color: #2D354C;
 }
 
-.wallet-card {
+.wallet-data p {
+    font-size: 1.3em;
+    color: #2D354C;
+}
+
+.button-box {
+    display: inline-block;
+    margin-top: 1.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: .09em;
+    width: 100%;
+    background-color: #2dc5fa;
+    border-color: #2dc5fa;
+    padding: .8rem 0;
+    color: #ffffff;
+    transition: all .5s ease 0s;
+}
+
+.button-box:hover {
+    background-color: #2D354C;
+    background-color: #2D354C;
+}
+
+.button-box:active {
+    background-color: #2D354C;
+    border-color: #2D354C;
+}
+
+.iron-token {
     background: #fff;
     border-radius: 6px;
     box-sizing: border-box;
@@ -39,3 +105,25 @@
     text-align: left;
 }
 
+.modal-title {
+    color: #2dc5fa;
+}
+
+.modal label, .add-tokens {
+    font-size: 1em;
+    color: #2dc5fa;
+    padding: 8px 0;
+    margin-bottom: .5rem;
+}
+
+.add-tokens h4 {
+    color: #2D354C;
+}
+
+/* QUERIES */
+
+@media (max-width: 767px) {
+    .wallet-box {
+        padding: 2em 1em;
+    }
+}

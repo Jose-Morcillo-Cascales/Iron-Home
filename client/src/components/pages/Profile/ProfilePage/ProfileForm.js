@@ -100,8 +100,8 @@ class ProfileForm extends Component {
                     </Form.Group>
 
 
-                    <Button onClick={() => this.setState({ modal: true })} className='Button-Box' type="submit" disabled={this.state.loading}>
-                        {this.state.loading ? 'Subiendo imagen' : 'Editar'}
+                    <Button onClick={() => this.setState({ modal: true })} className='btn-profile-form' type="submit" disabled={this.state.loading}>
+                        {this.state.loading ? 'Subiendo imagen' : 'EDITAR'}
                     </Button>
 
                 </Form>

@@ -1,16 +1,12 @@
 import { Row, Container, Tab, Tabs, Col, Button, Modal, Card } from "react-bootstrap"
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import '../../shared/UserNavigation/UserNavigation.css'
 import logoTokens from './IronTokens.png'
 import Spinner from "../../shared/Spinner/Spinner"
 import WalletService from "../../../services/wallet.service"
 import AddTokens from "./AddTokens"
 import './WalletDatails.css'
-
+import UserNavigation from "../../shared/UserNavigation/UserNavigation"
 
 
 class WalletDetails extends Component {
@@ -65,95 +61,92 @@ class WalletDetails extends Component {
                 <Spinner />
                 :
                 (<>
-                    <Container>
-                        <Row>
-                            <div className='user-navegation'>
-                                <span><FontAwesomeIcon icon={faChevronLeft} className='icon-font' /><a href="/">Inicio</a></span>
-                            </div>
-                        </Row>
-                    </Container>
+                    <div className='bg-color'>
+                        <UserNavigation color={false} link="/" text='Inicio' />
 
-                    <Container className='wallet-box'>
-                        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
-                            <Tab eventKey="home" title="Mi Wallet">
-                                <Row>
-                                    <Col md={8}>
-                                        <div>
-                                            <h1>Iron Wallet</h1>
-                                            <h4>Titular:</h4>
-                                            <p>{this.props.loggedUser.name}</p>
-                                            <h4>Nº Wallet:</h4>
-                                            <p>{this.state.wallet._id}</p>
-                                        </div>
-                                    </Col>
-                                    <Col md={4}>
-                                        <div className='iron-token'>
-                                            <div className='saldo'>
-                                                <h4>Saldo Dispoble:</h4>
-                                                <h2>{this.state.wallet.balance} </h2>
+
+                        <Container className='wallet-box'>
+                            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+                                <Tab eventKey="home" title="MI WALLET">
+                                    <Row className='tab-row'>
+                                        <Col md={8}>
+                                            <div className='wallet-data'>
+                                                <h1>Iron Wallet</h1>
+                                                <h4>Titular:</h4>
+                                                <p>{this.props.loggedUser.name}</p>
+                                                <h4>Nº Wallet:</h4>
+                                                <p>{this.state.wallet._id}</p>
                                             </div>
-                                            <img className="logo-tokens" src={logoTokens} alt="IronTokens"></img>
-                                        </div>
-                                        <Button onClick={() => this.setState({ modal: true })} className='Button-Box' >Cargar Tokens</Button>
-                                    </Col>
-                                </Row>
-                            </Tab>
-                            <Tab eventKey="profile" title="Movimientos">
-                                <Row>
-                                    <h2 className='gastos'>Gastos Laundry:</h2>
-                                    <Col md={12}>
-                                        <div className='room-box' style={{ maxHeight: '50vh' }}>
-                                            <Row xs={1} md={4} className="g-4">
-                                                {this.state.laundry.map(elm =>
-                                                    <Col>
-                                                        <Card className='wallet-card'>
-                                                            <Card.Body>
-                                                                <p><strong>Fecha Compra: </strong><br></br>
-                                                                    {this.toDate(elm.createdAt)}</p>
-                                                                <p><strong>Cantidad: </strong>{elm.quantity}</p>
-                                                                <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
-                                                            </Card.Body>
-                                                        </Card>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                <hr></hr>
-                                <Row>
-                                    <h2 className='gastos'>Gastos Menú</h2>
-                                    <Col>
-                                        <div className='room-box'>
-                                            <Row xs={1} md={4} className="g-4">
-                                                {this.state.menu.map(elm =>
-                                                    <Col>
-                                                        <Card className='wallet-card'>
-                                                            <Card.Body>
-                                                                <p><strong>Fecha Compra: </strong><br></br>
-                                                                    {this.toDate(elm.createdAt)}</p>
-                                                                <p><strong>Cantidad: </strong>{elm.dish.length}</p>
-                                                                <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
-                                                            </Card.Body>
-                                                        </Card>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </div>
+                                        </Col>
+                                        <Col md={4}>
+                                            <div className='iron-token'>
+                                                <h2>Saldo Dispoble</h2>
+                                                <div className='saldo'>
+                                                    <p>{this.state.wallet.balance} </p>
+                                                    <img className="logo-tokens" src={logoTokens} alt="IronTokens"></img>
+                                                </div>
+                                                <Button onClick={() => this.setState({ modal: true })} className='button-box' >CARGAR TOKENS</Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Tab>
+                                <Tab eventKey="profile" title="MOVIMIENTOS">
+                                    <Row className='tab-row'>
+                                        <h2 className='gastos'>Gastos Laundry:</h2>
+                                        <Col md={12}>
+                                            <div className='room-box' style={{ maxHeight: '50vh' }}>
+                                                <Row xs={1} md={4} className="g-4">
+                                                    {this.state.laundry.map(elm =>
+                                                        <Col>
+                                                            <Card className='profile-card'>
+                                                                <Card.Body>
+                                                                    <p><strong>Fecha Compra: </strong><br></br>
+                                                                        {this.toDate(elm.createdAt)}</p>
+                                                                    <p><strong>Cantidad: </strong>{elm.quantity}</p>
+                                                                    <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                    )}
+                                                </Row>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <hr></hr>
+                                    <Row className='tab-row'>
+                                        <Col md={12}>
 
-                                    </Col>
-                                </Row>
-                            </Tab >
-                        </Tabs >
-                    </Container >
-                    <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
-                        <Modal.Header>
-                            <Modal.Title>Cargar Tokens</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <AddTokens wallet={this.state.wallet} refreshWallet={this.loadWallet} closeModal={() => this.setState({ modal: false })} showMessage={this.props.showMessage} />
-                        </Modal.Body>
-                    </Modal>
+                                            <h2 className='gastos'>Gastos Menú</h2>
+                                            <div className='room-box'>
+                                                <Row xs={1} md={4} className="g-4">
+                                                    {this.state.menu.map(elm =>
+                                                        <Col>
+                                                            <Card className='profile-card'>
+                                                                <Card.Body>
+                                                                    <p><strong>Fecha Compra: </strong><br></br>
+                                                                        {this.toDate(elm.createdAt)}</p>
+                                                                    <p><strong>Cantidad: </strong>{elm.dish.length}</p>
+                                                                    <p><strong>Total: </strong>{elm.total} <span>Tokens</span></p>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                    )}
+                                                </Row>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Tab >
+                            </Tabs >
+                        </Container >
+                        <Modal show={this.state.modal} onHide={() => this.setState({ modal: false })}>
+                            <Modal.Header>
+                                <Modal.Title>Cargar Tokens</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <AddTokens wallet={this.state.wallet} refreshWallet={this.loadWallet} closeModal={() => this.setState({ modal: false })} showMessage={this.props.showMessage} />
+                            </Modal.Body>
+                        </Modal>
+                    </div>
                 </>
                 )
         )

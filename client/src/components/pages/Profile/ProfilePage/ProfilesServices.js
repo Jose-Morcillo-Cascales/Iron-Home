@@ -81,9 +81,7 @@ class ProfileServices extends Component {
                 <Spinner />
                 :
                 (<>
-
-
-                    <Container className='Service-con'>
+                    <Container className='service-con'>
                         <h1 className='tickets-perfil'>Wallet</h1>
                         <div>
                             <Accordion>
@@ -95,12 +93,13 @@ class ProfileServices extends Component {
                                         <Card.Body>
                                             <Row>
                                                 <Col>
-                                                    <div className='room-box' style={{ maxHeight: '50vh' }}>
-                                                        <Row xs={1} md={4} className="g-4">
-                                                            {this.state.laundry.map(elm =>
+                                                    <div className='room-box'>
+                                                        <Row xs={1} md={2} className="g-4">
+                                                            {this.state.laundry.map((elm, i) =>
                                                                 <Col>
                                                                     <Card className='profile-card'>
                                                                         <Card.Body>
+                                                                            <h5>Ticket Nº {i}</h5>
                                                                             <p><strong>Fecha Servicio: </strong><br></br>
                                                                                 {this.toDate(elm.bookingDate)}</p>
                                                                             <p><strong>Cantidad: </strong>{elm.quantity} Tulas</p>
@@ -130,11 +129,12 @@ class ProfileServices extends Component {
                                             <Row>
                                                 <Col>
                                                     <div className='room-box'>
-                                                        <Row xs={1} md={4} className="g-4">
-                                                            {this.state.menu.map(elm =>
+                                                        <Row xs={1} md={2} className="g-4">
+                                                            {this.state.menu.map((elm, i) =>
                                                                 <Col>
                                                                     <Card className='profile-card'>
                                                                         <Card.Body>
+                                                                            <h5>Ticket Nº {i}</h5>
                                                                             <p><strong>Fecha Servicio: </strong><br></br>
                                                                                 {this.toDate(elm.date)}</p>
                                                                             <strong>Platos: </strong>

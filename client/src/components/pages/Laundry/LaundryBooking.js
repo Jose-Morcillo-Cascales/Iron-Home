@@ -73,7 +73,7 @@ class LaundryBooking extends Component {
                     <Container fluid>
                         <Row xs={1} md={6} className="row-reservation">
                             <Col md={6}>
-                                <diV className='form-laundry'>
+                                <div className='form-laundry'>
                                     <Form onSubmit={this.handleFormSubmit}>
                                         <h1>Reservar Servicio</h1>
                                         <Form.Group controlId="date">
@@ -90,7 +90,7 @@ class LaundryBooking extends Component {
                                         </Form.Group>
                                         <Button className='btn-roomd' type="submit" disabled={this.buttonDisabled()}>ENVIAR</Button>
                                     </Form>
-                                </diV>
+                                </div>
                             </Col>
                             <Col md={6}>
                                 <div className='ticket-menu'>

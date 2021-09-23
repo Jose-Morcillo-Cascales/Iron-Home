@@ -1,86 +1,98 @@
-.main-box{
+.carousel img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+.main-box {
     background-color: rgb(33, 124, 183, .1);
 }
-.iron-box{
+
+.iron-box {
     padding: 4em;
 }
-.iron-box img{
+
+.iron-box img {
     background: #fff;
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
     flex-wrap: wrap;
     padding: 24px 32px 32px;
+    height: 600px;
+    object-fit: cover;
 }
-.row-box{
+
+.row-box {
     justify-content: center;
     align-items: center;
 }
-.info-box{
+
+.info-box {
     padding: 2em;
 }
-.info-box h6{
+
+.info-box h6 {
     color: #2D354C;
+}
 
+.info-box h2 {
+    color: #2dc5fa;
 }
-.info-box h2{
-    color: #2dc5fa;  
-}
-.info-box p{
+
+.info-box p {
     text-align: justify;
-    color: #2D354C;    
+    color: #2D354C;
 }
 
-.service-box{
+.service-box {
     display: flex;
     flex-direction: column;
     text-align: center;
     padding: 2em;
-
 }
-.row-box h1{
+
+.row-box h1 {
     padding-bottom: 1em;
     text-align: center;
 }
 
-.icon-service{
+.icon-service {
     margin-bottom: 24px;
     font-size: 3em;
     text-align: center;
     width: 100%;
 }
+
 .icon-service .icon-font {
     color: #2D354C;
 }
 
-.text-service h2{   
-    color: #2dc5fa;  
+.text-service h2 {
+    color: #2dc5fa;
 }
 
-.client-box{
+.client-box {
     background-color: #f5f5f5;
     padding: 5em;
 }
 
 .counter {
-    background-color:#ffffff;
+    background-color: #ffffff;
     padding: 50px 0;
     border-radius: 5px;
     text-align: center;
     border-radius: 6px;
     box-sizing: border-box;
     box-shadow: 2px 4px 12px rgb(0 0 0 / 12%);
-
 }
 
-.counter-box{
+.counter-box {
     text-align: center;
     margin-bottom: 3em;
 }
 
-.counter-box h1{
-    color: #2dc5fa;  
-
+.counter-box h1 {
+    color: #2dc5fa;
 }
 
 .counter .icon-font {
@@ -108,4 +120,25 @@
     float: none;
     display: table;
     color: #4ad1e5;
+}
+
+/* QUERIES */
+
+@media (max-width: 767px) {
+    .iron-box {
+        padding: 0;
+    }
+    .iron-box img {
+        height: auto;
+        margin-bottom: 2em;
+    }
+    .service-box {
+        padding: 1em;
+    }
+    .client-box {
+        padding: 1em;
+    }
+    .counter {
+        margin-bottom: 2em;
+    }
 }

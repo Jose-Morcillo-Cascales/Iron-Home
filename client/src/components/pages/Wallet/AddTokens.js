@@ -44,7 +44,7 @@ class AddTokens extends Component {
         return (
             <Container>
 
-                <Form onSubmit={this.handleFormSubmit}>
+                <Form onSubmit={this.handleFormSubmit} className='add-tokens'>
                     <p>Saldo:</p>
                     <h4>{this.props.wallet.balance} </h4>
 
@@ -53,7 +53,7 @@ class AddTokens extends Component {
                         <Form.Control type="number" value={this.state.wallet.balance} onChange={this.handleInputChange} name="balance" />
                     </Form.Group>
 
-                    <Button style={{ marginTop: '20px', width: '100%' }} type="submit" disabled={this.state.loading}>Cargar Tokens</Button>
+                    <Button className='button-box' type="submit" disabled={this.state.loading}>CARGAR</Button>
 
                 </Form>
 
