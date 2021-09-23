@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.41bb6d7e.chunk.css",
+    "main.js": "/static/js/main.ef53a257.chunk.js",
+    "main.js.map": "/static/js/main.ef53a257.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7545a8a1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7545a8a1.js.map",
+    "static/css/2.8d40caf3.chunk.css": "/static/css/2.8d40caf3.chunk.css",
+    "static/js/2.8e7847ea.chunk.js": "/static/js/2.8e7847ea.chunk.js",
+    "static/js/2.8e7847ea.chunk.js.map": "/static/js/2.8e7847ea.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.8d40caf3.chunk.css.map": "/static/css/2.8d40caf3.chunk.css.map",
+    "static/css/main.41bb6d7e.chunk.css.map": "/static/css/main.41bb6d7e.chunk.css.map",
+    "static/js/2.8e7847ea.chunk.js.LICENSE.txt": "/static/js/2.8e7847ea.chunk.js.LICENSE.txt",
+    "static/media/IronHome.145f37c4.png": "/static/media/IronHome.145f37c4.png",
+    "static/media/IronTokens.7cb34a27.png": "/static/media/IronTokens.7cb34a27.png",
+    "static/media/iron-kitchen.b8b36c80.jpg": "/static/media/iron-kitchen.b8b36c80.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7545a8a1.js",
+    "static/css/2.8d40caf3.chunk.css",
+    "static/js/2.8e7847ea.chunk.js",
+    "static/css/main.41bb6d7e.chunk.css",
+    "static/js/main.ef53a257.chunk.js"
+  ]
+}
