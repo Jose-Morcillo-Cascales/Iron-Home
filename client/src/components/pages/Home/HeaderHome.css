@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    color: #CCC;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+}
+
+.hero-one {
+    top: 0;
+    position: absolute;
+    width: 60%;
+    background-color: black;
+    height: 100vh;
+    clip-path: polygon(0 0, 60vw 0, 40vw 100vh, 0 100vh);
+    z-index: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(https://res.cloudinary.com/dzbcqgzcb/image/upload/v1632478446/IronHome/IRONHACK_2366173361_29569106_1300x731_xbztqx.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hero-two {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    background-color: black;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(https://res.cloudinary.com/dzbcqgzcb/image/upload/v1632478441/IronHome/1_-1pkQKlZvqYYXtGlfCIUAg_ktkfx4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.text-hero img {
+    width: 20%;
+    z-index: 2;
+    top: 35%;
+    left: 25%;
+    position: absolute;
+    transform: translate(-35%, -25%);
+}
+
+.header-title {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -65%);
+    color: #ffffff;
+    border-left: 3px solid #ffffff;
+    padding: 0 1em;
+}
+
+.header-primary {
+    font-size: 1.5em;
+    display: block;
+    font-weight: 700;
+    letter-spacing: 10px;
+}
+
+/* QUERIES */
+
+@media (max-width: 767px) {
+    .header-title {
+        color: rgba(0, 0, 0, 0);
+        border-left: 3px solid rgba(0, 0, 0, 0);
+        padding: 0 1em;
+        font-size: 1px;
+    }
+    .text-hero img {
+        width: 100%;
+        z-index: 2;
+        top: 40%;
+        left: 36%;
+    }
+}
